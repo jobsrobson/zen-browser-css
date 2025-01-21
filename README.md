@@ -33,4 +33,4 @@ git clone https://github.com/jobsrobson/zen-browser-css.git
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the GNU GPL3 License.
