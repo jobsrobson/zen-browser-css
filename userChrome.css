@@ -628,7 +628,7 @@
     @media (-moz-bool-pref: "zen.tabs.vertical") {
       #TabsToolbar > * {
         padding-left: 0px !important;     
-        margin-right: -2px !important;
+        margin-right: -1px !important;
       }
         
       #zen-sidebar-splitter {
@@ -755,6 +755,7 @@
         pointer-events: auto !important; /* Permite cliques no botão */
     }
 
+
     /* Área rolável das abas */
     #tabbrowser-arrowscrollbox > scrollbox {
         flex-grow: 1 !important; /* Expande para ocupar o espaço disponível */
@@ -767,6 +768,9 @@
 
     #tabbrowser-arrowscrollbox-periphery > *:active { 
       transform: scale(0.95) !important; /* Reduz ligeiramente o tamanho */
+    }
+    #tabbrowser-arrowscrollbox-periphery > *:hover { 
+      border-radius: 10px !important; /* Reduz ligeiramente o tamanho */
     }
 
     /* Ícone de Mais */
@@ -835,7 +839,7 @@
         margin-bottom: 12px !important;           /* Bottom distance to NTB */
         max-height: 244px !important;
         margin-top: 0px !important;               /* Margin from top */
-        padding-left: 3px !important;
+        padding-left: 2px !important;
       }
     }
 
@@ -1201,12 +1205,12 @@
     /* Zen Web Panel adjustments */
     
     #zen-sidebar-web-panel {
-    border-radius: var(--zen-webview-border-radius, var(--zen-border-radius));
-      margin-top: 1px !important;
-      margin-left: -5px !important;
-      margin-right: -4px !important;
-      margin-bottom: 1px !important;
-        border: 1px solid color-mix(in srgb, var(--lwt-border) 100%, black 10%) !important;
+    border-radius: 6px !important;
+      margin-top: 0px !important;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      margin-bottom: 0px !important;
+        border: 1px solid light-dark(rgb(216, 216, 216), var(--lwt-border)) !important;
         box-shadow: none !important;
       background-color: white !important;
         
@@ -1224,7 +1228,7 @@
 
     @media (prefers-color-scheme: dark) {
         #zen-sidebar-web-panel {
-            background: rgb(16, 14, 13) !important;
+            background: rgb(40, 40, 40) !important;
         }
     }
 
@@ -1528,7 +1532,7 @@
       background-color:  light-dark(color-mix(in srgb, white 0%, transparent 80%), 
                                     color-mix(in srgb, black 0%, transparent 80%)) !important;
       margin-top: 0 !important;
-      margin-left: 1px !important;
+      margin-left: 0px !important;
       margin-right: 3px !important;
       border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
     }

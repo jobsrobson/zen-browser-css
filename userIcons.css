@@ -752,6 +752,9 @@
   list-style-image: url('icons/winui/home.svg') !important;
 }
 #zen-sidebar-web-panel-pinned {
+  list-style-image: url('icons/winui/unpin.svg') !important;
+}
+#zen-sidebar-web-panel-pinned[pinned="true"] {
   list-style-image: url('icons/winui/pin.svg') !important;
 }
 #zen-sidebar-web-panel-close {
