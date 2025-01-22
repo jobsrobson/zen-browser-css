@@ -1261,11 +1261,11 @@
       background-repeat: no-repeat !important;
       -moz-context-properties: fill, fill-opacity !important;
       fill: currentColor !important;
-      margin-top: px !important;
+      margin-top: 40px !important;
     }
     #zenSidePanelsCategory > h1:nth-child(1) {
       margin-left: 35px !important;
-      margin-top: -2px !important;
+      margin-top: -36px !important;
     }
 
 
