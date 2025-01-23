@@ -1,3 +1,7 @@
+* {
+    font-family: SF Pro, system-ui !important;
+}
+
 /* about:newtab ========================================================= */
 @-moz-document url("about:newtab") {
     :root {    
@@ -649,13 +653,18 @@
         background-color: rgb(37, 0, 62) !important;
     }
   
+    /* Zen Logo */
     .logo-and-wordmark .wordmark {
-        background: url("zen_new_wordmark_dark.svg") no-repeat center center !important;
+        background: url("icons/brand/zen-wordmark.svg") no-repeat center center !important;
+        -moz-context-properties: fill !important;
+        display: inline-block !important;
+        fill: white !important;
         background-size: 290px !important;
         height: 64px !important;
-        margin-inline-start: 10px !important;
+        margin-inline-start: 15px !important;
+        margin-top: -7px !important;
         width: 290px !important;
-    }
+  }
   
     .promo-visible {
       border-radius: 12px !important;
@@ -716,13 +725,15 @@
 
 /* about:preferences ========================================================= */
 @-moz-document url-prefix("about:preferences") {
+  
+  
     :root {    
         --zen-settings-secondary-background: light-dark(rgb(249, 249, 249), rgb(16, 14, 13)) !important;
         --background-color-box: light-dark(rgba(0,0,0,0.02), rgba(255,255,255,0.04)) !important;
         --in-content-page-background: light-dark(white, black) !important;
     }
   
-    @media (width < 600px) {
+    @media (width < 700px) {
       input:nth-child(3),
       #category-general > label:nth-child(2),
       #category-zen-looks > label:nth-child(2), 

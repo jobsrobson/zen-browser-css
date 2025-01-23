@@ -1910,7 +1910,10 @@
     8   DIÁLOGO DE IMPRESSÃO - Print Dialog
     =========================================== */
         
-
+        vbox.dialogTemplate:nth-child(2) {
+            backdrop-filter: blur(20px) !important;
+        }
+        
     .header-container {
         background-color: light-dark(white,rgb(40, 40, 40)) !important;
         padding-top:  35px !important;
@@ -1925,6 +1928,13 @@
           margin-top: 5px !important;
         }
       }
+        
+        .printDialogBox {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); 
+        }
 
     #print {
         background: light-dark(white,rgb(40, 40, 40)) !important;
@@ -2029,7 +2039,29 @@
         }
     }
 
-
+    .toolbarCenter {
+      padding: 0 25px !important;
+      margin-inline: 5px !important;
+      border: none !important;
+    } 
+    .toolbarButton, .toolbarCenter {
+      margin-inline: 2px !important;
+      border-inline-end: none !important;
+      border-block: none !important;
+      background-color: transparent;
+    }
+    .container {
+      padding-inline: 3px !important;
+      padding-block: 5px !important;
+      border-radius: 8px !important;
+      background-color: light-dark(white, black) !important;
+      border-style: none;
+    }
+    .container::before {
+      background-color: transparent !important;
+    }
+        
+        
 
 
 /*  ===========================================
@@ -2282,7 +2314,69 @@
         
         hbox.zenEditBMPanel_fieldContainer:nth-child(6) {
             display: none !important;
-        } 
+        }
+        
+        .downloadButton {
+            -moz-appearance: none !important;
+            background-color: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.1)) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
+            max-width: fit-content !important;
+            max-height: fit-content !important;
+            margin-block: 10px !important;
+            margin-right: 10px !important;
+            border-radius: 6px !important;
+        }
+        
+        .downloadButton > .button-box {
+            -moz-appearance: none !important;
+            background-color: none !important;
+            color: light-dark(black, white) !important;
+            border: none !important;
+            border-radius: 0px !important;
+        }
+        
+        .downloadButton:hover > .button-box {
+            background-color: transparent !important;
+            color: white !important;
+        }
+        
+        .downloadButton:hover {
+            color: white !important;
+            background: rgba(255, 115, 86, 1) !important;
+            border: 1px solid transparent !important;
+            border-radius: 6px !important;
+        }
+        
+        @media not (prefers-contrast) {
+          #downloadsListBox:focus > richlistitem[selected] {
+            color: inherit;
+            background-color: transparent;
+            background-image: none !important;
+            background-clip: content-box;
+            border-radius: 0px !important;
+            outline: none !important;
+            outline-offset: 0 !important;
+          }
+        }
+        /* Cor do item da lista - Selecionado */
+        richlistitem[selected="true"] {
+          appearance: none !important;
+          background-color: light-dark(rgb(188, 223, 253), rgb(255 255 255 / 0.1)) !important;
+          color: -moz-cellhighlighttext;
+        }
+        richlistitem[selected="true"]:hover {
+          background: light-dark(rgb(188 223 253 / 0.4), rgb(255 255 255 / 0.1)) !important;
+          border-radius: 0px !important;
+        }
+        richlistitem:hover {
+          background: light-dark(rgb(188 223 253 / 0.2), rgb(255 255 255 / 0.1)) !important;
+          border-radius: 0px !important;
+        }
+        .download-state {
+          padding-right: 0 !important;
+        }
+        
     }    
         
         
@@ -2295,7 +2389,7 @@
     @-moz-document url("chrome://browser/content/pageinfo/pageInfo.xhtml") {
 
     #mainDeck {
-       background-color: light-dark(rgb(240, 240, 242), rgb(40, 40, 40)) !important;
+       background-color: light-dark(rgb(244, 244, 247), rgb(40, 40, 40)) !important;
     }
         
     @media not (-moz-platform: macos) {
@@ -2304,7 +2398,7 @@
         padding-inline-start: 0px !important;
         padding: 8px !important;
         align-items: center !important;
-        background-color: light-dark(rgb(244, 244, 247), rgb(56, 56, 56)) !important;
+        background-color: light-dark(white, rgb(56, 56, 56)) !important;
         color: light-dark(black, rgb(169, 169, 169)) !important;
       }
     }
@@ -2605,70 +2699,198 @@
         }
     }
 
-
-
-/* Window Dialog */
-window dialog {
-    color: light-dark(black, white) !important;
-    background-color: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
-}        
         
-.titleIcon {
-    background-image: url('icons/brand/zen-identity-icon.svg') !important;
-    background-color: transparent !important;
-}
 
+    /*  ---------------------------------------------------------------------------
+    Window Dialog - Global   */    
         
-/* Estilo global de botão (Não aplicado no PIP) */
-@-moz-document regexp("^(?!chrome://global/content/pictureinpicture/player\\.xhtml$).*") {
-    button:not(.labelled) {
-        -moz-appearance: none !important;
-        background-color: light-dark(rgb(255, 255, 255), rgb(255 255 255 / 0.1)) !important;
+    /* Window Dialog */
+    window dialog {
         color: light-dark(black, white) !important;
-        border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
-        max-width: fit-content !important;
-        padding-inline: 10px !important;
-        border-radius: 6px !important;
+        background-color: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
+    }        
+
+    .titleIcon {
+        background-image: url('icons/brand/zen-identity-icon.svg') !important;
+        background-color: transparent !important;
+    }
+        
+    /* Subdialog - Dialog Box no topo da tela - Troubleshoot Mode / */
+    .dialogBox {
+      &:not(.spotlightBox) {
+        display: fixed !important;
+        box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 12px  !important;
+
+      }
+    }     
+    dialog[subdialog] {
+        --grid-padding: 16px;
+        padding: var(--grid-padding) calc(var(--grid-padding) - 4px) !important;
+    }        
+        
+       
+
+    /*  ---------------------------------------------------------------------------
+    Estilo global de botão (Não aplicado no PIP)   */    
+        
+    @-moz-document regexp("^(?!chrome://global/content/pictureinpicture/player\\.xhtml$).*") {
+        button:not(.labelled) {
+            -moz-appearance: none !important;
+            background-color: light-dark(rgb(255, 255, 255), rgb(255 255 255 / 0.1)) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
+            max-width: fit-content !important;
+            padding-inline: 10px !important;
+            border-radius: 6px !important;
+        }
+
+        button:not(.labelled):hover {
+            color: white !important;
+            background: linear-gradient(0deg, rgba(255, 115, 86, 1) 0%, rgba(255, 125, 84, 1) 100%); !important;
+            border: 1px solid transparent !important;
+            border-radius: 6px !important;
+        }
     }
 
-    button:not(.labelled):hover {
-        color: white !important;
-        background: linear-gradient(0deg, rgba(255, 115, 86, 1) 0%, rgba(255, 125, 84, 1) 100%); !important;
-        border: 1px solid transparent !important;
-        border-radius: 6px !important;
+    .button-background {
+      &.labelled {
+        color: light-dark(black, white) !important;
+        background-color: unset !important;
+        box-shadow: none !important;
+        border-radius: 8px !important;
+        border: none !important;
+        gap: var(--space-small);
+      }
     }
-}
-        
-.button-background {
-  &.labelled {
-    color: light-dark(black, white) !important;
-    background-color: unset !important;
-    box-shadow: none !important;
-    border-radius: 8px !important;
-    border: none !important;
-    gap: var(--space-small);
-  }
-}
 
         
-/* Subdialog - Dialog Box no topo da tela - Troubleshoot Mode / */
-.dialogBox {
-  &:not(.spotlightBox) {
-    display: fixed !important;
-    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 12px  !important;
-      
-  }
-}     
-dialog[subdialog] {
-    --grid-padding: 16px;
-    padding: var(--grid-padding) calc(var(--grid-padding) - 4px) !important;
-}        
 
+
+    /*  ---------------------------------------------------------------------------
+    Findbar   */            
+
+    findbar {
+        display: flex !important;
+        border-radius: 12px !important;
+        margin: 0px !important;
+        width: 600px !important;
+        min-width: 70% !important;
+        height: auto !important;
+        position: absolute !important;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: unset !important;
+        box-shadow: var(--box-shadow-10) !important;
+        background: light-dark(color-mix(in srgb, white 80%, transparent), color-mix(in srgb, rgb(40, 40, 40) 80%, transparent)) !important;
+        backdrop-filter: blur(30px) !important;
+        border: 1px solid var(--zen-colors-border) !important;
+        transition: top 0.35s ease, bottom 0.35s ease !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        & .findbar-container {
+            flex-wrap: wrap;
+            overflow-x: auto !important;
+            height: auto !important;
+            row-gap: 10px;
+            margin-inline-start: 6px !important;
+
+            &> :first-child {
+                width: 100% !important;
+            }
+
+            & .findbar-textbox {
+                flex-grow: 1;
+            }
+        }
+
+        &[hidden="true"] {
+            top: -150px;
+        }
+
+        @starting-style {
+            top: -150px;
+        }
+        
+      & .findbar-container {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          overflow-x: hidden !important;
+          height: auto !important;
+          row-gap: 10px;
+          
+          & > :first-child {
+              width: 100% !important;
+          }
+      }
+    }
+        
+    .findbar-find-status {
+      display: none !important;
+    }
         
         
+    .findbar-textbox {
+          appearance: none;
+          background-color: light-dark(color-mix(in srgb, white 80%, transparent), color-mix(in srgb, rgb(40, 40, 40) 80%, transparent)) !important;          
+          backdrop-filter: blur(20px) !important;
+          color: var(--input-color, var(--toolbar-field-color));
+          border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
+          border-radius: 8px !important;
+          outline: none;
+          margin: 0;
+          padding: 2px 5px;
+          padding-inline-start: 8px;
+          max-width: 23em !important;
+          box-sizing: border-box;
+    }
+    .findbar-textbox {
+      &:focus {
+          appearance: none;
+          background-color: light-dark(color-mix(in srgb, white 80%, transparent), color-mix(in srgb, rgb(40, 40, 40) 80%, transparent)) !important;     
+          color: var(--input-color, var(--toolbar-field-color));
+          border: 2px solid var(--zen-primary-color) !important;
+          border-radius: 8px !important;
+          outline: none;
+          margin: 0;
+          padding: 2px 5px;
+          padding-inline-start: 8px;
+          box-sizing: border-box;
+          box-shadow: none !important;
+      }
+    }
         
+    .findbar-find-previous {
+          list-style-image: url('icons/winui/arrow-up.svg') !important;
+            margin-inline: 8px 0 !important;
+    }
+    .findbar-find-next {
+          list-style-image: url('icons/winui/arrow-down.svg') !important;
+    }
+
+
+    /* Horizontal Position */
+    body:has(#theme-Better-Find-Bar[theme-better_find_bar-horizontal_position="left"]) {
+        findbar {
+            left: 15px;
+            transform: translateX(0%);
+        }
+    }
+
+    body:has(#theme-Better-Find-Bar[theme-better_find_bar-horizontal_position="right"]) {
+        findbar {
+            left: unset !important;
+            right: 15px;
+            transform: translateX(0%);
+        }
+    }
         
+
+
+
         
         
         
