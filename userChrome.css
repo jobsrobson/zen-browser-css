@@ -806,11 +806,13 @@
     /* Layout de Grid para as Abas Fixadas */
     #vertical-pinned-tabs-container {
       display: grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(var(--tab-pinned-min-width-expanded), auto)) !important;
+      grid-template-columns:  repeat(auto-fit, minmax(70px, 1fr)) !important; /* 1.7.2t adjust */
       overflow-y: auto !important;
       overflow-x: hidden !important;
       scrollbar-width: thin !important;
+      margin-bottom: 8px !important;  
     }
+
     #vertical-pinned-tabs-container .tab-close-button {
       display: none !important;
     }
@@ -828,20 +830,22 @@
       }
     }
 
-    /* Container - Pinned Tabs */
+    /* Container - Pinned Tabs 
     #vertical-pinned-tabs-container {
       #tabbrowser-tabs[orient="vertical"] > &:not(:empty) {
         --pins-width: 60px !important;
         display: grid;
         grid-template-columns:  repeat(auto-fit, minmax(var(--pins-width), auto)) !important;
-        gap: 2px !important;                      /* Vertical gap */
-        column-gap: 0px !important;               /* Horizontal gap */
-        margin-bottom: 12px !important;           /* Bottom distance to NTB */
+        gap: 2px !important;                    
+        column-gap: 0px !important; 
+        margin-bottom: 12px !important;  
         max-height: 244px !important;
-        margin-top: 0px !important;               /* Margin from top */
+        margin-top: 0px !important; 
         padding-left: 2px !important;
       }
-    }
+    } */
+
+
 
     #tabbrowser-tabs[orient="vertical"] {
       & #newtab-button-container {
@@ -862,6 +866,8 @@
         --tab-block-margin: 3px !important;
         }
     }
+
+
     
     @media (-moz-bool-pref: "zen.tabs.vertical") {
       #navigator-toolbox:is(#navigator-toolbox[zen-user-hover="true"][zen-has-hover], #navigator-toolbox[zen-user-hover="true"]:focus-within, #navigator-toolbox[zen-user-hover="true"][movingtab], #navigator-toolbox[zen-user-hover="true"][flash-popup], #navigator-toolbox[zen-user-hover="true"][has-popup-menu], #navigator-toolbox[zen-user-hover="true"]:has([open="true"]:not(tab):not(#zen-sidepanel-button)), #navigator-toolbox[zen-expanded="true"]:not([zen-user-hover="true"])) {
@@ -1312,7 +1318,7 @@
         #navigator-toolbox:not(#navigator-toolbox:is(#navigator-toolbox[zen-user-hover="true"][zen-has-hover], #navigator-toolbox[zen-user-hover="true"]:focus-within, #navigator-toolbox[zen-user-hover="true"][movingtab], #navigator-toolbox[zen-user-hover="true"][flash-popup], #navigator-toolbox[zen-user-hover="true"][has-popup-menu], #navigator-toolbox[zen-user-hover="true"]:has([open="true"]:not(tab):not(#zen-sidepanel-button)), #navigator-toolbox[zen-expanded="true"]:not([zen-user-hover="true"]))) {
           & #tabbrowser-tabs {
             & #vertical-pinned-tabs-container {
-               margin-left:-3px !important;
+               margin-left: 0px !important;
             }
           }
         }
