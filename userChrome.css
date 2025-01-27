@@ -584,26 +584,102 @@
     ===================== */
 
 /*  ---------------------------------------------------------------------------
-    Animação ao abrir uma nova aba 
-    #vertical-pinned-tabs-container, #tabbrowser-arrowscrollbox {
-        .tabbrowser-tab {
-            animation: new-tab-appear 0.25s ease-out !important;
-        }
-    }
+    URL Bar animations by https://github.com/TheBigWazz/Pineapple-Fried */
 
-    @keyframes new-tab-appear {
-        0% {
-            opacity: 0;
-            transform: translateY(-10px);
+        /* URL Bar Expand/Collapse Animation */
+        #urlbar[focused] .urlbar-background {
+          animation: urlbarExpand 0.3s ease-out;
         }
-    }
 
-    @keyframes lateral-panel-appear {
-        0% {
-            opacity: 0;
-            transform: translateX(-10px);
+        #urlbar:not([focused]) .urlbar-background {
+          animation: urlbarCollapse 0.2s ease-in;
         }
-    } */
+
+        @keyframes urlbarExpand {
+          from {
+            transform: scaleX(0.8) scaleY(0.7);
+            opacity: 0.5;
+          }
+          to {
+            transform: scaleX(1) scaleY(1);
+            opacity: 1;
+          }
+        }
+
+        @keyframes urlbarCollapse {
+          from {
+            transform: scaleX(1) scaleY(1);
+          }
+          to {
+            transform: scaleX(0.95) scaleY(0.9);
+          }
+        }
+
+        /* Results Panel Animation */
+        #urlbar-results {
+          animation: resultsFadeIn 0.25s ease-out;
+        }
+
+        @keyframes resultsFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Optional: Smooth width transition */
+
+        }/* Animate each result row individually */
+        #urlbar-results {
+          opacity: 1 !important; /* Ensure parent container stays visible */
+        }
+
+        .urlbarView-row {
+          opacity: 0;
+          animation: resultEntry 0.3s ease-out forwards;
+        }
+
+        /* Cascade animation with staggered delays */
+        .urlbarView-row:nth-child(1) { animation-delay: 0.05s; }
+        .urlbarView-row:nth-child(2) { animation-delay: 0.10s; }
+        .urlbarView-row:nth-child(3) { animation-delay: 0.15s; }
+        .urlbarView-row:nth-child(4) { animation-delay: 0.20s; }
+        .urlbarView-row:nth-child(5) { animation-delay: 0.25s; }
+        .urlbarView-row:nth-child(6) { animation-delay: 0.30s; }
+        .urlbarView-row:nth-child(7) { animation-delay: 0.35s; }
+        .urlbarView-row:nth-child(8) { animation-delay: 0.40s; }
+        .urlbarView-row:nth-child(9) { animation-delay: 0.45s; }
+        .urlbarView-row:nth-child(10) { animation-delay: 0.50s; }
+
+        @keyframes resultEntry {
+          from {
+            opacity: 0;
+            transform: translateY(-8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Adjust original results panel animation */
+        #urlbar-results {
+          animation: resultsFadeIn 0.2s ease-out;
+        }
+
+        @keyframes resultsFadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
 
 
     
@@ -612,6 +688,13 @@
     4   BARRA LATERAL PRINCIPAL
     ============================== */
 
+    /* 1.7.2t - Impede que as Pinned Tabs e o New Tab Button rolem junto com a lista de abas */
+    #zen-browser-tabs-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+    }
 
     /* Ajustes de alinhamento dos controles superiores da Sidebar */
       @media (not (-moz-bool-pref: "zen.view.compact")) {
@@ -732,6 +815,7 @@
     }
 
 
+
 /*  ---------------------------------------------------------------------------
     Botão de Nova Aba (acima da lista de abas abertas) */
 
@@ -785,33 +869,21 @@
       }
     }
 
-    /* DEPRECATED */
-    /* Hide NTB when Zen Sidebar is collapsed or expanded on hover 
-    @media not all and (-moz-bool-pref: "zen.view.sidebar-expanded") {
-      #tabbrowser-arrowscrollbox-periphery {
-        display: none !important;
-      }
-    }
-    @media (-moz-bool-pref: "zen.view.sidebar-expanded.on-hover") {
-      #tabbrowser-arrowscrollbox-periphery {
-        display: none !important;
-      }
-    } 
-    */
 
 
 /*  ---------------------------------------------------------------------------
     Abas Fixadas - Pinned Tabs */
 
     /* Layout de Grid para as Abas Fixadas */
-    #vertical-pinned-tabs-container {
+    #vertical-pinned-tabs-container {        
       display: grid !important;
-      grid-template-columns:  repeat(auto-fit, minmax(70px, 1fr)) !important; /* 1.7.2t adjust */
+      grid-template-columns:  repeat(auto-fit, minmax(70px, 1fr)) !important; /* NOVO 1.7.2t */
       overflow-y: auto !important;
       overflow-x: hidden !important;
       scrollbar-width: thin !important;
       margin-bottom: 8px !important;  
     }
+
 
     #vertical-pinned-tabs-container .tab-close-button {
       display: none !important;
@@ -1478,19 +1550,29 @@
          margin-top: -1px !important;
       }
     }*/
-        
+
         #identity-permission-box {
             display: none !important;
         }
         
+        #identity-box[pageproxystate="invalid"] {
+            & > #identity-permission-box {
+                display: none !important;
+            }
+        }
+        
         #urlbar[breakout-extend="true"] {
-            #identity-icon-box, #identity-permission-box {
+            #identity-permission-box {
+                display: inherit !important;
+            }
+            
+            #identity-icon-box {
                 display: inherit !important;
                 margin-inline: 4px !important;
                 transform: scale(1.2) !important;
             }
             
-            #translations-button, #reader-mode-button, #tracking-protection-icon-container, #picture-in-picture-button, #star-button-box {
+             #translations-button, #reader-mode-button, #tracking-protection-icon-container, #picture-in-picture-button, #star-button-box {
                 margin-inline: 4px !important;
                 transform: scale(1.2) !important;
             }
