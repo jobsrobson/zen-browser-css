@@ -631,9 +631,7 @@
           }
         }
 
-        /* Optional: Smooth width transition */
-
-        }/* Animate each result row individually */
+        /* Animate each result row individually */
         #urlbar-results {
           opacity: 1 !important; /* Ensure parent container stays visible */
         }
@@ -679,6 +677,13 @@
             opacity: 1;
           }
         }
+
+.urlbarView-type-icon {
+  .urlbarView-row[type="bookmark"] > .urlbarView-row-inner > .urlbarView-no-wrap > & {
+    animation-delay: 1.50s !important;
+    animation: resultEntry 0.7s ease-out !important;
+  }
+}
 
 
 
@@ -877,7 +882,7 @@
     /* Layout de Grid para as Abas Fixadas */
     #vertical-pinned-tabs-container {        
       display: grid !important;
-      grid-template-columns:  repeat(auto-fit, minmax(70px, 1fr)) !important; /* NOVO 1.7.2t */
+      grid-template-columns:  repeat(auto-fit, minmax(60px, 1fr)) !important; /* NOVO 1.7.2t */
       overflow-y: auto !important;
       overflow-x: hidden !important;
       scrollbar-width: thin !important;
@@ -2006,7 +2011,7 @@
         
 
 /*  ===========================================
-    8   DIÁLOGO DE IMPRESSÃO - Print Dialog
+    8   PRINT Dialog
     =========================================== */
         
         vbox.dialogTemplate:nth-child(2) {
@@ -2173,7 +2178,7 @@
         
 
 /*  ===========================================
-    9   DIÁLOGO SOBRE - About Dialog
+    9   ABOUT Dialog
     =========================================== */
 
       @-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
@@ -2835,29 +2840,35 @@
     dialog[subdialog] {
         --grid-padding: 16px;
         padding: var(--grid-padding) calc(var(--grid-padding) - 4px) !important;
-    }        
+    }       
+    
+      #SiteDataRemoveSelectedDialog {
+        background: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
+        padding: 6px !important;
+        min-width: 50px;
+      }
         
        
 
     /*  ---------------------------------------------------------------------------
-    Estilo global de botão (Não aplicado no PIP)   */    
+    Estilo global de botão (Não aplicado no PIP e nos botões de Screenshot)   */    
         
     @-moz-document regexp("^(?!chrome://global/content/pictureinpicture/player\\.xhtml$).*") {
-        button:not(.labelled) {
+        button:not(.labelled):not(#full-page):not(#visible-page) {
             -moz-appearance: none !important;
             background-color: light-dark(rgb(255, 255, 255), rgb(255 255 255 / 0.1)) !important;
             color: light-dark(black, white) !important;
             border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
             max-width: fit-content !important;
             padding-inline: 10px !important;
-            border-radius: 8px !important;
+            border-radius: 6px !important;
         }
 
-        button:not(.labelled):hover {
+        button:not(.labelled):hover:not(#full-page):not(#visible-page) {
             color: white !important;
             background: linear-gradient(0deg, rgba(255, 115, 86, 1) 0%, rgba(255, 125, 84, 1) 100%) !important;
             border: 1px solid transparent !important;
-            border-radius: 8px !important;
+            border-radius: 6px !important;
         }
     }
 
@@ -2866,17 +2877,17 @@
         color: light-dark(black, white) !important;
         background-color: unset !important;
         box-shadow: none !important;
-        border-radius: 8px !important;
+        border-radius: 6px !important;
         border: none !important;
         gap: var(--space-small);
       }
     }
    .button-background:hover {
       &.labelled {
-        color: white !important;
+        color: black !important;
         background-color: unset !important;
         box-shadow: none !important;
-        border-radius: 8px !important;
+        border-radius: 6px !important;
         border: none !important;
         gap: var(--space-small);
       }
@@ -3005,6 +3016,109 @@
             transform: translateX(0%);
         }
     }
-       
+      
+      
+      
+    /*  ---------------------------------------------------------------------------
+    SCREENSHOT Dialog   */
+      
+      /* Botões da tela de Screenshot */
+      #screenshotsPagePanel > screenshots-buttons:nth-child(1) {
+        background-color: rgb(0 0 0 / 0.4) !important;
+        backdrop-filter: blur(20px) !important;
+        color: currentColor !important;
+        border-radius: 12px !important;
+      }
+      
+      #full-page, #visible-page {
+        -moz-context-properties: fill, stroke;
+        fill: white !important;
+        stroke: var(--screenshots-icon-background-color);
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: 46px 46px;
+        min-width: 90px;
+        padding: 56px 5px 5px !important;
+        margin: 2px;
+        font-weight: normal !important;
+        color: white !important;
+      }
+      
+      #full-page:hover, #visible-page:hover {
+        -moz-context-properties: fill, stroke;
+        fill: black !important;
+        stroke: var(--screenshots-icon-background-color);
+        color: black !important;
+      }
+      
+      .dialogBox {
+        :not(.content-prompt-dialog) > .dialogOverlay > &:not(.spotlightBox) {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        .dialogBox:not(.spotlightBox) {
+          border: none !important;
+        }
+      }
+      
+      body > screenshots-preview:nth-child(1) {
+        background-color: light-dark(white, rgb(40, 40, 40)) !important;
+        
+      }
+      
+      .image-view {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      
+      .preview-buttons {
+        display: flex;
+        gap: var(--space-small);
+        align-items: center;
+        justify-content: flex-end;
+        width: -moz-available !important;
+        padding: 10px !important;
+        padding-right: 10px !important;
+      }
+      
+      #preview-image {
+        margin-bottom: -4px !important;
+      }
+      
+      #preview-image-container {
+        height: 100vh;
+        overflow: scroll !important;
+        padding: 0 !important;
+        margin-inline: 10px !important;
+        margin-bottom: 10px !important;
+        border-radius: 6px !important;
+      }
+      
+      .button-background {
+        button:hover > & {
+          background-color: transparent !important;
+          border-color: var(--button-border-color-hover);
+          color: black !important;
+        }
+      }
+      
+      .button-background {
+        font-weight: normal !important;
+        font-size: 14px !important;
+      }
+      
+      
+      
 
+      
+      
+      
+      
+      
         
