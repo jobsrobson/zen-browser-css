@@ -84,7 +84,7 @@
     menupopup {
         --panel-background: light-dark(color-mix(in srgb, white 5%, white 95%), 
                                        color-mix(in srgb, gray 30%, black 90%))  !important;
-        --panel-border-radius: 10px !important;
+        --panel-border-radius: 12px !important;
     }
 
     .toolbar-menupopup:hover :is(menu, menuitem):hover, .subview-subheader:hover, panelview:hover .toolbarbutton-1:hover, .subviewbutton:hover, .widget-overflow-list:hover .toolbarbutton-1:hover {
@@ -1134,7 +1134,7 @@
 
       tab-group {
         display: grid !important;
-        background: light-dark(color-mix(in srgb, var(--tab-group-color-invert) 30%, transparent), 
+        background: light-dark(color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent), 
                                color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent)) !important;
         border-radius: 10px;
         margin-bottom: 4px;
@@ -1143,20 +1143,20 @@
         transition: all 0.1s linear !important;
         
         & tab {
-          animation: 1.6s ease-in !important;
+          animation: 2.6s ease-in !important;
         }
         
         & > vbox {
           padding-top: 2px !important;
         }
         
-        & .tab-group-label-container{
+        & .tab-group-label-container {
           &:after{
             display: none !important;
           }
           & > label {
             background: transparent !important;
-            margin-left: 5px !important;
+            margin-left: 3px !important;
             margin-top: 4px !important;
             border: unset !important;
             font-weight: bold !important;
@@ -1168,12 +1168,12 @@
           & > label::before {
             content: "" !important;
             position: absolute !important;
-            left: 7px !important;
-            top: 25%;
+            left: 5px !important;
+            top: 22%;
             width: 16px !important;
             height: 16px !important;
             background-color: var(--sidebar-text-color);
-            mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgOS41MDJWOC43NWEyLjI1IDIuMjUgMCAwIDAtMi4yNS0yLjI1aC01LjcyNWwtMi4zOC0xLjk4QTIuMjUgMi4yNSAwIDAgMCA4LjIwNCA0SDQuMjVBMi4yNSAyLjI1IDAgMCAwIDIgNi4yNWwtLjAwNCAxMS41QTIuMjUgMi4yNSAwIDAgMCA0LjI0NiAyMEgxOC40N2ExLjc1IDEuNzUgMCAwIDAgMS42OTgtMS4zMjVsMS43NS02Ljk5OGExLjc1IDEuNzUgMCAwIDAtMS42OTgtMi4xNzVIMjBaTTQuMjUgNS41aDMuOTU2YS43NS43NSAwIDAgMSAuNDguMTczbDIuNTg4IDIuMTU0YS43NS43NSAwIDAgMCAuNDguMTczaDUuOTk2YS43NS43NSAwIDAgMSAuNzUuNzV2Ljc1Mkg2LjQyNGEyLjI1IDIuMjUgMCAwIDAtMi4xODMgMS43MDRsLS43NDQgMi45NzhMMy41IDYuMjVhLjc1Ljc1IDAgMCAxIC43NS0uNzVabTEuNDQ3IDYuMDdhLjc1Ljc1IDAgMCAxIC43MjctLjU2OEgyMC4yMmEuMjUuMjUgMCAwIDEgLjI0Mi4zMWwtMS43NSA2Ljk5OWEuMjUuMjUgMCAwIDEtLjI0Mi4xODlINC4yODVhLjI1LjI1IDAgMCAxLS4yNDMtLjMxbDEuNjU1LTYuNjJaIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+');
+            mask-image: url('icons/winui/folder-opened.svg') !important;
             mask-size: contain;
             mask-repeat: no-repeat;
             background-size: contain !important;
@@ -1200,18 +1200,23 @@
           & .tab-group-label-container > label::before {
             content: "" !important;
             position: absolute !important;
-            left: 7px !important;
+            left: 5px !important;
             top: 22%; 
             width: 16px !important;
             height: 16px !important;
             background-color: var(--sidebar-text-color);
-            mask-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC4yMDcgNGMuNDYgMCAuOTA4LjE0MSAxLjI4NC40MDJsLjE1Ni4xMkwxMi4wMjIgNi41aDcuNzI4YTIuMjUgMi4yNSAwIDAgMSAyLjIyOSAxLjkzOGwuMDE2LjE1OC4wMDUuMTU0djlhMi4yNSAyLjI1IDAgMCAxLTIuMDk2IDIuMjQ1TDE5Ljc1IDIwSDQuMjVhMi4yNSAyLjI1IDAgMCAxLTIuMjQ1LTIuMDk2TDIgMTcuNzVWNi4yNWEyLjI1IDIuMjUgMCAwIDEgMi4wOTYtMi4yNDVMNC4yNSA0aDMuOTU3Wm0xLjQ0IDUuOTc5YTIuMjUgMi4yNSAwIDAgMS0xLjI0NC41MTJsLS4xOTYuMDA5LTQuNzA3LS4wMDF2Ny4yNTFjMCAuMzguMjgyLjY5NC42NDguNzQzbC4xMDIuMDA3aDE1LjVhLjc1Ljc1IDAgMCAwIC43NDMtLjY0OGwuMDA3LS4xMDJ2LTlhLjc1Ljc1IDAgMCAwLS42NDgtLjc0M0wxOS43NSA4aC03LjcyOUw5LjY0NyA5Ljk3OVpNOC4yMDcgNS41SDQuMjVhLjc1Ljc1IDAgMCAwLS43NDMuNjQ4TDMuNSA2LjI1djIuNzQ5TDguMjA3IDlhLjc1Ljc1IDAgMCAwIC4zOTUtLjExM2wuMDg1LS4wNiAxLjg5MS0xLjU3OC0xLjg5LTEuNTc1YS43NS43NSAwIDAgMC0uMzc3LS4xNjdMOC4yMDcgNS41WiIgZmlsbD0iIzAwMDAwMCIvPjwvc3ZnPg==');
+            mask-image: url('icons/winui/folder.svg') !important;
             mask-size: contain;
             mask-repeat: no-repeat;
             background-size: contain !important;
             background-repeat: no-repeat !important;
           }
         }
+      }
+
+      /* Increases tab group clickable area */
+      .tab-group-label {
+        min-width: 100% !important;
       }
 
       tab-group:hover {
@@ -1576,9 +1581,15 @@
                 margin-inline: 4px !important;
                 transform: scale(1.2) !important;
             }
+            
+            #password-notification-icon {
+                margin-top: 4px !important;
+                margin-left: 6px !important;
+                transform: scale(1.4) !important;
+            }
         }
         
-        
+
    
     #urlbar:not([focused="true"]):not([breakout-extend="true"]) > #urlbar-background {
       background: none !important;
@@ -2839,20 +2850,30 @@
             border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
             max-width: fit-content !important;
             padding-inline: 10px !important;
-            border-radius: 6px !important;
+            border-radius: 8px !important;
         }
 
         button:not(.labelled):hover {
             color: white !important;
-            background: linear-gradient(0deg, rgba(255, 115, 86, 1) 0%, rgba(255, 125, 84, 1) 100%); !important;
+            background: linear-gradient(0deg, rgba(255, 115, 86, 1) 0%, rgba(255, 125, 84, 1) 100%) !important;
             border: 1px solid transparent !important;
-            border-radius: 6px !important;
+            border-radius: 8px !important;
         }
     }
 
     .button-background {
       &.labelled {
         color: light-dark(black, white) !important;
+        background-color: unset !important;
+        box-shadow: none !important;
+        border-radius: 8px !important;
+        border: none !important;
+        gap: var(--space-small);
+      }
+    }
+   .button-background:hover {
+      &.labelled {
+        color: white !important;
         background-color: unset !important;
         box-shadow: none !important;
         border-radius: 8px !important;
@@ -2984,11 +3005,6 @@
             transform: translateX(0%);
         }
     }
-        
+       
 
-
-
-        
-        
-        
         

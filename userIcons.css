@@ -333,6 +333,10 @@
       list-style-image: url("icons/winui/star-filled.svg") !important;
     }
 
+    #password-notification-icon {
+      list-style-image: url("icons/winui/password-vertical.svg") !important;
+    }
+
 
 
 /* SIDEBAR BOTTOM ICONS */
