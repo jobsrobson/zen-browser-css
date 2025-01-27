@@ -2061,8 +2061,17 @@
       background-color: transparent !important;
     }
         
+    summary::before {
+        content: url('icons/winui/plus.svg') !important;
+        margin-right: 5px !important;
+        display: inline-block !important;
+    }
         
-
+        
+        
+        
+        
+        
 
 /*  ===========================================
     9   DIÁLOGO SOBRE - About Dialog
@@ -2495,7 +2504,7 @@
       margin: .5em;
       overflow: auto;
       color: FieldText !important;
-    }       
+    }    
 }        
         
 

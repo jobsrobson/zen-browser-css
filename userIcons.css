@@ -292,11 +292,26 @@
 
 /* URL BAR ICONS */
 
+    #zen-split-views-button {
+        width: 16px !important;
+        height: 14px !important;
+      }
+
     :root[zen-single-toolbar="true"] {
       & .sharing-icon, & .urlbar-icon, & #permissions-granted-icon, & #tracking-protection-icon, & #tracking-protection-icon-box, & #blocked-permissions-container > .blocked-permission-icon {
         width: 16px !important;
         height: 16px !important;
       }
+    }
+
+    #zenSplitViewModifierActivateReallocation > image:nth-child(1) {
+      list-style-image: url("icons/winui/info.svg") !important;
+      width: 26px !important;
+      height: 26px !important;
+    }
+
+    #zenSplitViewModifierHeader > h1:nth-child(1) > span:nth-child(1) {
+      margin-left: -4px !important;
     }
 
     #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {

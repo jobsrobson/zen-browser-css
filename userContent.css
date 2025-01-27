@@ -1,6 +1,18 @@
-* {
-    font-family: SF Pro, system-ui !important;
+@-moz-document url-prefix("about:") {
+    * {
+          font-family:
+            "SF Pro",
+            "Segoe UI Variable Display",
+            ui-sans-serif,
+            system-ui,
+            sans-serif,
+            "Apple Color Emoji",
+            "Segoe UI Emoji",
+            "Segoe UI Symbol",
+            "Noto Color Emoji";
+    }
 }
+
 
 /* about:newtab ========================================================= */
 @-moz-document url("about:newtab") {
@@ -1880,12 +1892,12 @@
 
 /* about:reader ========================================================= */
 
+/* PDF Reader */
 @-moz-document url-prefix("about:reader") {
   
-  #sans-serif {
-    font-family: SF Pro, Segoe UI, sans-serif, systemui !important;
-  }
-  
+    #sans-serif {
+      font-family: SF Pro, Segoe UI, system-ui !important;
+    }
   
     .close-button {
       background-image: url("icons/winui/close.svg") !important;
