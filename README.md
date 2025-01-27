@@ -1,5 +1,9 @@
 # Zen Browser CSS Enhancements
 
+<p align="center">
+  <a href="https://zen-browser.app"><img height="40" src="https://github.com/heyitszenithyt/zen-browser-badges/blob/fb14dcd72694b7176d141c774629df76af87514e/light/zen-badge-light.png"></a>
+</p>
+
 Enhance the visual experience of Zen Browser with a refined and optimized design, bringing consistency and modernity to the interface. This project was specially created for Windows 11 users, ensuring seamless integration with the operating system.
 
 ![image](https://github.com/user-attachments/assets/a3bb977b-6f02-4d94-b722-54d718623ab0)
