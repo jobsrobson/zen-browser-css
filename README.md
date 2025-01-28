@@ -50,11 +50,10 @@ This project is licensed under the GNU GPL3 License.
 - Layout tweaks to the top buttons in the Screenshot function
 - Layout tweaks to the post-Screenshot dialog
 - Fixed element colors for the Screenshot function in light and dark modes
-- New entry animations for the expanded URL Bar (via TheBigWazz/Pineapple-Fried)
+- New entry animations for the expanded URL Bar (via [TheBigWazz/Pineapple-Fried](https://github.com/TheBigWazz/Pineapple-Fried/tree/main))
 - Fixed the position of dialogOverlays
 - Fixed scrolling behavior of Sidebar elements after the Zen 1.7.2t update: pinned tabs and the New Tab button are now fixed and no longer scroll up with open tabs
 - Fixed the minimum width of Pinned Tabs after the Zen 1.7.2t update, prioritizing the layout with three columns
 - Minor visual adjustments to Tab Groups
 - Minor visual adjustments to global buttons
 - SiteDataRemoveSelectedDialog layout tweaks
-
