@@ -42,6 +42,10 @@ This project is licensed under the GNU GPL3 License.
 
 ## ✅ Changelog
 
+**1.7.21 (for Zen Browser 1.7.2t) - 2025-01-28**
+- Rolled back the border-radius of tabs in the Sidebar to the default 10px
+- Removed the line above open tabs within a Group
+
 **1.7.2 (for Zen Browser 1.7.2t) - 2025-01-27**
 - Layout tweaks to the top buttons in the Screenshot function
 - Layout tweaks to the post-Screenshot dialog
@@ -53,3 +57,4 @@ This project is licensed under the GNU GPL3 License.
 - Minor visual adjustments to Tab Groups
 - Minor visual adjustments to global buttons
 - SiteDataRemoveSelectedDialog layout tweaks
+
