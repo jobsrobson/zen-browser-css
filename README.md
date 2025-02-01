@@ -42,11 +42,19 @@ This project is licensed under the GNU GPL3 License.
 
 ## ✅ Changelog
 
-**1.7.21 (for Zen Browser 1.7.2t) - 2025-01-28**
+**1.7.4 (Zen Browser 1.7.4t) - 2025-02-01**
+- New: Add to Tab Group icon in the context menu
+- New: Remove from Tab Group icon in the context menu
+- Fixed: Tab Group name not appearing after Zen 1.7.4t update
+- Fixed: rearrange split tabs icon now correctly represents the function
+- Improved: design of visited site cards on the New Tab page
+- Improved: animation when opening a new tab
+
+**1.7.21 (Zen Browser 1.7.2t) - 2025-01-28**
 - Rolled back the border-radius of tabs in the Sidebar to the default 10px
 - Removed the line above open tabs within a Group
 
-**1.7.2 (for Zen Browser 1.7.2t) - 2025-01-27**
+**1.7.2 (Zen Browser 1.7.2t) - 2025-01-27**
 - Layout tweaks to the top buttons in the Screenshot function
 - Layout tweaks to the post-Screenshot dialog
 - Fixed element colors for the Screenshot function in light and dark modes
