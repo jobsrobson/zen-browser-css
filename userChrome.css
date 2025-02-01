@@ -287,11 +287,11 @@
       background: var(--toggle-background-color-pressed-hover) !important;
     }
 
-    .panel-info-button {
+    /*.panel-info-button {
       & > image {
         list-style-image: url('icons/winui/info.svg') !important;
       }
-    }
+    }*/
 
     .trackers-icon {
       list-style-image: url('icons/winui/image.svg') !important;
@@ -678,13 +678,35 @@
           }
         }
 
-.urlbarView-type-icon {
-  .urlbarView-row[type="bookmark"] > .urlbarView-row-inner > .urlbarView-no-wrap > & {
-    animation-delay: 1.50s !important;
-    animation: resultEntry 0.7s ease-out !important;
-  }
-}
+    .urlbarView-type-icon {
+      .urlbarView-row[type="bookmark"] > .urlbarView-row-inner > .urlbarView-no-wrap > & {
+        animation-delay: 1.50s !important;
+        animation: resultEntry 0.7s ease-out !important;
+      }
+    }
 
+
+    /* Animate new tab appear */
+    #vertical-pinned-tabs-container, #tabbrowser-arrowscrollbox {
+      .tabbrowser-tab {
+        animation: new-tab-appear 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+      }
+    }
+
+    @keyframes new-tab-appear { 
+      0% {
+        opacity: 0;
+        transform: translateY(-25px);
+      }
+      60% {
+        opacity: 0.8  ;
+        transform: translateY(6px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
 
     
@@ -1145,11 +1167,34 @@
 /*  ---------------------------------------------------------------------------
     Tab Group - Experimental - Requer flag: browser.tabs.groups.enabled */
 
+      /* 1.7.4t fix */
+      .tab-group-label-container {
+        #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
+          width: -moz-available !important;
+          height: 100% !important;
+        }
+      }
+
+      .tab-group-label {
+        tab-group[collapsed] > .tab-group-label-container > & {
+          outline: none !important;
+        }
+      }
+
+      .tab-group-label {
+        #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
+          font-size: 1em !important;
+          margin-top: 2px !important;
+        }
+      }
+      /*---*/
+
       tab-group {
         display: grid !important;
         background: light-dark(color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent), 
                                color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent)) !important;
         border-radius: 10px;
+        margin-top: 5px !important;
         margin-bottom: 4px;
         margin-inline: 2px !important;
         border: 2px solid color-mix(in srgb, var(--tab-group-color-invert) 10%, transparent);
@@ -3123,9 +3168,6 @@
         font-size: 14px !important;
       }
       
-      
-      
-
       
       
       

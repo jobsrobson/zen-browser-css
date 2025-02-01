@@ -305,9 +305,12 @@
     }
 
     #zenSplitViewModifierActivateReallocation > image:nth-child(1) {
-      list-style-image: url("icons/winui/info.svg") !important;
+      list-style-image: url("icons/winui/swap.svg") !important;
       width: 26px !important;
       height: 26px !important;
+    }
+    #zenSplitViewModifierActivateReallocation:hover > image:nth-child(1) {
+      fill: black !important;
     }
 
     #zenSplitViewModifierHeader > h1:nth-child(1) > span:nth-child(1) {
@@ -455,6 +458,14 @@
     #context_zen-reset-pinned-tab {
       --menu-image: url('icons/winui/history-menu.svg') !important;
     }
+    #context_moveTabToGroup {
+      --menu-image: url('icons/winui/tab-group.svg') !important;
+    }
+    #context_ungroupTab {
+      --menu-image: url('icons/winui/remove.svg') !important;
+    }
+
+
 
     #toolbar-context-move-to-panel {
       --menu-image: url('icons/winui/pin-overflow.svg') !important;

@@ -38,7 +38,16 @@
       .wordmark, .top-sites, section.section {
         display: none !important;
       }
+      .search-wrapper .search-inner-wrapper {
+        cursor: default;
+        display: flex;
+        min-height: 52px;
+        margin: 0 auto;
+        position: relative;
+        width: 300px !important;
+      }
     }
+
 
     @media (height > 700px) {
       body:not(.inline-onboarding) .fixed-search .search-wrapper {
@@ -55,6 +64,7 @@
       }
     }
   
+  
     .context-menu {
         background: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
         border-radius: 12px !important;
@@ -64,7 +74,6 @@
         font-size: 12px !important;
         padding-block: 0px !important;
         margin-inline-start: 5px !important;
-        inset-inline-start: 100% !important;
         position: absolute;
         top: 6.75px !important;
     }
@@ -78,7 +87,8 @@
         background: var(--newtab-element-secondary-hover-color) !important;
         border-radius: 8px !important;
     }
-  
+
+
 
     /* Search bar */
     .search-wrapper .search-handoff-button, .search-wrapper input {
@@ -123,7 +133,7 @@
         margin-inline-start: 15px !important;
         margin-top: -7px !important;
         width: 290px !important;
-  }
+    }
     .logo-and-wordmark .logo {
         height: 64px !important;
         width: 64px !important;
@@ -270,11 +280,13 @@
       display: none !important;
     }
 
-    .home-section > div:nth-child(6) {
-      position: fixed !important;
-      right: 0 !important;
-      bottom: 0px !important;
-      padding-right: 20px !important;
+    @media (height > 610px) {
+      .home-section > div:nth-child(6) {
+        position: fixed !important;
+        right: 0 !important;
+        bottom: 0px !important;
+        padding-right: 20px !important;
+      }
     }
     
     .home-section .external-link {
@@ -458,6 +470,10 @@
       border-radius: 12px !important;
       position: absolute;
     }
+  
+  .top-site-icon {
+      fill: black !important;
+  }
 
     .icon.icon-pin-small {
       background-image: url("icons/winui/pin.svg") !important;
@@ -569,7 +585,39 @@
     font-size: 12px !important;
   }
   
-
+  .card-outer .card {
+    border-radius: 10px !important;
+    box-shadow: none !important;
+    border: 1px solid light-dark(rgb(0 0 0 / 0.1), #52525E) !important;
+  }
+  .card-outer:hover .card {
+    border-radius: 10px !important;
+    box-shadow:  0 2px 16px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid light-dark(rgb(0 0 0 / 0.1), #52525E) !important;
+    transition: all 0.1s ease-in-out !important;
+  }
+  
+  .card-context {
+    display: none !important;
+  }
+  
+  .card-outer .context-menu-button {
+    opacity: 0 !important;
+    transform: scale(0.5) !important;
+  }
+  .card-outer:hover .context-menu-button {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+  .card:hover {
+    transform: scale(1.03) !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+  
+  .card {
+    background-color: light-dark(white, rgb(40, 40, 40)) !important;
+    
+  }
   
 }
 
