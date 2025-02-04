@@ -42,6 +42,10 @@ This project is licensed under the GNU GPL3 License.
 
 ## ✅ Changelog
 
+**1.7.5 (Zen Browser 1.7.5t) - 2025-02-04**
+- Fixed: new tab opening animation is now only activated when ```zen.workspaces.open-new-tab-if-last-unpinned-tab-is-closed``` is disabled (Requires Zen 1.7.5t);
+- Fixed: width of Sidebar elements in compact mode.
+
 **1.7.4 (Zen Browser 1.7.4t) - 2025-02-01**
 - New: Add to Tab Group icon in the context menu
 - New: Remove from Tab Group icon in the context menu

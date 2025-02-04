@@ -1,6 +1,11 @@
 
 /*  ZEN BROWSER DESIGN ADJUSTMENTS by @jobsrobson.bsky.social
-    MICA VERSION ⚠️  */
+    Recommended about:config toggles: 
+    - zen.workspaces.open-new-tab-if-last-unpinned-tab-is-closed (true)
+    - zen.workspaces.show-workspace-indicator (false) 
+    - zen.workspaces.hide-deactivated-workspaces (true) 
+    - zen.workspaces.open-new-tab-if-last-unpinned-tab-is-closed (true) */
+
 
 /*  ============================
     1   VARIÁVEIS PRINCIPAIS
@@ -686,28 +691,29 @@
     }
 
 
-    /* Animate new tab appear */
-    #vertical-pinned-tabs-container, #tabbrowser-arrowscrollbox {
-      .tabbrowser-tab {
-        animation: new-tab-appear 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+    /*  1.7.5t - (not) Animate New Tab  */
+    @media (not (-moz-bool-pref: "zen.urlbar.replace-newtab")) {
+      #vertical-pinned-tabs-container, #tabbrowser-arrowscrollbox {
+        .tabbrowser-tab {
+          animation: new-tab-appear 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+        }
+      }
+
+      @keyframes new-tab-appear { 
+        0% {
+          opacity: 0;
+          transform: translateY(-25px);
+        }
+        60% {
+          opacity: 0.8  ;
+          transform: translateY(6px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
     }
-
-    @keyframes new-tab-appear { 
-      0% {
-        opacity: 0;
-        transform: translateY(-25px);
-      }
-      60% {
-        opacity: 0.8  ;
-        transform: translateY(6px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
 
     
 
@@ -1429,21 +1435,6 @@
       }
     }
 
-    @media (-moz-bool-pref: "zen.view.sidebar-expanded.on-hover") and (not ((-moz-bool-pref: "zen.view.compact") and (-moz-bool-pref: "zen.view.compact.hide-tabbar"))) {
-        #TabsToolbar {
-          padding-top: 4px !important;
-          z-index: 1;
-          background-repeat: no-repeat !important;
-          background-position: center !important;
-          background-size: cover !important;
-          border-top: 1px solid transparent;
-          height: 100%;
-          border-top-right-radius: var(--zen-border-radius);
-          width: var(--zen-toolbox-max-width);
-        }
-      }
-    
-
       @media (-moz-bool-pref: "zen.tabs.vertical") {
         #browser {
           --zen-toolbox-padding: 5px !important;
@@ -1703,9 +1694,14 @@
         box-shadow: 0 10px 40px 10px rgba(0,0,0,0.05) !important;
         outline: none !important;
         outline-offset: none !important;
-          backdrop-filter: blur(30px) !important;
+        backdrop-filter: blur(30px) !important;
       }
     }
+    
+        #urlbar[open] {
+          margin-top: 15vh !important;
+          margin-bottom: 15vh !important;
+        }
 
     #translations-button-circle-arrows {
       display: none !important;
