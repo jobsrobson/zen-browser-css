@@ -856,7 +856,7 @@
         flex-direction: column !important;
         overflow: hidden !important; 
         position: relative !important;
-        padding-top: 40px !important;
+        padding-top: 42px !important;
     }
 
     /* Botão "New Tab" fixo */
@@ -948,8 +948,6 @@
       }
     } */
 
-
-
     #tabbrowser-tabs[orient="vertical"] {
       & #newtab-button-container {
         animation: none !important;
@@ -970,8 +968,6 @@
         }
     }
 
-
-    
     @media (-moz-bool-pref: "zen.tabs.vertical") {
       #navigator-toolbox:is(#navigator-toolbox[zen-user-hover="true"][zen-has-hover], #navigator-toolbox[zen-user-hover="true"]:focus-within, #navigator-toolbox[zen-user-hover="true"][movingtab], #navigator-toolbox[zen-user-hover="true"][flash-popup], #navigator-toolbox[zen-user-hover="true"][has-popup-menu], #navigator-toolbox[zen-user-hover="true"]:has([open="true"]:not(tab):not(#zen-sidepanel-button)), #navigator-toolbox[zen-expanded="true"]:not([zen-user-hover="true"])) {
         & #tabbrowser-tabs {
@@ -1053,19 +1049,57 @@
  
  
 
+
 /*  ---------------------------------------------------------------------------
     Essentials Tabs   */
 
-    /* Color - Essentials - Selected */
+    #navigator-toolbox[zen-sidebar-expanded="true"] {
+      & #zen-essentials-container {
+        --tab-min-height: 40px !important;
+      }
+    }
 
+    #zen-essentials-container {
+      display: grid !important;
+      grid-template-columns:  repeat(auto-fit, minmax(60px, 1fr)) !important; /* NOVO 1.7.2t */
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      scrollbar-width: thin !important;
+      margin-bottom: 0px !important;
+      gap: 1px !important;
+      transition: max-height 0.3s ease-out !important;
+    }
+
+    /* Color - Essentials - Selected */
+    #zen-essentials-container .tab-background[selected] {
+        background: var(--lwt-accent-selected)  !important;
+        box-sizing: border-box !important;
+        border:  0px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    }
 
     /* Color - Essentials - Selected (Hover) */
-
+    #zen-essentials-container .tabbrowser-tab[pinned][selected="true"]:hover .tab-stack .tab-background {
+        background: var(--lwt-accent-hover) !important;
+        box-sizing: border-box !important;
+        border:  1px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    } 
 
     /* Color - Essentials - Unselected */
-
+    #zen-essentials-container .tab-background:not(:hover):not([selected]):not([multiselected]) {
+        background: var(--lwt-accent-unselected) !important;
+        box-sizing: border-box !important;
+        border:  0px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    } 
 
     /* Color - Essentials - Unselected (Hover) */
+    #zen-essentials-container .tabbrowser-tab[pinned]:hover .tab-stack .tab-background {
+      background: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2)) !important;
+      box-sizing: border-box !important;
+      border:  1px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2))  !important;
+    } 
 
 
 
