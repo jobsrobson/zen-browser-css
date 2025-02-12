@@ -78,6 +78,7 @@
         border: 1px solid var(--lwt-border) !important;
         box-shadow: none !important;
         border-radius: 7px !important;
+        
         }
     }
 
@@ -474,10 +475,7 @@
     :root:not([inDOMFullscreen="true"]) #tabbrowser-tabbox {
         padding: 0px !important;
     }
-    #zen-sidebar-web-panel {
-        border: none !important;
-        box-shadow: 0 0 1px 1px light-dark(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)) !important;
-    }
+
     #zen-sidebar-web-header, #zen-sidebar-panels-wrapper {
         border-bottom: 0 !important;
         border-top: 0 !important;
@@ -1354,13 +1352,14 @@
     /* Zen Web Panel adjustments */
     
     #zen-sidebar-web-panel {
-    border-radius: 6px !important;
+    border-radius: 8px !important;
       margin-top: 0px !important;
       margin-left: 0px !important;
       margin-right: 0px !important;
       margin-bottom: 0px !important;
-        border: 1px solid light-dark(rgb(216, 216, 216), var(--lwt-border)) !important;
-        box-shadow: none !important;
+      border: 1px solid light-dark(rgb(216, 216, 216), var(--lwt-border)) !important;
+      box-sizing: unset !important;
+      box-shadow: none !important;
       background-color: white !important;
         
       /* Future adjustments, if necessary*/
@@ -1473,6 +1472,16 @@
     Indicador de Som - Abas   */
 
     @-moz-document url-prefix("chrome:") {
+      
+      /* 1.7.5t - Color fix */
+      .tab-icon-overlay {
+        &:not([crashed]) {
+          &:is([soundplaying], [muted], [activemedia-blocked]) {
+            filter: none !important;
+          }
+        }
+      }
+      
         .tab-icon-overlay {
             opacity: 1 !important;
             margin: initial !important;
@@ -1685,6 +1694,7 @@
       margin-left: 0px !important;
       margin-right: 3px !important;
       border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
+      border-radius: 10px !important;
     }
 
     #urlbar[open] {
@@ -1698,10 +1708,10 @@
       }
     }
     
-        #urlbar[open] {
-          margin-top: 15vh !important;
-          margin-bottom: 15vh !important;
-        }
+    #urlbar[open] {
+      margin-top: 15vh !important;
+      margin-bottom: 15vh !important;
+    }
 
     #translations-button-circle-arrows {
       display: none !important;
@@ -1712,6 +1722,8 @@
 
     .urlbarView-title {
       color: light-dark(black,white) !important;
+      font-size: 16px !important;
+      font-weight: 500 !important;
     }
 
     .urlbarView-url {
@@ -1731,7 +1743,7 @@
       margin-left: 3px !important;
     }
     #identity-icon-label {
-      display:none !important;
+      display: none !important;
     }
     #zen-split-views-button {
       fill: light-dark(black, white) !important;
@@ -1775,6 +1787,10 @@
     #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
       list-style-image: url(icons/brand/zen-identity-icon.svg) !important;
     }
+      
+      #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
+        width: 14px !important;
+      }
 
 
 
