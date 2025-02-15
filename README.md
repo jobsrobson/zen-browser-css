@@ -42,8 +42,20 @@ This project is licensed under the GNU GPL3 License.
 
 ## ✅ Changelog
 
+**1.8 - 2025-02-15**
+- For **Zen Twilight 1.8t**
+
+  - Updated: Zen Twilight has been updated to version 1.8t, bringing major changes to the behavior of Sidebar elements. If you're using this version, copy the files from the ```Zen Browser 1.8+``` folder to your ```chrome``` folder.
+  - Removed: Pinned tabs and the New Tab button now scroll along with the open tabs list due to the new Sidebar behavior (sorry!).
+  - Fixed: Pinned tabs now retain the grid layout, just like Essentials.
+  - Recommendation: Temporarily disable the ```zen.widget.windows.acrylic``` option in ```about:config```.
+
+- For **Zen Beta 1.7.6b**
+
+  - Code Cleanup: Since it's an experimental feature, the CSS for Tab Groups is now in a separate file to improve maintainability.
+
 **1.7.6 (Zen Browser 1.7.6b) - 2025-02-12**
-- WARNING: Zen Twillight 1.7.7t is broken. Do not update
+- WARNING: Zen Twillight 1.7.7t is broken. Do not update.
 - Essentials design updates
 - Bug fixes
 
