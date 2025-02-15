@@ -214,4 +214,15 @@
         #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
           width: 14px !important;
         }
-  
+
+
+      /* Fix for URL Bar shifting in Compact Mode - 1.8t*/
+      :root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
+        @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") or (-moz-bool-pref: "zen.view.use-single-toolbar") {
+          & #navigator-toolbox:not([animate="true"]) #titlebar {
+            & #urlbar[open][zen-floating-urlbar="true"] {
+              --zen-urlbar-offset: unset !important;
+            }
+          }
+        }
+      }
