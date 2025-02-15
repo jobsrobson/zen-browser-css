@@ -1,0 +1,115 @@
+/*  ===========================================
+    11   PAGE INFO Window
+    =========================================== */        
+        
+    @-moz-document url("chrome://browser/content/pageinfo/pageInfo.xhtml") {
+
+        #mainDeck {
+           background-color: light-dark(rgb(244, 244, 247), rgb(40, 40, 40)) !important;
+        }
+            
+        @media not (-moz-platform: macos) {
+            #topBar {
+                border-bottom: 1px solid light-dark(rgb(219, 219, 219), black) !important;
+                padding-inline-start: 0px !important;
+                padding: 8px !important;
+                align-items: center !important;
+                background-color: light-dark(white, rgb(56, 56, 56)) !important;
+                color: light-dark(black, rgb(169, 169, 169)) !important;
+            }
+        }
+        
+        @media (-moz-platform: windows) {
+            .accesskey {
+                text-decoration: none !important;
+            }
+              
+            .radio-label {
+                font-size: 12px !important;
+                 font-weight: 600 !important;
+            }
+              
+            #viewGroup > radio[selected="true"] {
+                background-color: light-dark(rgb(231, 231, 234), rgb(94, 94, 94)) !important;
+                color: light-dark(rgb(69,72,69), rgb(193, 193, 193)) !important;
+                border-radius: 8px !important;
+                box-sizing: border-box !important;
+                border: 0px solid light-dark(black, rgb(151, 151, 151)) !important;
+            }
+              
+            #viewGroup > radio {
+                padding-inline: 10px !important;
+                margin-inline: 2px !important;
+            }
+            
+            #viewGroup > radio:hover {
+                background-color: light-dark(rgb(231, 231, 234), rgb(94, 94, 94)) !important;
+                color: light-dark(rgb(69,72,69), rgb(193, 193, 193)) !important;
+                border-radius: 8px !important;
+            } 
+        }
+            
+        #viewGroup > radio:is(:hover, [selected="true"]) .radio-icon {
+            background-position-y: unset !important;
+        }
+        
+        /* Ícones da Barra */
+        #generalTab > hbox:nth-child(2) > image:nth-child(1) {
+            -moz-context-properties: fill, fill-opacity !important;
+            background-image: url("icons/winui/dialog-settings.svg") !important;
+            fill: currentColor !important;
+            background-repeat: no-repeat !important;
+            width: 32px !important;
+            height: 32px !important;
+            background-position: center !important;
+        }
+    
+        #mediaTab > hbox:nth-child(2) > image:nth-child(1) {
+            -moz-context-properties: fill, fill-opacity !important;
+            background-image: url("icons/winui/dialog-media.svg") !important;
+            fill: currentColor !important;
+            background-repeat: no-repeat !important;
+            width: 32px !important;
+            height: 32px !important;
+            background-position: center !important;
+        }
+        
+        #permTab > hbox:nth-child(2) > image:nth-child(1) {
+            -moz-context-properties: fill, fill-opacity !important;
+            background-image: url("icons/winui/dialog-permissions.svg") !important;
+            fill: currentColor !important;
+            background-repeat: no-repeat !important;
+            width: 32px !important;
+            height: 32px !important;
+            background-position: center !important;
+        }
+        
+        #securityTab > hbox:nth-child(2) > image:nth-child(1) {
+            -moz-context-properties: fill, fill-opacity !important;
+            background-image: url("icons/winui/dialog-security.svg") !important;
+            fill: currentColor !important;
+            background-repeat: no-repeat !important;
+            width: 32px !important;
+            height: 32px !important;
+            background-position: center !important;
+        }   
+            
+            
+        separator.thin:not([orient="vertical"]) {
+            height: 2.5em !important;
+        }
+             
+        button:hover {
+            color: light-dark(black, white) !important;
+            --in-content-button-background-hover: color-mix(in srgb, var(--zen-primary-color) 5%, var(--zen-branding-bg-reverse) 30%) !important;
+            background-color: var(--zen-colors-hover-bg) !important;
+            border-radius: 12px !important;
+        }
+            
+        #permList {
+            appearance: unset !important;
+            margin: .5em;
+            overflow: auto;
+            color: FieldText !important;
+        }    
+    }

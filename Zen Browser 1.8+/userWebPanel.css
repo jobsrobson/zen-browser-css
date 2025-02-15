@@ -1,0 +1,66 @@
+/*  ==============================
+    ZEN WEB PANEL
+    ============================== */
+
+    /* Zen Web Panel adjustments */
+
+    #zen-sidebar-web-panel {
+        border-radius: 8px !important;
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        border: 1px solid light-dark(rgb(216, 216, 216), var(--lwt-border)) !important;
+        box-sizing: unset !important;
+        box-shadow: none !important;
+        background-color: white !important;
+
+        /* Future adjustments, if necessary*/
+        opacity: 0;
+        animation-delay: 0.1s !important;
+        flex-direction: column;
+        min-width: var(--zen-default-sidebar-width);
+        max-width: 720px;
+        min-height: var(--zen-default-sidebar-width);
+        width: calc(var(--zen-default-sidebar-width) + 200px);
+        pointer-events: all;
+        height: calc(100% - 20px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #zen-sidebar-web-panel {
+            background: rgb(40, 40, 40) !important;
+        }
+    }
+
+    #zen-sidebar-web-header {
+        /* background: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                                     color-mix(in srgb, var(--lwt-accent-color) 100%, black 60%))  !important; */
+
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #zen-sidebar-panels-wrapper {
+        border-top-width: 1px !important;
+        border-bottom-width: 0px !important;
+        /* background: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                                       color-mix(in srgb, var(--lwt-accent-color) 100%, black 60%))  !important; */
+
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #zen-sidebar-web-panel-splitter {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 4px !important;
+        background: transparent;
+        border: none;
+        cursor: ew-resize;
+    }
+
+    #vertical-pinned-tabs-container-separator {
+        display: none !important;
+        margin-top: 0px !important;
+    }

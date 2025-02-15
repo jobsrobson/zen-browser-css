@@ -1,0 +1,101 @@
+/*  ===========================================================
+    SIDE PANELS - History, Bookmarks and Sync
+    =========================================================== */
+
+    window.sidebar-panel {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
+                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    search-textbox#search-box {
+        appearance: none !important;
+        background-color: var(--zen-colors-tertiary) !important;
+        border: 1px solid var(--zen-colors-border) !important;
+        padding: 0.5rem !important;
+        border-radius: 5px !important;
+    }
+
+    search-textbox#search-box:hover {
+        border: 1px solid var(--zen-colors-secondary) !important;
+    }
+
+    search-textbox#search-box:hover:active {
+        border: 1px solid var(--zen-colors-secondary) !important;
+    }
+
+    button#viewButton {
+        appearance: none;
+        color: inherit;
+        background-color: transparent !important;
+        border-radius: var(--toolbarbutton-border-radius);
+        border: 1px solid transparent !important;
+    }
+
+    button#viewButton:hover {
+        background-color: var(--zen-colors-border) !important;
+    }
+
+    button#viewButton:hover:active {
+        background-color: var(--zen-colors-border) !important;
+    }
+
+    #sidebar-box #sidebar-header {
+        border-bottom: 0px !important;
+    }
+
+    #sidebar-box[sidebarcommand="viewHistorySidebar"] {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
+                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        border-radius: var(--zen-border-radius);
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
+        box-shadow: 0 0 0 0 !important;
+        padding: var(--zen-toolbox-padding) !important;
+        margin-right: -2px !important;
+        margin-bottom: 1px !important;
+        transition: all 0.2s ease-in-out;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #sidebar-box[sidebarcommand="viewBookmarksSidebar"] {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
+                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        border-radius: var(--zen-border-radius);
+        box-shadow: 0 0 0 0 !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
+        padding: var(--zen-toolbox-padding) !important;
+        margin-right: -2px !important;
+        margin-bottom: 1px !important;
+        transition: all 0.2s ease-in-out;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #sidebar-box[sidebarcommand="viewTabsSidebar"] {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
+                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        border-radius: var(--zen-border-radius);
+        box-shadow: 0 0 0 0 !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
+        padding: var(--zen-toolbox-padding) !important;
+        margin-right: -2px !important;
+        margin-bottom: 1px !important;
+        transition: all 0.2s ease-in-out;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #sidebar-box[sidebarcommand="viewGenaiChatSidebar"] {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
+                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        border-radius: var(--zen-border-radius);
+        box-shadow: 0 0 0 0 !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
+        padding: var(--zen-toolbox-padding) !important;
+        margin-right: -2px !important;
+        margin-bottom: 1px !important;
+        transition: all 0.2s ease-in-out;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #header {
+        display: none !important;
+    }

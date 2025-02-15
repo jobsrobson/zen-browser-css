@@ -1,0 +1,165 @@
+/*  ===========================================
+    PRINT Dialog
+    =========================================== */
+        
+    vbox.dialogTemplate:nth-child(2) {
+        backdrop-filter: blur(20px) !important;
+    }
+    
+    .header-container {
+        background-color: light-dark(white,rgb(40, 40, 40)) !important;
+        padding-top:  35px !important;
+        padding-bottom: 20px !important;
+        margin-bottom: -1px !important;
+
+        h2 {
+            font-size: 2em !important;
+            font-weight: bold !important; 
+        }
+        #sheet-count {
+            margin-top: 5px !important;
+        }
+      }
+
+        .printDialogBox {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); 
+        }
+
+    #print {
+        background: light-dark(white,rgb(40, 40, 40)) !important;
+
+        #printer-picker {
+            border-radius: 8px !important;
+        }
+
+        #copies-count {
+            width: 60px !important;
+            height: 30px !important;
+            border-radius: 8px !important;
+        }
+        input[type="number"]::-moz-number-spin-up, input[type="number"]::-moz-number-spin-down {
+            height: 12px !important;
+        }
+        .toggle-group-input:checked + .toggle-group-label {
+            background-color: var(--lwt-button-color) !important;
+            color: var(--in-content-primary-button-text-color);
+            border-radius: 8px !important;
+            margin-inline-end: var(--space-medium) !important;
+        }
+
+        #destination {
+            select {
+                color: var(--in-content-button-text-color) !important;
+                border: 1px solid var(--lwt-border) !important;
+                border-radius: 8px !important;
+                background-color: var(--lwt-button-color) !important;
+            }
+        }
+
+        #settings {
+            grid-column: 1 / -1 !important;
+            display: grid !important;
+            grid-template-columns: 100px 1fr !important;
+            margin-inline: 15px !important;
+            grid-row-gap: 10px !important;
+
+            .label {
+                font-weight: bold !important;
+            }
+
+            .block-label, .orientation-label {
+                margin-top: 9px !important;
+            }
+
+            #copies,
+            #orientation,
+            #pages,
+            #color-mode {
+                display: contents !important;
+            }
+
+            hr {
+                margin-top: 15px !important;
+                margin-inline: 0px !important;
+                grid-column: 1 / -1 !important;
+            }
+
+            #more-settings {
+                grid-column: 1 / -1 !important; /* Ocupa as duas colunas */
+                grid-template-columns: 100px 1fr !important; /* Define um novo grid interno */
+                grid-row-gap: 15px !important; /* Espaçamento entre as linhas */
+                margin-inline: -12px !important;
+
+                #paper-size,
+                #scale,
+                #pages-per-sheet,
+                #margins-select,
+                #two-sided-printing,
+                #source-version-section,
+                #more-settings-options {
+                    display: grid !important;
+                    grid-template-columns: 120px 1fr !important; /* Define um novo grid interno */
+                    grid-row-gap: 10px !important;
+                }
+            }
+
+            select {
+                color: light-dark(black,white) !important;
+                border: 1px solid var(--lwt-border) !important;
+                border-radius: 8px !important;
+                background-color: var(--lwt-button-color) !important;
+            }
+            select:hover {
+                color: light-dark(black,white) !important;
+                border: 1px solid var(--lwt-border) !important;
+                border-radius: 8px !important;
+                background-color: var(--lwt-button-color-hover) !important;
+            }
+        }
+    }
+
+    #system-print {
+        a {
+            cursor: pointer;
+            color: light-dark(black, white) !important;
+        }
+        a:hover {
+            color: var(--in-content-button-text-color) !important;
+        }
+    }
+
+    .toolbarCenter {
+        padding: 0 25px !important;
+        margin-inline: 5px !important;
+        border: none !important;
+    } 
+    .toolbarButton, .toolbarCenter {
+        margin-inline: 2px !important;
+        border-inline-end: none !important;
+        border-block: none !important;
+        background-color: transparent;
+    }
+    .container {
+        padding-inline: 3px !important;
+        padding-block: 5px !important;
+        border-radius: 8px !important;
+        background-color: light-dark(white, black) !important;
+        border-style: none;
+    }
+    .container::before {
+        background-color: transparent !important;
+    }
+
+    summary::before {
+        content: url('icons/winui/plus.svg') !important;
+        margin-right: 5px !important;
+        display: inline-block !important;
+    }
+
+
+
+
+    

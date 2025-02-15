@@ -49,7 +49,8 @@ This project is licensed under the GNU GPL3 License.
   - Removed: Pinned tabs and the New Tab button now scroll along with the open tabs list due to the new Sidebar behavior (sorry!).
   - Fixed: Pinned tabs now retain the grid layout, just like Essentials.
   - Recommendation: Temporarily disable the ```zen.widget.windows.acrylic``` option in ```about:config```.
-
+  - Code Cleanup: Reorganized the code into multiple CSS files to improve maintainability.
+  
 - For **Zen Beta 1.7.6b**
 
   - Code Cleanup: Since it's an experimental feature, the CSS for Tab Groups is now in a separate file to improve maintainability.

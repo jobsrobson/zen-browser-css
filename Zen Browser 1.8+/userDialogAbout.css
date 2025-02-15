@@ -1,0 +1,132 @@
+/*  ===========================================
+    ABOUT Dialog
+    =========================================== */
+
+    @-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
+                 
+        #aboutDialogContainer {
+            display: inherit !important;
+            height: 100% !important;
+            width: -moz-available !important;
+        }
+        
+        .text-link {
+            text-decoration: none !important;
+        }
+        
+        /* Zen Logo */
+        #rightBox {
+            -moz-context-properties: fill !important;
+            fill: currentColor !important;
+            background-image: url("icons/brand/zen-wordmark.svg") !important;
+            background-size: 260px auto !important;
+            
+            margin-top: 25px !important;
+            margin-left: 100px !important;
+            padding-top: 50px !important;
+        }
+        
+        #leftBox {
+            position: fixed !important;
+            padding-left: 0px !important;
+            align-items: center !important;
+              
+            background-image: url('icons/brand/zen-identity-icon.svg') !important;
+            background-repeat: no-repeat;
+            background-size: 50px !important;
+              
+            background-position: left 1px !important;
+            margin-top: 20px;
+        }
+        
+        #detailsBox {
+            margin-top: 0px !important;
+            margin-left: 0px !important;
+        }
+        
+        
+        /* Dark Mode Ajustments */
+        @media (prefers-color-scheme: dark) {
+            #aboutDialogContainer {
+                background-color: rgb(40, 40, 40) !important;
+                color: white !important;
+                color-scheme: light !important;
+            }
+
+            #warningDesc {
+                color: #F76F53 !important;
+                font-weight: bold !important;
+            }
+
+            .text-link:hover {
+                color: rgb(195, 88, 65) !important;
+            }
+            #bottomBox  {
+                background-color: rgb(55, 55, 55) !important;
+                padding: 15px 0px 15px !important;
+            }
+        }
+      
+        
+        /* Light Mode Ajustments */
+        @media (prefers-color-scheme: light) {
+            #aboutDialogContainer {
+                background-color: rgb(255 255 255) !important;
+                color: black !important;
+                color-scheme: light !important;
+            }
+
+            #warningDesc {
+                color: red !important;
+                font-weight: bold !important;
+            }
+
+            .text-link:hover {
+                 color: rgb(195, 88, 65) !important;
+            }
+              
+            /* Bottom Box */
+            #bottomBox  {
+                background-color: rgb(247, 247, 247) !important;
+                padding: 15px 10px 15px !important;
+
+                > hbox {
+                    position: fixed !important;
+                    padding-left: 70px !important;
+                    color: white !important;
+                }
+                
+                .text-link {
+                    color: black !important;
+                }
+                
+                .text-link:hover {
+                    color: #f76f53 !important;
+                }
+            }
+        }
+
+        .bottom-link {
+            text-align: left !important;
+            margin-inline: 20px !important;
+        }
+
+        #releasenotes {
+            font-weight: bold !important;
+        }
+     
+        #updateInfo {
+            display: grid;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            grid-column-start: 3 !important;
+            grid-column-end: 3;
+            grid-template-rows: subgrid;
+            grid-template-columns: subgrid;
+        }
+
+        #detailsBox {
+            margin-top: 20px !important;
+            margin-left: 0px !important;  
+        }
+    }

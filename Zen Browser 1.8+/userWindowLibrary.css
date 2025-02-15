@@ -1,0 +1,175 @@
+/*  ===========================================
+    10   LIBRARY Window 
+    =========================================== */
+
+    @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+    #places {
+        menupopup, panel {
+          @media (-moz-platform: linux) or (-moz-platform: windows) {
+              --panel-shadow-margin: 0px !important;
+            }
+          }
+        }
+        
+        /* Cores principais */
+        #placesToolbar {
+            background-color: light-dark(white, black) !important;
+            border-bottom: 1px solid light-dark(rgb(219, 219, 219), black) !important;
+        }
+        #placesList {
+            background-color: light-dark(rgb(246, 246, 246), rgb(46, 48, 47)) !important;
+        }
+        
+        #placesView > splitter { /* Borda direita da sidebar */
+          border-inline-end: 1px solid light-dark(rgb(219, 219, 219), black) !important;
+        }
+        
+        /* Caixa direita - Conteúdo */
+        richlistbox {
+            margin: 2px 4px;
+            background-color: Field;
+            color: FieldText;
+            border: none !important;
+        }
+        
+        /* Menu Superior */
+        #placesMenu {
+            margin-left: 15px !important;
+        }
+       
+        #organizeButton {
+            list-style-image: url("icons/winui/organize.svg") !important;
+        }
+        
+        #placesMenu > menu > image {
+            -moz-context-properties: fill;
+            fill: currentColor;
+            width: 18px !important;
+        }
+        
+        #clearDownloadsButton:hover {
+            border-radius:8px !important;
+        }
+        
+        #clearDownloadsButton > image:nth-child(1) {
+            list-style-image: url("icons/winui/close.svg") !important;
+            -moz-context-properties: fill;
+            fill: currentColor;
+            width: 20px !important;
+            margin-right: 5px !important;
+        }
+        
+        #searchFilter {
+            min-width: 200px !important;
+            border-radius: 6px !important;
+            background-color: light-dark(white, black) !important;
+            border: 1px solid color-mix(in srgb, gray 30%, transparent 30%) !important;
+        }
+        
+        #detailsPane {
+            background-color: light-dark(white, black) !important;
+            color: var(--organizer-color);
+            border-top: 1px solid var(--organizer-border-color);
+        }
+        
+        menu {
+            border-radius: 8px !important;
+            align-items: center;
+            flex-shrink: 0;
+            list-style-image: none;
+            max-width: 42em;
+            padding: 6px 5px !important;
+        }
+        
+        #editBookmarkPanelContent {
+            display: flex !important;
+            flex-direction: column !important;
+            max-width: 500px !important;
+        }
+        
+        label.editBMPanel_locationRow,
+        label.editBMPanel_tagsRow,
+        label.editBMPanel_keywordRow {
+            align-self: initial !important;
+        }
+        
+        #tags-field-info, #keyword-field-info {
+            margin-top: 4px !important;
+            margin-bottom: 10px !important;
+            margin-left: 6px !important;
+        }
+        
+        input:active {
+            border: 4px solid color-mix(in srgb, gray 70%, transparent 30%) !important;
+        }
+        input:hover {
+            border: 1px solid color-mix(in srgb, gray 70%, transparent 30%) !important;
+        }
+        
+        hbox.zenEditBMPanel_fieldContainer:nth-child(6) {
+            display: none !important;
+        }
+        
+        .downloadButton {
+            -moz-appearance: none !important;
+            background-color: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.1)) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
+            max-width: fit-content !important;
+            max-height: fit-content !important;
+            margin-block: 10px !important;
+            margin-right: 10px !important;
+            border-radius: 6px !important;
+        }
+        
+        .downloadButton > .button-box {
+            -moz-appearance: none !important;
+            background-color: none !important;
+            color: light-dark(black, white) !important;
+            border: none !important;
+            border-radius: 0px !important;
+        }
+        
+        .downloadButton:hover > .button-box {
+            background-color: transparent !important;
+            color: white !important;
+        }
+        
+        .downloadButton:hover {
+            color: white !important;
+            background: rgba(255, 115, 86, 1) !important;
+            border: 1px solid transparent !important;
+            border-radius: 6px !important;
+        }
+        
+        @media not (prefers-contrast) {
+            #downloadsListBox:focus > richlistitem[selected] {
+                color: inherit;
+                background-color: transparent;
+                background-image: none !important;
+                background-clip: content-box;
+                border-radius: 0px !important;
+                outline: none !important;
+                outline-offset: 0 !important;
+            }
+        }
+        
+        /* Cor do item da lista - Selecionado */
+        richlistitem[selected="true"] {
+            appearance: none !important;
+            background-color: light-dark(rgb(188, 223, 253), rgb(255 255 255 / 0.1)) !important;
+            color: -moz-cellhighlighttext;
+        }
+        richlistitem[selected="true"]:hover {
+            background: light-dark(rgb(188 223 253 / 0.4), rgb(255 255 255 / 0.1)) !important;
+            border-radius: 0px !important;
+        }
+        richlistitem:hover {
+            background: light-dark(rgb(188 223 253 / 0.2), rgb(255 255 255 / 0.1)) !important;
+            border-radius: 0px !important;
+        }
+        .download-state {
+            padding-right: 0 !important;
+        }
+        
+    }
