@@ -64,7 +64,7 @@
     Cor da Inteface */
 
         * {
-            font-family: SF Pro, system-ui !important;
+            font-family: "Adwaita Sans Text", SF Pro, system-ui !important;
         }
 
         #browser {

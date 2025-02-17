@@ -415,6 +415,14 @@
 /*  ---------------------------------------------------------------------------
     SIDEBAR COMPACT MODE    */
 
+    /* 210px width to miantain 3-column Pinned Tabs */
+    :root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
+      @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") or (-moz-bool-pref: "zen.view.use-single-toolbar") {
+        &:not([zen-right-side="true"]) #navigator-toolbox {
+           width: 210px !important;
+        }
+      }
+    }
 
     /* Compact Sidebar color and blur */
    :root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {

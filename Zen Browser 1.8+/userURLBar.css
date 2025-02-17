@@ -2,6 +2,43 @@
     BARRA DE ENDEREÇOS / URLBAR
     =================================== */
 
+
+    .identity-box-button {
+      opacity: 1 !important;
+    }
+
+#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage), #urlbar-label-box {
+  margin-inline-end: 0 !important;
+}
+
+
+
+:root[zen-single-toolbar="true"] {
+  & #identity-icon-box:not([open]) {
+    margin-right: -10px !important;
+    opacity: 0;
+    transition: all 0.1s ease;
+  }
+}
+
+:root[zen-single-toolbar="true"] {
+  & #urlbar:not([open]) {
+    & #identity-box {
+      order: 9 !important;
+    }
+  }
+}
+
+
+
+    #urlbar:hover #identity-icon-box {
+        opacity: 1;
+        margin-inline-end: 0 !important;
+        display: inherit !important;
+        transition: 0;
+      }
+
+
     #urlbar[breakout-extend='true'] {
         position: fixed !important;
       }
@@ -56,8 +93,8 @@
               
               #identity-icon-box {
                   display: inherit !important;
-                  margin-inline: 4px !important;
-                  transform: scale(1.2) !important;
+                  margin-inline-end: 4px !important;
+                  transform: scale(1) !important;
               }
               
                #translations-button, #reader-mode-button, #tracking-protection-icon-container, #picture-in-picture-button, #star-button-box {
@@ -198,7 +235,7 @@
       }
           
       #urlbar:not([extend="true"]) #identity-box #identity-icon-box {
-        margin-right: 3px !important;
+        margin-right: 0px !important;
       }
           
      #star-button[starred] {
