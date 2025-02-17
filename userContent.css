@@ -1,6 +1,7 @@
 @-moz-document url-prefix("about:") {
     * {
           font-family:
+            "Adwaita Sans Text",
             "SF Pro",
             "Segoe UI Variable Display",
             ui-sans-serif,
