@@ -2,6 +2,20 @@
     ZEN SIDEBAR
     ============================== */
 
+    /* Hide Reset tab button - 1.8 fix */
+    .tab-reset-pin-button {
+      display: none !important;
+    }
+
+    #navigator-toolbox[zen-sidebar-expanded="true"] {
+      & #tabbrowser-tabs {
+        & .tabbrowser-tab {
+          &[zen-pinned-changed="true"] .tab-icon-stack {
+            left: unset !important;
+          }
+        }
+      }
+    }
 
     /* Tab Block Margin */  
     @media (-moz-bool-pref: "zen.tabs.vertical") {

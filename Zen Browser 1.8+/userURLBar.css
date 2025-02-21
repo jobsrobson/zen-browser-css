@@ -2,120 +2,127 @@
     BARRA DE ENDEREÇOS / URLBAR
     =================================== */
 
-
-    .identity-box-button {
-      opacity: 1 !important;
-    }
-
-#identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage), #urlbar-label-box {
-  margin-inline-end: 0 !important;
-}
-
-
-
-:root[zen-single-toolbar="true"] {
-  & #identity-icon-box:not([open]) {
-    margin-right: -10px !important;
-    opacity: 0;
-    transition: all 0.1s ease;
-  }
-}
-
-:root[zen-single-toolbar="true"] {
-  & #urlbar:not([open]) {
-    & #identity-box {
-      order: 9 !important;
-    }
-  }
-}
-
-
-
-    #urlbar:hover #identity-icon-box {
-        opacity: 1;
-        margin-inline-end: 0 !important;
-        display: inherit !important;
-        transition: 0;
-      }
-
-
-    #urlbar[breakout-extend='true'] {
-        position: fixed !important;
-      }
-  
-      .urlbarView-title {
-        white-space: nowrap;
-        line-height: 1.4 !important;
-        font-size: 1.1em !important;
-      }
-  
-  
-      #urlbar-background {
-            background-color:  var(--lwt-urlbar-bg) !important;
-      }
-  
-      #urlbar-background {
-        border: none !important;
-        background-color:  light-dark(
-                                 color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
-                                 color-mix(in srgb, var(--lwt-accent-color) 100%, black 20%)) 
-                               !important;
-        box-shadow: none !important;
-      }
-  
-      #urlbar[breakout-extend="true"] {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-        
-        #urlbar-container:has(&) {
-          border-radius: 10px !important;
-          height: 38px !important;
-          background: none !important;
-          border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
-        }
-      }
-  
-          #identity-permission-box {
-              display: none !important;
-          }
-          
-          #identity-box[pageproxystate="invalid"] {
-              & > #identity-permission-box {
-                  display: none !important;
-              }
-          }
-          
-          #urlbar[breakout-extend="true"] {
-              #identity-permission-box {
-                  display: inherit !important;
-              }
-              
-              #identity-icon-box {
-                  display: inherit !important;
-                  margin-inline-end: 4px !important;
-                  transform: scale(1) !important;
-              }
-              
-               #translations-button, #reader-mode-button, #tracking-protection-icon-container, #picture-in-picture-button, #star-button-box {
-                  margin-inline: 4px !important;
-                  transform: scale(1.2) !important;
-              }
-              
-              #password-notification-icon {
-                  margin-top: 4px !important;
-                  margin-left: 6px !important;
-                  transform: scale(1.4) !important;
-              }
-          }
-          
-  
-     
-      #urlbar:not([focused="true"]):not([breakout-extend="true"]) > #urlbar-background {
+    /* Extended URL Bar */
+    #urlbar[breakout-extend="true"] {
+      position: fixed !important;
+      top: 20% !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      min-width: 70vh !important;
+      
+      #urlbar-container:has(&) {
+        border-radius: 10px !important;
+        height: 38px !important;
         background: none !important;
-        backdrop-filter: none !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
       }
-  
+    }
+
+    /* Colors */
+    #urlbar {
+      background-color:  light-dark(color-mix(in srgb, white 0%, transparent 80%), 
+                                    color-mix(in srgb, black 0%, transparent 80%)) !important;
+      margin-top: 0 !important;
+      margin-left: 0px !important;
+      margin-right: 3px !important;
+      border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
+      border-radius: 10px !important;
+    }
+
+    #urlbar[open] {
+      & #urlbar-background {
+        background-color: light-dark(color-mix(in srgb, white 100%, transparent 20%), 
+                                     color-mix(in srgb, black 100%, transparent 20%)) !important;
+        box-shadow: 0 10px 40px 10px rgba(0,0,0,0.05) !important;
+        outline: none !important;
+        outline-offset: none !important;
+        backdrop-filter: blur(30px) !important;
+      }
+    }
+
+    #urlbar-background {
+          background-color:  var(--lwt-urlbar-bg) !important;
+    }
+    
+    #urlbar-background {
+      border: none !important;
+      background-color:  light-dark(
+                               color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                               color-mix(in srgb, var(--lwt-accent-color) 100%, black 20%)) 
+                             !important;
+      box-shadow: none !important;
+    }
+
+
+    /* Bad SSL icon */
+    #identity-box[pageproxystate="valid"].certErrorPage #identity-icon {
+      list-style-image: url('icons/winui/dangerous.svg') !important;
+      fill: currentColor !important;
+    }
+
+    .certErrorPage #identity-icon-box {
+      border-radius: 7px !important;
+      background: light-dark(color-mix(in srgb, var(--lwt-urlbar-bg) 0%, red 30%), color-mix(in srgb, var(--lwt-urlbar-bg) 100%, black 40%)) !important;
+      margin-left: 3px !important;
+    }
+
+
+    /* URL Bar Buttons */
+    #identity-permission-box {
+        display: flex !important;
+    }
+    #identity-permission-box {
+      display: none !important;
+    }
+    #urlbar:hover #star-button-box {
+      display: inherit !important;
+      transition: all 0.1s ease;
+    }
+    #urlbar[breakout-extend="true"] {
+      #identity-box {
+          display: flex !important;
+      }
+      
+    }
+
+    #translations-button-circle-arrows {
+      display: none !important;
+    }
+    #translations-button-locale {
+      display: none !important;
+    }
+
+    /* Not Secure webpage label on URLBar */
+    .notSecure #identity-icon-box {
+      border-radius: 7px !important;
+      background: light-dark(color-mix(in srgb, var(--lwt-urlbar-bg) 0%, red 30%), 
+                             color-mix(in srgb, var(--lwt-urlbar-bg) 100%, black 40%)) !important;
+      margin-left: 3px !important;
+    }
+      #identity-icon-label {
+        display: none !important;
+      }
+
+    #zen-split-views-button {
+      fill: light-dark(black, white) !important;
+    }
+
+    #star-button[starred] {
+      fill-opacity: 1;
+      fill: color-mix(in srgb, var(--toolbarbutton-icon-fill-attention) 100%, black 10%) !important;
+    }
+
+    /* Altera o Identity Icon na URL Bar para o novo ícone do Zen */
+    #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
+      list-style-image: url(icons/brand/zen-identity-icon.svg) !important;
+    }
+      
+    #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
+      width: 13px !important;
+    }
+
+
+      /* URL Bar extend */
       #urlbar[breakout-extend] #urlbar-background {
         transition: all 0.1s linear !important;
       }
@@ -129,7 +136,7 @@
         border-top: 0px solid var(--urlbarView-separator-color) !important;
       }
   
-      /*? hide search one offs */
+      /* hide search one offs */
       @media not (-moz-bool-pref: "shimmer.show-search-one-offs") {
         .search-one-offs {
           display: none !important;
@@ -147,39 +154,7 @@
         display: none !important;
       }
   
-      #urlbar {
-        background-color:  light-dark(color-mix(in srgb, white 0%, transparent 80%), 
-                                      color-mix(in srgb, black 0%, transparent 80%)) !important;
-        margin-top: 0 !important;
-        margin-left: 0px !important;
-        margin-right: 3px !important;
-        border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
-        border-radius: 10px !important;
-      }
-  
-      #urlbar[open] {
-        & #urlbar-background {
-           background-color: light-dark(color-mix(in srgb, white 100%, transparent 20%), 
-                                        color-mix(in srgb, black 100%, transparent 20%)) !important;
-          box-shadow: 0 10px 40px 10px rgba(0,0,0,0.05) !important;
-          outline: none !important;
-          outline-offset: none !important;
-          backdrop-filter: blur(30px) !important;
-        }
-      }
-      
-      #urlbar[open] {
-        margin-top: 15vh !important;
-        margin-bottom: 15vh !important;
-      }
-  
-      #translations-button-circle-arrows {
-        display: none !important;
-      }
-      #translations-button-locale {
-        display: none !important;
-      }
-  
+
       .urlbarView-title {
         color: light-dark(black,white) !important;
         font-size: 16px !important;
@@ -191,27 +166,10 @@
         opacity: 0.5 !important;
       }
   
-      /* Not Secure webpage label on URLBar */
-      .notSecure {
-        margin-left: -2px !important;
-        margin-right: 6px !important;
-      }
-      .notSecure #identity-icon-box {
-        border-radius: 7px !important;
-        background: light-dark(color-mix(in srgb, var(--lwt-urlbar-bg) 0%, red 30%), 
-                               color-mix(in srgb, var(--lwt-urlbar-bg) 100%, black 40%)) !important;
-        margin-left: 3px !important;
-      }
-      #identity-icon-label {
-        display: none !important;
-      }
-      #zen-split-views-button {
-        fill: light-dark(black, white) !important;
-      }
-  
       /* Expanded URLBar - Bigger URL Text */
       #urlbar[breakout-extend] #urlbar-input {
-        font-size: 1.3rem !important;
+        
+        font-size: 1.4rem !important;
         margin-top: -2px !important;
       }
   
@@ -234,32 +192,11 @@
         margin-inline: 2px !important;
       }
           
-      #urlbar:not([extend="true"]) #identity-box #identity-icon-box {
-        margin-right: 0px !important;
-      }
+
           
-     #star-button[starred] {
-        fill-opacity: 1;
-        fill: color-mix(in srgb, var(--toolbarbutton-icon-fill-attention) 100%, black 10%) !important;
-      }
+
       
-      /* Altera o Identity Icon na URL Bar para o novo ícone do Zen */
-      #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
-        list-style-image: url(icons/brand/zen-identity-icon.svg) !important;
-      }
-        
-        #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
-          width: 14px !important;
-        }
 
 
-      /* Fix for URL Bar shifting in Compact Mode - 1.8t*/
-      :root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
-        @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") or (-moz-bool-pref: "zen.view.use-single-toolbar") {
-          & #navigator-toolbox:not([animate="true"]) #titlebar {
-            & #urlbar[open][zen-floating-urlbar="true"] {
-              --zen-urlbar-offset: unset !important;
-            }
-          }
-        }
-      }
+
+
