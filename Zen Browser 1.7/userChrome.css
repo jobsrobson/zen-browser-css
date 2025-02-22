@@ -1,0 +1,3107 @@
+
+/*  ZEN BROWSER DESIGN ADJUSTMENTS by @jobsrobson.bsky.social
+    Recommended about:config toggles: 
+    - zen.workspaces.open-new-tab-if-last-unpinned-tab-is-closed (true)
+    - zen.workspaces.show-workspace-indicator (false) 
+    - zen.workspaces.hide-deactivated-workspaces (true) 
+    - zen.workspaces.open-new-tab-if-last-unpinned-tab-is-closed (true) */
+
+
+/*  ============================
+    1   VARIÁVEIS PRINCIPAIS
+    ============================ */
+
+    @import "userIcons.css";
+    @import "userTabGroups.css";
+ 
+
+    * {
+        --lwt-border:             color-mix(in srgb, black 10%, white 10%) !important;
+        --lwt-urlbar-bg:          light-dark(color-mix(in srgb, transparent 10%, white 90%), 
+                                             color-mix(in srgb, transparent 10%, black 20%)) !important;
+        --lwt-accent-selected:    light-dark(color-mix(in srgb, transparent 10%, black 15%), 
+                                             color-mix(in srgb, transparent 10%, white 35%)) !important;    
+        --lwt-accent-hover:       light-dark(color-mix(in srgb, transparent 10%, black 30%), 
+                                             color-mix(in srgb, transparent 10%, white 50%)) !important;
+        --lwt-accent-unselected:  light-dark(color-mix(in srgb, transparent 10%,  black 5%), 
+                                             color-mix(in srgb, transparent 10%, white 5%)) !important;
+        --lwt-normal-hover:       light-dark(color-mix(in srgb, transparent 10%, black 10%), 
+                                             color-mix(in srgb, transparent 10%, white 10%)) !important;
+        --background-color-box:   light-dark(color-mix(in srgb, transparent 100%, black 10%), 
+                                             color-mix(in srgb, transparent 100%, white 10%)) !important;
+        --lwt-button-color:       light-dark(color-mix(in srgb, white 10%, black 5%), 
+                                             color-mix(in srgb, white 10%, white 5%)) !important;
+        --lwt-button-color-hover: color-mix(in srgb, var(--zen-primary-color) 5%, var(--zen-branding-bg-reverse) 30%) !important;
+        --menu-item-hover:        light-dark(color-mix(in srgb, white 50%, black 10%), 
+                                             color-mix(in srgb, black 50%, white 25%)) !important; 
+        --lwt-menulist:           light-dark(color-mix(in srgb, transparent 10%, black 10%), 
+                                             color-mix(in srgb, transparent 10%, black 25%)) !important; 
+        --input-bgcolor:          light-dark(color-mix(in srgb, black 5%, white 95%), 
+                                             color-mix(in srgb, white 20%, black 80%)) !important; 
+        --lwt-button-radius:      8px !important;
+        --panel-arrow-offset:     0px !important;
+        --in-content-button-background-hover:     light-dark(color-mix(in srgb, white 50%, black 10%), 
+                                                             color-mix(in srgb, black 50%, white 25%)) !important;
+        --in-content-button-text-color-hover:     light-dark(black, white) !important;
+        --zen-branding-bg: white !important;
+    }
+
+
+/*  =====================
+    2   AJUSTES GERAIS
+    ===================== */
+
+/*  ---------------------------------------------------------------------------
+    Cor da Inteface */
+
+        * {
+            font-family: SF Pro, system-ui !important;
+        }
+
+        #browser {
+            background-image: none !important;
+            transition: background-color .5s cubic-bezier(0, 0, 0, 1);
+            opacity: 1 !important;
+        } #titlebar {
+            transition: background-color .5s cubic-bezier(0, 0, 0, 1);
+        }
+
+        #main-window[privatebrowsingmode="temporary"] 
+          #browser {
+              background-color: #25003E !important;
+        }
+
+     
+/*  ---------------------------------------------------------------------------
+    Borda da Área de Exibição */
+
+    :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
+    & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+        border: 1px solid var(--lwt-border) !important;
+        box-shadow: none !important;
+        border-radius: 7px !important;
+        
+        }
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Painéis Popup */
+
+    panel, 
+    menupopup {
+        --panel-background: light-dark(color-mix(in srgb, white 5%, white 95%), 
+                                       color-mix(in srgb, gray 30%, black 90%))  !important;
+        --panel-border-radius: 12px !important;
+    }
+
+    .toolbar-menupopup:hover :is(menu, menuitem):hover, .subview-subheader:hover, panelview:hover .toolbarbutton-1:hover, .subviewbutton:hover, .widget-overflow-list:hover .toolbarbutton-1:hover {
+        background-color: var(--menu-item-hover) !important;
+        border-radius: 8px !important;
+    }
+
+    panel toolbarseparator {
+        border-top: 1px solid var(--lwt-border) !important;
+    }
+
+    #appMenu-zoom-controls {
+        border-top: 1px solid var(--lwt-border) !important;
+    }
+
+    #appMenu-zoom-controls > #appMenu-fullscreen-button2::before {
+        border-inline-start: 1px solid var(--lwt-border) !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Botões */
+
+    button {
+        color: light-dark(black, white) !important;
+        background-color: var(--lwt-button-color) !important;
+        box-shadow: none !important;
+        border-radius: var(--lwt-button-radius) !important;
+        border: none !important;
+    }
+
+    button:hover {
+        color: light-dark(black, black) !important;
+        --in-content-button-background-hover: color-mix(in srgb, var(--zen-primary-color) 5%, var(--zen-branding-bg-reverse) 30%) !important;
+        background-color: var(--zen-colors-hover-bg) !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Input */
+
+    input:where([type="email"], [type="tel"], [type="text"], [type="password"], [type="url"], [type="number"]), textarea {
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
+    }
+    input:where([type="email"]:focus, [type="tel"]:focus, [type="text"]:focus, [type="password"]:focus, [type="url"]:focus, [type="number"]:focus), textarea:focus {
+        border: 1px solid color-mix(in srgb, var(--lwt-button-color-hover) 50%, transparent 50%) !important;
+    }
+    input:where([type="email"]:hover, [type="tel"]:hover, [type="text"]:hover, [type="password"]:hover, [type="url"]:hover, [type="number"]:hover), textarea:hover {
+        border: 1px solid var(--lwt-button-color-hover) !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Menulist & Dropdown */
+
+    menulist {
+        background: var(--lwt-menulist) !important;
+        border-radius: 8px !important;
+        height: 30px !important;
+    }
+    .workspace-dropdown {
+        position: relative !important;
+        width: 100%;
+        display: flex;
+        gap: 0px !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Painel Bookmarks */
+
+    #editBMPanel_workspaceSummary {
+        background: var(--input-bgcolor) !important;
+        border-radius: 8px !important;
+    }
+
+    .dialogBox {
+        min-height: inline-block !important;
+    }
+    .bookmarkproperties {
+        min-height: inline-block !important;
+    }
+    .bookmarkpropertiesdialog {
+        min-height: inline-block !important;
+    }
+    .dialogFrame {
+        height: inline-block !important;
+    }
+    #bookmarkpropertiesdialog label[control] {
+        margin-inline-start: 0;
+        margin-block: 8px 4px !important;
+    }
+    .workspace-dropdown {
+        position: relative !important;
+        width: 100% !important;
+        display: flex;
+        gap: 5px !important;
+        margin-top: 0px !important;
+    }
+    .zenEditBMPanel_fieldContainer {
+        display: grid !important;
+    }
+
+    #editBMPanel_workspaceSummary {
+        background: var(--input-bgcolor) !important;
+        border-radius: 8px !important;
+        align-items: center !important;
+        padding-inline: 20px !important;
+    }
+    #editBMPanel_workspaceList {
+        gap: 10px !important;
+        margin-top: 10px !important;
+        list-style: none !important;
+    }
+    #editBMPanel_workspaceList li::marker {
+          display: none !important;
+    }
+
+    #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
+        margin-inline-start: 4px;
+        width: 50px !important;
+        height: 30px !important;
+        min-width: 50px !important;
+        min-height: 30px !important;
+        border-radius: 4px;
+    }
+
+    #editBookmarkPanel .expander-down {
+        list-style-image: url(icons/winui/arrow-down.svg) !important;
+        width: 50px !important;
+        height: 30px !important;
+        padding-left: 13px !important;
+        min-width: 50px !important;
+        min-height: 30px !important;
+    }
+
+    #editBookmarkPanel .expander-up {
+        list-style-image: url(icons/winui/arrow-up.svg) !important;
+        padding-left: 13px !important;
+        width: 50px !important;
+        height: 30px !important;
+        min-width: 50px !important;
+        min-height: 30px !important;
+    }
+
+    .workspace-trigger {
+      height: 30px !important;
+    }
+
+    #editBookmarkPanelDoneButton > hbox:nth-child(1) > image:nth-child(1) {
+        list-style-image: url(icons/winui/star.svg) !important;
+        -moz-context-properties: fill !important;
+        fill: currentColor !important;
+        width: 20px !important;
+        height: 18px !important;
+        margin-right: 5px !important;
+    }
+
+    #zenEditBookmarkPanelFavicon {
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    #editBMPanel_workspaceList {
+      flex-direction: column;
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: 4px;
+      border: 1px solid var(--zen-colors-border);
+      border-radius: 8px !important;
+      background-color: light-dark(var(--zen-colors-tertiary), rgb(32, 32, 32)) !important;
+      box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+      padding: 4px 0;
+    }
+
+    #editBMPanel_folderTree {
+        background-color: light-dark(var(--zen-colors-tertiary), rgb(32, 32, 32)) !important;
+        border-radius: 8px !important;
+    }
+
+
+
+/*  ---------------------------------------------------------------------------
+    Painel Privacy */
+
+    .panel-info-button {
+      &:not(:hover)[checked] {
+        background-color: var(--zen-primary-color) !important;
+      }
+    }
+
+    .panel-info-button:hover {
+        background-color: var(--zen-primary-color) !important;
+    }
+
+    .toggle-button[aria-pressed="true"]:enabled {
+      background: var(--toggle-background-color-pressed-hover) !important;
+    }
+
+    /*.panel-info-button {
+      & > image {
+        list-style-image: url('icons/winui/info.svg') !important;
+      }
+    }*/
+
+    .trackers-icon {
+      list-style-image: url('icons/winui/image.svg') !important;
+    }
+
+    .socialblock-icon {
+       list-style-image: url('icons/winui/dislike.svg') !important;
+    }
+
+    .thirdpartycookies-icon{
+       list-style-image: url('icons/winui/cookie.svg') !important;
+    }
+
+    .fingerprinters-icon {
+       list-style-image: url('icons/winui/fingerprint.svg') !important;
+    }
+
+    .cryptominers-icon {
+       list-style-image: url('icons/winui/wallet.svg') !important;
+    }
+
+    #protections-popup-trackersView-settings-button {
+       list-style-image: url('icons/winui/settings.svg') !important;
+    }
+
+
+
+/*  ---------------------------------------------------------------------------
+    Painel Downloads */
+
+    #downloadsPanel-mainView {
+        min-width: 30em !important;
+    }
+
+    .downloadsPanelFooterButton {
+        background: none !important;
+    }
+    .downloadButton {
+        min-width: 32px !important;
+    }
+
+    .downloadsPanelFooterButton:hover {
+        background-color: var(--menu-item-hover) !important;
+        color: light-dark(black, white) !important;
+    }
+
+    .download-state {
+        padding-right: 10px !important;
+    }
+
+    .download-state:hover {
+        border-radius: 5px !important;
+    }
+
+    .downloadButton {
+        border-radius: 8px !important;
+    }
+    .downloadButton:hover:not(:active) {
+        color: white !important;
+        background: var(--zen-branding-coral) !important;
+        border: 1px solid var(--zen-branding-coral) !important;
+        border-radius: 6px !important;
+    }
+
+    #downloadsHistory {
+        color: light-dark(black, white) !important;
+    }
+    #downloadsHistory:hover {
+        border-radius: 6px !important;
+    }
+
+    /* Botão - Show all Downloads */
+    #downloadsFooterButtons {
+        border-top: 1px solid light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.1)) !important;
+        margin-top: 5px !important;
+        padding-block: 5px !important;
+        padding-inline: 3px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: right !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Painel Profiles */
+
+    #PanelUI-zen-profiles toolbarbutton:last-child {
+        margin-bottom: 2px !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Painel Workspaces */
+
+    .PanelUI-zen-workspaces-user-create {
+        & .PanelUI-zen-workspaces-creation-wraper {
+            border: 0px !important;
+        }
+    }
+    .PanelUI-zen-workspaces-user-create {
+        & .PanelUI-zen-workspaces-creation-wraper {
+            & .PanelUI-zen-workspaces-icons-container {
+                background: color-mix(in srgb, var(--lwt-menulist) 20%, transparent 10%) !important;
+                border-radius: 8px !important;
+                min-width: 50px !important;
+                border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
+                margin-right: 3px !important;
+            }
+        }
+        & .PanelUI-zen-workspaces-creation-wraper:hover {
+            & .PanelUI-zen-workspaces-icons-container:hover {
+                background: color-mix(in srgb, var(--lwt-menulist) 50%, transparent 10%) !important;
+                border-radius: 8px !important;
+                min-width: 50px !important;
+                border: 1px solid var(--lwt-button-color-hover) !important;
+                margin-right: 3px !important;
+            }
+        }
+    }
+
+    /* Disable BETA tag */
+    .translations-panel-beta-icon {
+        list-style-image: none !important;
+    }
+    #PanelUI-zen-workspaces-list toolbarbutton {
+        &:first-child {
+            margin-top: 0px !important;
+        }
+    }
+    #PanelUI-zen-workspaces-list toolbarbutton {
+        & .zen-workspace-icon {
+            border-radius: 10px !important;
+        }
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Barra de Favoritos */
+
+    /* Margem da Bookmark Bar */
+    #PersonalToolbar {
+        margin-left: -7px !important;
+        margin-top: 2px !important;
+    }
+
+    :root[zen-single-toolbar="true"]:not([customizing]) {
+        & #zen-appcontent-navbar-container {
+            &:has(#PersonalToolbar[collapsed="false"]) {
+                @media (-moz-bool-pref: "zen.view.hide-window-controls") {
+                    &:not([zen-has-hover="true"]):not([has-popup-menu]):not(:focus-within) {
+                        transition-delay: 0.1s !important;
+                        height: var(--zen-element-separation);
+                        overflow: hidden;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Correções Gerais */
+
+    /* Corrige a borda branca superior em tela cheia (zen twillight t22 02/12) */
+    :root[zen-single-toolbar="true"]:is([inDOMFullscreen="true"]) {
+        & #zen-appcontent-navbar-container {
+            display: none !important;
+            -moz-window-dragging: drag;
+            min-height: var(--zen-element-separation);
+            height: var(--zen-element-separation);
+        }
+    }
+
+    :root:not([inDOMFullscreen="true"]) #tabbrowser-tabbox {
+        padding: 0px !important;
+    }
+
+    #zen-sidebar-web-header, #zen-sidebar-panels-wrapper {
+        border-bottom: 0 !important;
+        border-top: 0 !important;
+    }
+
+    /* Corrige a cor do texto em Tooltips do Zen */
+    #confirmation-hint-message {
+      color: light-dark(black, white) !important;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      #confirmation-hint-message-container {
+        opacity: 0;
+        transition: transform 120ms cubic-bezier(.25,1.27,.35,1.18), opacity 60ms linear;
+      }
+    }
+    #confirmation-hint-checkmark-image {
+        margin-top: -1px !important;
+        color: light-dark(green, lightgreen) !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Correções - Sidebar no Compact Mode */
+
+    @media (-moz-bool-pref: "zen.view.compact") {
+      :root:not([customizing]):not([inDOMFullscreen="true"]) {
+        @media (-moz-bool-pref: "zen.view.compact.hide-tabbar") or (-moz-bool-pref: "zen.view.use-single-toolbar") {
+            & #navigator-toolbox:not([animate="true"]) #titlebar {
+                box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
+                border-radius: calc(var(--zen-border-radius) - 2px);
+                padding: var(--zen-toolbox-padding) !important;
+                position: relative;
+                background: light-dark(rgb(249, 249, 250), rgb(24, 24, 26)) !important;
+                outline: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1));
+                backdrop-filter: none !important;
+                width: 220px !important;
+            }
+
+            /* Color - Normal Tab - Selected */
+            .tab-background[selected] {
+                background: color-mix(in srgb, white 100%, transparent 0%) !important;
+                outline: 1px solid light-dark(rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1)) !important;
+            } 
+
+            /* Color - Normal Tab - Selected (Hover) */
+            .tabbrowser-tab[selected]:hover .tab-stack .tab-background {
+                background: color-mix(in srgb, white 100%, transparent 70%) !important;
+                outline: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1)) !important;
+            }
+
+            /* Color - Normal Tab - Unselected (Hover) */
+            .tabbrowser-tab:hover .tab-stack .tab-background {
+                background: color-mix(in srgb, white 0%, black 6%) !important;
+                outline: 1px solid light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1)) !important;
+            }
+
+            @media (prefers-color-scheme: dark) {
+                /* Dark - Color - Normal Tab - Selected */
+                .tab-background[selected] {
+                    background: color-mix(in srgb, var(--lwt-accent-selected) 40%, transparent 0%) !important;
+                } 
+
+                /* Dark - Color - Normal Tab - Selected (Hover) */
+                .tabbrowser-tab[selected]:hover .tab-stack .tab-background {
+                    background: color-mix(in srgb, var(--lwt-accent-selected) 100%, transparent 50%) !important;
+                }
+
+                /* Dark - Color - Normal Tab - Unselected (Hover) */
+                .tabbrowser-tab:hover .tab-stack .tab-background {
+                    background: color-mix(in srgb, var(--lwt-normal-hover) 100%, transparent 0%) !important;
+                }
+            }
+            
+            #zen-sidebar-top-buttons-customization-target {
+   
+            }
+            
+            #urlbar-container {
+            }
+        }
+      }
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Modo tradicional - Multiple Toolbars */
+
+    @media (not (-moz-bool-pref: "zen.view.use-single-toolbar")) {
+        #urlbar-container {
+          margin-bottom: -2px !important;
+        }
+
+        #urlbar:not([focused]) {
+          background-color: light-dark(rgb(255 255 255 / 0.5), rgb(0 0 0 / 0.5)) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.2)) !important;
+        }
+        .urlbar-input {
+          #urlbar:not([focused])[domaindir="ltr"] > .urlbar-input-container > .urlbar-input-box > & {
+            text-align: center !important;
+          }
+        }
+    }
+
+
+
+
+/*  =====================
+    3   ANIMAÇÕES
+    ===================== */
+
+/*  ---------------------------------------------------------------------------
+    URL Bar animations by https://github.com/TheBigWazz/Pineapple-Fried */
+
+        /* URL Bar Expand/Collapse Animation */
+        #urlbar[focused] .urlbar-background {
+          animation: urlbarExpand 0.3s ease-out;
+        }
+
+        #urlbar:not([focused]) .urlbar-background {
+          animation: urlbarCollapse 0.2s ease-in;
+        }
+
+        @keyframes urlbarExpand {
+          from {
+            transform: scaleX(0.8) scaleY(0.7);
+            opacity: 0.5;
+          }
+          to {
+            transform: scaleX(1) scaleY(1);
+            opacity: 1;
+          }
+        }
+
+        @keyframes urlbarCollapse {
+          from {
+            transform: scaleX(1) scaleY(1);
+          }
+          to {
+            transform: scaleX(0.95) scaleY(0.9);
+          }
+        }
+
+        /* Results Panel Animation */
+        #urlbar-results {
+          animation: resultsFadeIn 0.25s ease-out;
+        }
+
+        @keyframes resultsFadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Animate each result row individually */
+        #urlbar-results {
+          opacity: 1 !important; /* Ensure parent container stays visible */
+        }
+
+        .urlbarView-row {
+          opacity: 0;
+          animation: resultEntry 0.3s ease-out forwards;
+        }
+
+        /* Cascade animation with staggered delays */
+        .urlbarView-row:nth-child(1) { animation-delay: 0.05s; }
+        .urlbarView-row:nth-child(2) { animation-delay: 0.10s; }
+        .urlbarView-row:nth-child(3) { animation-delay: 0.15s; }
+        .urlbarView-row:nth-child(4) { animation-delay: 0.20s; }
+        .urlbarView-row:nth-child(5) { animation-delay: 0.25s; }
+        .urlbarView-row:nth-child(6) { animation-delay: 0.30s; }
+        .urlbarView-row:nth-child(7) { animation-delay: 0.35s; }
+        .urlbarView-row:nth-child(8) { animation-delay: 0.40s; }
+        .urlbarView-row:nth-child(9) { animation-delay: 0.45s; }
+        .urlbarView-row:nth-child(10) { animation-delay: 0.50s; }
+
+        @keyframes resultEntry {
+          from {
+            opacity: 0;
+            transform: translateY(-8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        /* Adjust original results panel animation */
+        #urlbar-results {
+          animation: resultsFadeIn 0.2s ease-out;
+        }
+
+        @keyframes resultsFadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+    .urlbarView-type-icon {
+      .urlbarView-row[type="bookmark"] > .urlbarView-row-inner > .urlbarView-no-wrap > & {
+        animation-delay: 1.50s !important;
+        animation: resultEntry 0.7s ease-out !important;
+      }
+    }
+
+
+    /*  1.7.5t - (not) Animate New Tab  */
+    @media (not (-moz-bool-pref: "zen.urlbar.replace-newtab")) {
+      #vertical-pinned-tabs-container, #tabbrowser-arrowscrollbox {
+        .tabbrowser-tab {
+          animation: new-tab-appear 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+        }
+      }
+
+      @keyframes new-tab-appear { 
+        0% {
+          opacity: 0;
+          transform: translateY(-25px);
+        }
+        60% {
+          opacity: 0.8  ;
+          transform: translateY(6px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    
+
+/*  ==============================
+    4   BARRA LATERAL PRINCIPAL
+    ============================== */
+
+    /* 1.7.2t - Impede que as Pinned Tabs e o New Tab Button rolem junto com a lista de abas */
+    #zen-browser-tabs-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    /* Ajustes de alinhamento dos controles superiores da Sidebar */
+      @media (not (-moz-bool-pref: "zen.view.compact")) {
+         #zen-sidebar-top-buttons { 
+            margin-right: -3px !important;
+            margin-left: -1px !important;
+         }
+         #unified-extensions-button {
+            margin-left: -4px !important;
+         }
+      }
+
+    /* Ajustes de alinhamento da Sidebar */
+    @media (-moz-bool-pref: "zen.tabs.vertical") {
+      #TabsToolbar > * {
+        padding-left: 0px !important;     
+        margin-right: -1px !important;
+      }
+        
+      #zen-sidebar-splitter {
+        opacity: 0;
+        max-width: var(--zen-toolbox-padding) !important;
+        min-width: var(--zen-toolbox-padding) !important;
+        height: 100%;
+        transition: opacity 0.2s ease-in-out;
+        background: var(--zen-colors-border);
+        appearance: none;
+      }
+    }
+
+    /* Ajustes de alinhamento dos controles inferiores da Sidebar */
+     #navigator-toolbox[zen-sidebar-expanded="true"] {
+      & #zen-sidebar-icons-wrapper {
+        margin-left: 0px !important;
+      }
+    }
+
+
+
+    /* Esconde o nome do Workspace na Sidebar */
+    #zen-current-workspace-indicator {
+        display: none !important;
+    }
+
+    /* Nome do Workspace na Sidebar 
+    @media (-moz-bool-pref: "zen.workspaces.hide-default-container-indicator") {
+        #zen-current-workspace-indicator {
+            display: inherit !important;
+            margin-block: -5px !important;
+            margin-block-end: -2px !important;
+            margin-inline-start: -8px !important;
+        }
+
+        #zen-current-workspace-indicator {
+          & #zen-current-workspace-indicator-name {
+            font-size: 12px !important;
+            opacity: 0.5;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: block !important;
+            position: absolute;
+            max-width: calc(100% - var(--zen-toolbox-padding) * 4);
+          }
+        }
+    } */
+
+    /* Usa o ícone de Downloads padrão do Firefox */
+    #downloads-button, 
+    #downloads-indicator-anchor {
+      list-style-image: url('chrome://browser/skin/downloads/downloads.svg') !important;
+    }
+
+    #downloads-button[attention="success"] > .toolbarbutton-badge-stack > #downloads-indicator-anchor > #downloads-indicator-icon {
+      fill: var(--zen-branding-coral) !important;
+      fill-opacity: 1;
+    }
+
+    #downloads-button[attention="success"] > .toolbarbutton-badge-stack > #downloads-indicator-start-box > #downloads-indicator-start-image {
+      stroke: var(--zen-branding-coral) !important;
+    }
+
+    #downloads-indicator-finish-image {
+      fill: var(--zen-branding-coral) !important;
+      fill-opacity: 1;
+      stroke: var(--zen-branding-coral) !important;
+    }
+
+    .subviewbutton:hover {
+      background: color-mix(in srgb, var(--lwt-accent-hover) 30%, transparent) !important;
+    }
+
+    /* Ícone de página do Zen */
+    @media (min-resolution: 1.1dppx) {
+       #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
+           list-style-image: url("icons/brand/zen-identity-icon.svg") !important;
+       }
+    }
+
+
+    /* Connection Security Popup */
+    #identity-popup-multiView toolbarseparator {
+      display: inherit !important;
+    }
+
+    description.identity-popup-connection-secure {
+        margin-left: 5px !important;
+    }
+
+    #identity-popup-securityView-extended-info {
+        margin-top: -10px !important;
+        margin-bottom: 5px !important;
+        margin-left: 34px !important;
+    }
+
+    #spell-check-enabled > label:nth-child(2) {
+        margin-left: -7px !important;
+    }
+
+
+
+/*  ---------------------------------------------------------------------------
+    Botão de Nova Aba (acima da lista de abas abertas) */
+
+    /* Contêiner principal das abas */
+    #tabbrowser-arrowscrollbox {
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important; 
+        position: relative !important;
+        padding-top: 42px !important;
+    }
+
+    /* Botão "New Tab" fixo */
+    #tabbrowser-arrowscrollbox-periphery {
+        position: absolute !important; /* Remove do fluxo normal */
+        top: 0 !important; /* Fixa no topo do contêiner principal */
+        left: 0 !important; /* Alinha à esquerda */
+        width: 97% !important; /* Ocupa toda a largura */
+        z-index: 10 !important; /* Garante que fique acima das abas */
+        height: 40px !important; /* Altura do botão */
+        pointer-events: auto !important; /* Permite cliques no botão */
+    }
+
+
+    /* Área rolável das abas */
+    #tabbrowser-arrowscrollbox > scrollbox {
+        flex-grow: 1 !important; /* Expande para ocupar o espaço disponível */
+        overflow-y: auto !important; /* Habilita rolagem vertical */
+    }
+
+    #tabbrowser-arrowscrollbox-periphery > * { 
+      opacity: 0.5 !important;
+    }
+
+    #tabbrowser-arrowscrollbox-periphery > *:active { 
+      transform: scale(0.95) !important; /* Reduz ligeiramente o tamanho */
+    }
+    #tabbrowser-arrowscrollbox-periphery > *:hover { 
+      border-radius: 10px !important; /* Reduz ligeiramente o tamanho */
+    }
+
+    /* Ícone de Mais */
+    #navigator-toolbox[zen-sidebar-expanded="true"] {
+      & #TabsToolbar-customization-target {
+        & > :not(tabs):not(#search-container):not(#zen-workspaces-button), & #tabbrowser-arrowscrollbox-periphery > toolbarbutton {
+          & image {
+            margin-left:-2px !important;
+            margin-right: 2px !important;
+          }
+        }
+      }
+    }
+
+
+
+/*  ---------------------------------------------------------------------------
+    Abas Fixadas - Pinned Tabs */
+
+    /* Layout de Grid para as Abas Fixadas */
+    #vertical-pinned-tabs-container {        
+      display: grid !important;
+      grid-template-columns:  repeat(auto-fit, minmax(60px, 1fr)) !important; /* NOVO 1.7.2t */
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      scrollbar-width: thin !important;
+      margin-bottom: 8px !important;  
+    }
+
+
+    #vertical-pinned-tabs-container .tab-close-button {
+      display: none !important;
+    }
+    #vertical-pinned-tabs-container .tab-label-container {
+      display: none !important;
+    }
+    #vertical-pinned-tabs-container .tab-icon-image {
+      margin: 0 !important;
+    }
+
+    /* Desativa o botão RELOAD em Abas Fixadas */
+    @media (-moz-bool-pref: "zen.tabs.vertical") {
+      .reset-icon {
+        display: none !important;
+      }
+    }
+
+    /* Container - Pinned Tabs 
+    #vertical-pinned-tabs-container {
+      #tabbrowser-tabs[orient="vertical"] > &:not(:empty) {
+        --pins-width: 60px !important;
+        display: grid;
+        grid-template-columns:  repeat(auto-fit, minmax(var(--pins-width), auto)) !important;
+        gap: 2px !important;                    
+        column-gap: 0px !important; 
+        margin-bottom: 12px !important;  
+        max-height: 244px !important;
+        margin-top: 0px !important; 
+        padding-left: 2px !important;
+      }
+    } */
+
+    #tabbrowser-tabs[orient="vertical"] {
+      & #newtab-button-container {
+        animation: none !important;
+        margin-inline-end: var(--space-medium) !important;
+        flex-direction: column !important;
+      }
+    }
+
+    /* Pinned tabs Height tweak */
+    #vertical-pinned-tabs-container .tab-background {
+      height: 40px !important;
+    }
+
+    /* Tab Height tweak */  
+    @media (-moz-bool-pref: "zen.tabs.vertical") {
+      #tabbrowser-tabs {
+        --tab-block-margin: 3px !important;
+        }
+    }
+
+    @media (-moz-bool-pref: "zen.tabs.vertical") {
+      #navigator-toolbox:is(#navigator-toolbox[zen-user-hover="true"][zen-has-hover], #navigator-toolbox[zen-user-hover="true"]:focus-within, #navigator-toolbox[zen-user-hover="true"][movingtab], #navigator-toolbox[zen-user-hover="true"][flash-popup], #navigator-toolbox[zen-user-hover="true"][has-popup-menu], #navigator-toolbox[zen-user-hover="true"]:has([open="true"]:not(tab):not(#zen-sidepanel-button)), #navigator-toolbox[zen-expanded="true"]:not([zen-user-hover="true"])) {
+        & #tabbrowser-tabs {
+          & .tabbrowser-tab {
+            & .tab-background {
+              --border-radius-medium: 8px !important; /* Pinned Tab Rounded Corners */
+            }
+          }
+        }
+      }
+    }
+
+    /* Hide unloaded pinned tabs when Sidebar is collapsed */
+    @media (not (-moz-bool-pref: "zen.view.sidebar-expanded")) {
+      .tabbrowser-tab[pinned][pending="true"] {
+        position: absolute !important; /* Using position: absolute and visibility: hidden instead of display:none stops the icons of unloaded tabs from loading when sidebar expands */
+        visibility: hidden !important;
+      }
+    }
+
+
+    /* Color - Pinned - Selected */
+    #vertical-pinned-tabs-container .tab-background[selected] {
+        background: var(--lwt-accent-selected)  !important;
+        box-sizing: border-box !important;
+        border:  0px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    }
+
+    /* Color - Pinned - Selected (Hover) */
+    #vertical-pinned-tabs-container .tabbrowser-tab[pinned][selected="true"]:hover .tab-stack .tab-background {
+        background: var(--lwt-accent-hover) !important;
+        box-sizing: border-box !important;
+        border:  1px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    } 
+
+    /* Color - Pinned - Unselected */
+    #vertical-pinned-tabs-container .tab-background:not(:hover):not([selected]):not([multiselected]) {
+        background: var(--lwt-accent-unselected) !important;
+        box-sizing: border-box !important;
+        border:  0px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    } 
+
+    /* Color - Pinned - Unselected (Hover) */
+    #vertical-pinned-tabs-container .tabbrowser-tab[pinned]:hover .tab-stack .tab-background {
+      background: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2)) !important;
+      box-sizing: border-box !important;
+      border:  1px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2))  !important;
+    } 
+
+
+    #vertical-pinned-tabs-container {
+        .tabbrowser-tab[zen-glance-tab="true"] {
+            .tab-background {
+              display: none !important;
+            }
+            .tab-content {
+              padding: 0 !important;
+              padding-left: 4px !important; 
+                .tab-icon-image {
+                    scale: 0.8 !important;
+                    opacity: 0.4 !important;
+                }
+            }
+        }
+    }
+
+    .tabbrowser-tab[zen-glance-tab="true"] {
+        .tab-background {
+            display: none !important;
+        }
+        .tab-content {
+            .tab-icon-image {
+            }
+        }
+    }
+ 
+ 
+
+
+/*  ---------------------------------------------------------------------------
+    Essentials Tabs   */
+
+    #navigator-toolbox[zen-sidebar-expanded="true"] {
+      & #zen-essentials-container {
+        --tab-min-height: 40px !important;
+      }
+    }
+
+    #zen-essentials-container {
+      display: grid !important;
+      grid-template-columns:  repeat(auto-fit, minmax(60px, 1fr)) !important; /* NOVO 1.7.2t */
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      scrollbar-width: thin !important;
+      margin-bottom: 0px !important;
+      gap: 1px !important;
+      transition: max-height 0.3s ease-out !important;
+    }
+
+    /* Color - Essentials - Selected */
+    #zen-essentials-container .tab-background[selected] {
+        background: var(--lwt-accent-selected)  !important;
+        box-sizing: border-box !important;
+        border:  0px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    }
+
+    /* Color - Essentials - Selected (Hover) */
+    #zen-essentials-container .tabbrowser-tab[pinned][selected="true"]:hover .tab-stack .tab-background {
+        background: var(--lwt-accent-hover) !important;
+        box-sizing: border-box !important;
+        border:  1px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    } 
+
+    /* Color - Essentials - Unselected */
+    #zen-essentials-container .tab-background:not(:hover):not([selected]):not([multiselected]) {
+        background: var(--lwt-accent-unselected) !important;
+        box-sizing: border-box !important;
+        border:  0px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2)) !important;
+        box-shadow: none !important; 
+    } 
+
+    /* Color - Essentials - Unselected (Hover) */
+    #zen-essentials-container .tabbrowser-tab[pinned]:hover .tab-stack .tab-background {
+      background: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.2)) !important;
+      box-sizing: border-box !important;
+      border:  1px solid light-dark(rgba(0, 0, 0, 0.2),rgba(255,255, 255, 0.2))  !important;
+    } 
+
+
+
+
+/*  ---------------------------------------------------------------------------
+    Abas Abertas   */
+
+    /* Tab border radius */
+    #tabbrowser-tabs[orient="vertical"] {
+      & .tab-background {
+        border-radius: 10px !important;
+        margin-inline: var(--tab-inner-inline-margin);
+      }
+    }
+
+     
+    /* Esconde o botão de Fechar Aba - Ativa somente em mouseover */
+    .tab-close-button {
+        margin-inline-end: calc(var(--inline-tab-padding) / -15) !important;
+        width: 24px !important;
+        height: 24px !important;
+        padding: 6px !important;
+    }
+    
+    /* Corrige o alinhamento do texto das abas */
+    .tab-label-container {
+        #tabbrowser-tabs:not([secondarytext-unsupported]) & {
+            height: 2.7em;
+            margin-left: 2px !important;
+        }
+    }
+
+    /* Desativa SHADOWS em abas abertas */
+    #tabbrowser-tabs .tabbrowser-tab .tab-background {
+        box-shadow: none !important;
+    }
+
+    .tab-label-container {
+      margin-top: -1px !important;
+    }
+
+    /* Color - Normal Tab - Selected */
+    .tab-background[selected] {
+        background: color-mix(in srgb, white 80%, transparent 0%) !important;
+    } 
+    
+    /* Color - Normal Tab - Selected (Hover) */
+    .tabbrowser-tab[selected]:hover .tab-stack .tab-background {
+        background: color-mix(in srgb, white 100%, transparent 70%) !important;
+    }
+
+    /* Color - Normal Tab - Unselected (Hover) */
+    .tabbrowser-tab:hover .tab-stack .tab-background {
+        background: color-mix(in srgb, white 0%, black 6%) !important;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        /* Dark - Color - Normal Tab - Selected */
+        .tab-background[selected] {
+            background: color-mix(in srgb, var(--lwt-accent-selected) 40%, transparent 0%) !important;
+        } 
+
+        /* Dark - Color - Normal Tab - Selected (Hover) */
+        .tabbrowser-tab[selected]:hover .tab-stack .tab-background {
+            background: color-mix(in srgb, var(--lwt-accent-selected) 100%, transparent 50%) !important;
+        }
+
+        /* Dark - Color - Normal Tab - Unselected (Hover) */
+        .tabbrowser-tab:hover .tab-stack .tab-background {
+            background: color-mix(in srgb, var(--lwt-normal-hover) 100%, transparent 0%) !important;
+        }
+    }
+
+    /* Ajustes - Multiselected */
+    .tab-background {
+      position: relative;
+
+      &:is([multiselected]) {
+        background: light-dark(
+          color-mix(in srgb, transparent 0%, black 6%),
+          color-mix(in srgb, transparent 0%, white 10%)
+        ) !important;
+
+        &::before {
+          content: ""; 
+          position: absolute; 
+          width: 3px; 
+          height: 10px; 
+          background-color: light-dark(black, white) !important;
+          border-radius: 5px 5px 5px 5px; 
+          margin-left: 1px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+      &:not([multiselected])::before {
+        content: none; /* Garante que o indicador não apareça quando não multiselected */
+      }
+    }
+
+
+
+/*  ---------------------------------------------------------------------------
+    Tab Group - Experimental - Requires flag: browser.tabs.groups.enabled
+
+    Moved to separated CSS file.
+
+    */
+
+
+
+/*  ---------------------------------------------------------------------------
+    Zen Glance    */
+
+    .zen-glance-background {
+      transform: scale(0.98) !important;
+      backdrop-filter: blur(15px) !important;
+      opacity: 0.2 !important;
+    }
+
+
+
+
+/*  ---------------------------------------------------------------------------
+    Controles dos Workspaces    */
+
+    /* Ajustes de Posição e Opacidade dos ícones de controle dos Workspaces */
+    #zen-workspaces-button {
+      &:not([as-button="true"]) {
+        & toolbarbutton {
+          & > * {
+            opacity: 1 !important;
+            margin-bottom: 3px !important;
+          }
+        }
+      }
+    }
+
+    #PanelUI-zen-workspaces-new, #PanelUI-zen-workspaces-reorder-mode, #PanelUI-zen-gradient-generator-color-custom-add {
+      min-height: 1px !important;
+      padding: 3px !important;
+      border-radius: 4px;
+      width: 30px !important;
+      height: 30px !important;
+    }
+
+    #PanelUI-zen-workspaces-list toolbarbutton {
+      &.zen-workspace-button[active="true"] .zen-workspace-icon::before {
+        background-color: transparent !important;
+      }
+    }
+
+    #PanelUI-zen-workspaces-header {
+      margin-top: 8px !important;   
+    }
+
+    #PanelUI-zen-workspaces-list toolbarbutton {
+      &[data-usercontextid] .zen-workspace-icon {
+        background-color: color-mix(in srgb, var(--identity-tab-color) 30%, transparent 60%);
+      }
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Zen Web Panel   */
+
+    /* Zen Web Panel adjustments */
+    
+    #zen-sidebar-web-panel {
+    border-radius: 8px !important;
+      margin-top: 0px !important;
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      margin-bottom: 0px !important;
+      border: 1px solid light-dark(rgb(216, 216, 216), var(--lwt-border)) !important;
+      box-sizing: unset !important;
+      box-shadow: none !important;
+      background-color: white !important;
+        
+      /* Future adjustments, if necessary*/
+      opacity: 0;
+      animation-delay: 0.1s !important;
+      flex-direction: column;
+      min-width: var(--zen-default-sidebar-width);
+      max-width: 720px;
+      min-height: var(--zen-default-sidebar-width);
+      width: calc(var(--zen-default-sidebar-width) + 200px);
+      pointer-events: all;
+      height: calc(100% - 20px);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        #zen-sidebar-web-panel {
+            background: rgb(40, 40, 40) !important;
+        }
+    }
+
+    #zen-sidebar-web-header {
+      /* background: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                             color-mix(in srgb, var(--lwt-accent-color) 100%, black 60%))  !important; */
+
+      animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #zen-sidebar-panels-wrapper {
+        border-top-width: 1px !important;
+        border-bottom-width: 0px !important;
+        /* background: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                               color-mix(in srgb, var(--lwt-accent-color) 100%, black 60%))  !important; */
+
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #zen-sidebar-web-panel-splitter {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 4px !important;
+        background: transparent;
+        border: none;
+        cursor: ew-resize;
+    }
+
+    #vertical-pinned-tabs-container-separator {
+      display: none !important;
+        margin-top: 0px !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Ajustes no Modo Compacto   */
+
+    @media (-moz-bool-pref: "zen.tabs.vertical") {
+      #navigator-toolbox:is(#navigator-toolbox[zen-user-hover="true"][zen-has-hover], #navigator-toolbox[zen-user-hover="true"]:focus-within, #navigator-toolbox[zen-user-hover="true"][movingtab], #navigator-toolbox[zen-user-hover="true"][flash-popup], #navigator-toolbox[zen-user-hover="true"][has-popup-menu], #navigator-toolbox[zen-user-hover="true"]:has([open="true"]:not(tab):not(#zen-sidepanel-button)), #navigator-toolbox[zen-expanded="true"]:not([zen-user-hover="true"])) {
+        & #vertical-pinned-tabs-container:has(tab:not([hidden])) {
+          &::after {
+            bottom: -6px;
+            content: '';
+            display: block;
+            height: 0px !important;
+            background: none !important;
+            width: 99%;
+            left: 50%;
+            transform: translateX(-50%);
+            position: absolute;
+          }
+        }
+      }
+    }
+
+      @media (-moz-bool-pref: "zen.tabs.vertical") {
+        #browser {
+          --zen-toolbox-padding: 5px !important;
+        }
+      }
+
+      /* Compact Sidebar Pinned Tabs Position Adjustments */
+      @media (-moz-bool-pref: "zen.tabs.vertical") {
+        #navigator-toolbox:not(#navigator-toolbox:is(#navigator-toolbox[zen-user-hover="true"][zen-has-hover], #navigator-toolbox[zen-user-hover="true"]:focus-within, #navigator-toolbox[zen-user-hover="true"][movingtab], #navigator-toolbox[zen-user-hover="true"][flash-popup], #navigator-toolbox[zen-user-hover="true"][has-popup-menu], #navigator-toolbox[zen-user-hover="true"]:has([open="true"]:not(tab):not(#zen-sidepanel-button)), #navigator-toolbox[zen-expanded="true"]:not([zen-user-hover="true"]))) {
+          & #tabbrowser-tabs {
+            & #vertical-pinned-tabs-container {
+               margin-left: 0px !important;
+            }
+          }
+        }
+      }
+
+
+/*  ---------------------------------------------------------------------------
+    Ponto de Atenção - Attention Dot   */
+        
+    * {
+        --attention-dot-color: AccentColor !important;
+    }
+    .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]), #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab > .tab-stack > .tab-content[titlechanged]:not([selected]) {
+        background-image: radial-gradient(circle, var(--attention-dot-color), var(--attention-dot-color) 2px, transparent 2px) !important;
+        background-position: left top 20px !important;
+    }
+    .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), .tabbrowser-tab[pinned] > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]), #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab[pinned] > .tab-stack > .tab-content[titlechanged]:not([selected]) {
+        background-image: radial-gradient(circle, var(--attention-dot-color), var(--attention-dot-color) 2px, transparent 2px) !important;
+        background-position: center bottom 5.5px !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Indicador de Som - Abas   */
+
+    @-moz-document url-prefix("chrome:") {
+      
+      /* 1.7.5t - Color fix */
+      .tab-icon-overlay {
+        &:not([crashed]) {
+          &:is([soundplaying], [muted], [activemedia-blocked]) {
+            filter: none !important;
+          }
+        }
+      }
+      
+        .tab-icon-overlay {
+            opacity: 1 !important;
+            margin: initial !important;
+            border: none !important;
+            margin-right: 28px !important;
+            transform: translate(120%, 50%) scale(1.2) !important;
+            fill: light-dark(rgb(57, 57, 58), white) !important;
+            background-color: transparent !important;
+            transition: 0.3s !important;
+        }
+
+        .tab-icon-overlay:is([soundplaying], [muted]):not([selected]) {
+            display: block !important;
+        }
+
+        /* Hide sound labels */
+        .tab-icon-sound-label,
+        .tab-icon-sound-playing-label {
+            display: none !important;
+        }
+
+        /* Mute button on Pinned Tabs */
+        .tabbrowser-tab[pinned] {
+            .tab-icon-overlay:is([soundplaying], [muted]) {
+            opacity: 1 !important;
+            margin: initial !important;
+            border: none !important;
+            transform: translate(20%, 20%) scale(1.2) !important;
+            fill: light-dark(color-mix(in srgb, rgb(57, 57, 58) 100%, transparent 0%),
+            color-mix(in srgb, white 100%, transparent 0%)) !important;
+            background-color: transparent !important;
+            transition: 0.3s !important;
+            }
+        }
+
+        #tabbrowser-tabs[orient='vertical'] .tabbrowser-tab .tab-icon-overlay:not([crashed]) {
+            &:is([soundplaying], [muted], [activemedia-blocked]) {
+            background-color: transparent !important;
+            border: none !important;
+            transition: transform 100ms ease-in-out, background-color 100ms ease-in-out;
+
+            &:hover {
+            transition: transform 100ms ease-in-out, background-color 100ms ease-in-out !important;
+            transform: scale(1.3) translate(-8%, 14%);
+            transform-origin: center !important;
+            }
+        }
+
+        &[muted] {
+            /* Different background color when muted */
+            /* Revert old icon */
+            background-image: url("chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg") !important;
+            fill: rgb(251, 70, 94) !important;
+        }
+
+        &[soundplaying] {
+            /* Revert old icon */
+            background-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;
+        }
+
+        &[activemedia-blocked] {
+            /* Revert old icon */
+            background-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
+        }
+
+        /* Revert new, zen's audio indicator */
+        &[muted],
+        &[soundplaying],
+        &[activemedia-blocked] {
+            list-style-image: none !important;
+        }
+    }
+
+
+
+
+/*  ===================================
+    5   BARRA DE ENDEREÇOS - URLBAR
+    =================================== */
+
+    #urlbar[breakout-extend='true'] {
+      position: fixed !important;
+    }
+
+    .urlbarView-title {
+      white-space: nowrap;
+      line-height: 1.4 !important;
+      font-size: 1.1em !important;
+    }
+
+
+    #urlbar-background {
+          background-color:  var(--lwt-urlbar-bg) !important;
+    }
+
+    #urlbar-background {
+      border: none !important;
+      background-color:  light-dark(
+                               color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                               color-mix(in srgb, var(--lwt-accent-color) 100%, black 20%)) 
+                             !important;
+      box-shadow: none !important;
+    }
+
+    #urlbar[breakout-extend="true"] {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+      
+      #urlbar-container:has(&) {
+        border-radius: 10px !important;
+        height: 38px !important;
+        background: none !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
+      }
+    }
+
+    /* Controla a exibição de botões na URLBAR compacta e expandida /*
+    #identity-permission-box, #translations-button, #reader-mode-button  {
+      display: none !important;
+    }
+    #urlbar[breakout-extend="true"] {
+      #identity-icon-box, #identity-permission-box, #translations-button, #reader-mode-button, #tracking-protection-icon-container, #picture-in-picture-button, #star-button-box {
+         display: inherit !important;
+         margin-inline: 4px !important;
+         transform: scale(1.2) !important;
+      }
+      
+        .urlbarView-url {
+         font-size: 1.1rem !important;
+         margin-top: -1px !important;
+      }
+    }*/
+
+        #identity-permission-box {
+            display: none !important;
+        }
+        
+        #identity-box[pageproxystate="invalid"] {
+            & > #identity-permission-box {
+                display: none !important;
+            }
+        }
+        
+        #urlbar[breakout-extend="true"] {
+            #identity-permission-box {
+                display: inherit !important;
+            }
+            
+            #identity-icon-box {
+                display: inherit !important;
+                margin-inline: 4px !important;
+                transform: scale(1.2) !important;
+            }
+            
+             #translations-button, #reader-mode-button, #tracking-protection-icon-container, #picture-in-picture-button, #star-button-box {
+                margin-inline: 4px !important;
+                transform: scale(1.2) !important;
+            }
+            
+            #password-notification-icon {
+                margin-top: 4px !important;
+                margin-left: 6px !important;
+                transform: scale(1.4) !important;
+            }
+        }
+        
+
+   
+    #urlbar:not([focused="true"]):not([breakout-extend="true"]) > #urlbar-background {
+      background: none !important;
+      backdrop-filter: none !important;
+    }
+
+    #urlbar[breakout-extend] #urlbar-background {
+      transition: all 0.1s linear !important;
+    }
+
+    .urlbarView-body-inner {
+      #urlbar[open] > .urlbarView > .urlbarView-body-outer > & {
+        border-top: 0px solid var(--urlbarView-separator-color) !important;
+      }
+    }
+    .urlbarView:not([noresults]) > .search-one-offs:not([hidden]) {
+      border-top: 0px solid var(--urlbarView-separator-color) !important;
+    }
+
+    /*? hide search one offs */
+    @media not (-moz-bool-pref: "shimmer.show-search-one-offs") {
+      .search-one-offs {
+        display: none !important;
+      }
+    }
+
+    .urlbarView-results {
+      padding-block: unset !important;
+      margin-left: 0px !important;
+      margin-bottom: 5px !important;
+      white-space: nowrap;
+    }
+
+    .urlbarView-action {
+      display: none !important;
+    }
+
+    #urlbar {
+      background-color:  light-dark(color-mix(in srgb, white 0%, transparent 80%), 
+                                    color-mix(in srgb, black 0%, transparent 80%)) !important;
+      margin-top: 0 !important;
+      margin-left: 0px !important;
+      margin-right: 3px !important;
+      border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
+      border-radius: 10px !important;
+    }
+
+    #urlbar[open] {
+      & #urlbar-background {
+         background-color: light-dark(color-mix(in srgb, white 100%, transparent 20%), 
+                                      color-mix(in srgb, black 100%, transparent 20%)) !important;
+        box-shadow: 0 10px 40px 10px rgba(0,0,0,0.05) !important;
+        outline: none !important;
+        outline-offset: none !important;
+        backdrop-filter: blur(30px) !important;
+      }
+    }
+    
+    #urlbar[open] {
+      margin-top: 15vh !important;
+      margin-bottom: 15vh !important;
+    }
+
+    #translations-button-circle-arrows {
+      display: none !important;
+    }
+    #translations-button-locale {
+      display: none !important;
+    }
+
+    .urlbarView-title {
+      color: light-dark(black,white) !important;
+      font-size: 16px !important;
+      font-weight: 500 !important;
+    }
+
+    .urlbarView-url {
+      color: light-dark(black,white) !important; 
+      opacity: 0.5 !important;
+    }
+
+    /* Not Secure webpage label on URLBar */
+    .notSecure {
+      margin-left: -2px !important;
+      margin-right: 6px !important;
+    }
+    .notSecure #identity-icon-box {
+      border-radius: 7px !important;
+      background: light-dark(color-mix(in srgb, var(--lwt-urlbar-bg) 0%, red 30%), 
+                             color-mix(in srgb, var(--lwt-urlbar-bg) 100%, black 40%)) !important;
+      margin-left: 3px !important;
+    }
+    #identity-icon-label {
+      display: none !important;
+    }
+    #zen-split-views-button {
+      fill: light-dark(black, white) !important;
+    }
+
+    /* Expanded URLBar - Bigger URL Text */
+    #urlbar[breakout-extend] #urlbar-input {
+      font-size: 1.3rem !important;
+      margin-top: -2px !important;
+    }
+
+    .urlbarView-favicon {
+      fill: light-dark(black,white) !important;
+    }
+
+    .urlbarView-title-separator {
+      display: none !important;
+    }
+
+    .urlbarView-row {
+      border-radius: 10px !important;
+      margin-inline: 2px !important;
+    }
+
+    .urlbarView-row:hover {
+      background: color-mix(in srgb, var(--lwt-accent-hover) 20%, transparent 80%) !important;
+      border-radius: 10px !important;
+      margin-inline: 2px !important;
+    }
+        
+    #urlbar:not([extend="true"]) #identity-box #identity-icon-box {
+      margin-right: 3px !important;
+    }
+        
+   #star-button[starred] {
+      fill-opacity: 1;
+      fill: color-mix(in srgb, var(--toolbarbutton-icon-fill-attention) 100%, black 10%) !important;
+    }
+    
+    /* Altera o Identity Icon na URL Bar para o novo ícone do Zen */
+    #identity-box[pageproxystate="valid"].chromeUI #identity-icon {
+      list-style-image: url(icons/brand/zen-identity-icon.svg) !important;
+    }
+      
+      #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
+        width: 14px !important;
+      }
+
+
+
+/*  ===================================
+    6   ZEN MODS INCORPORADOS
+    =================================== */
+
+/*  ---------------------------------------------------------------------------
+    Old Navigation Buttons - by Osmagtor - v1.0.0
+    Exibe os botões padrão do Firefox - Avançar, Retroceder e Atualizar 
+
+    #back-button {
+      list-style-image: url("chrome://browser/skin/back.svg") !important;
+    }
+    #forward-button {
+      list-style-image: url("chrome://browser/skin/forward.svg") !important;
+    }
+    #reload-button {
+      list-style-image: url("chrome://global/skin/icons/reload.svg") !important;
+    } */
+
+
+/*  ---------------------------------------------------------------------------
+    Only Close on Hover - by p-sw - v1.0.0
+    Exibe o botão de Fechar Aba somente em mouseover na aba selecionada */
+
+    #tabbrowser-tabs .tabbrowser-tab:not([pinned]):is([visuallyselected]):not(:hover) .tab-close-button {
+      display: none !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    No Scrollbox in Sidebar - by mally8 - v1.0.2
+    Esconde a scrollbar na Sidebar */
+    
+    scrollbox:nth-child(5) {
+      scrollbar-width: none !important;
+    }
+    
+
+/*  ---------------------------------------------------------------------------
+    Colored Container Tab - by ocean-mars - v1.0.0
+    Exibe uma borda com a cor do container em abas abertas */
+
+    .tab-context-line {
+      display: none !important;
+    }
+    #tabbrowser-tabs { 
+      & .tabbrowser-tab { 
+        &[selected] .tab-background { 
+          border: 2px solid var(--identity-icon-color) !important; 
+          opacity: 0.8 !important;
+        }
+      }
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Cleaner Extension Menu - v1.0.0
+    Remodela o menu de Extensões */
+    
+    #unified-extensions-description {
+      display: none !important;
+    }
+    #unified-extensions-panel #unified-extensions-view {
+        width: 100% !important;  /*  For firefox v115.x */
+    }
+    #unified-extensions-view{
+        --uei-icon-size: 15px; /*  Change icon size */
+        --firefoxcss-number-of-extensions-in-a-row: 3; /*  Increase to the number of icons you want in one row */
+    }
+    #unified-extensions-view .panel-header,
+    #unified-extensions-view .panel-header + toolbarseparator,
+    #unified-extensions-view .panel-subview-body + toolbarseparator,
+    #unified-extensions-view #unified-extensions-manage-extensions,
+    #unified-extensions-view .unified-extensions-item-menu-button.subviewbutton,
+    #unified-extensions-view .unified-extensions-item-action-button .unified-extensions-item-contents {
+        display: none !important;
+    }
+    #unified-extensions-view .panel-subview-body {
+        padding: 4px !important;
+        padding-bottom: 8px !important;
+    }
+    #unified-extensions-view .unified-extensions-item .unified-extensions-item-icon, 
+    #unified-extensions-view .unified-extensions-item .toolbarbutton-badge-stack {
+        margin-inline: -10px !important;
+        padding: 5px !important;
+    }
+    #unified-extensions-view #overflowed-extensions-list,
+    #unified-extensions-view #unified-extensions-area,
+    #unified-extensions-view .unified-extensions-list {
+        display: grid !important;
+        grid-template-columns: repeat(var(--firefoxcss-number-of-extensions-in-a-row),auto);
+        justify-items: center !important;
+        align-items: center !important;
+    }
+    #unified-extensions-view .unified-extensions-list .unified-extensions-item,
+    #unified-extensions-view .unified-extensions-list{
+         max-width: max-content;
+    }
+    #unified-extensions-view {
+        & .unified-extensions-item {
+            border-radius: var(--arrowpanel-menuitem-border-radius);
+        }
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Dim Unloaded Tabs - by Felkazz - v1.0.0
+    Exibe as abas descarregadas com opacidade reduzida */
+
+    .tabbrowser-tab[pending="true"] {
+        & .tab-icon-stack, .tab-label-container {
+            filter: grayscale(1);
+            opacity: 0.4;
+        }
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Hide Extension Name from URL Bar - by ch4og - v1.0.0
+    Esconde o nome das extensões da barra de endereços */
+
+    #urlbar #identity-box.extensionPage #identity-icon-label {
+        display: none !important;
+    }
+
+
+/*  ---------------------------------------------------------------------------
+    Zen Context Menu - by KiKaraage - v1.1.0
+    REMOVIDO - REQUER INSTALAÇÃO DO MOD 
+
+    menu>.menu-iconic-text,
+    menuitem>.menu-iconic-text {
+        padding-inline-start: calc(var(--fp-contextmenu-menuicon-margin-inline) - 10px) !important;
+    }
+    menuitem[checked="true"]>.menu-iconic-text {
+        padding-inline-start: 10px !important;
+    }
+    #zen-toolbar-context-tabs-right {
+        padding-inline-start: 34px !important;
+    }
+    #zen-toolbar-context-tabs-right[checked="true"] {
+        padding-inline-start: 8px !important;
+    }
+    #zen-context-menu-compact-mode {
+        padding-inline-start: calc(var(--fp-contextmenu-menuitem-padding-inline) + 18px + var(--fp-contextmenu-menuicon-margin-inline)) !important;
+    }
+    #zen-context-menu-compact-mode-hide-sidebar,
+    #zen-context-menu-compact-mode-hide-toolbar,
+    #zen-context-menu-compact-mode-hide-both {
+         padding-inline-start: 40px !important;
+    }
+    #zen-context-menu-compact-mode-hide-sidebar[checked="true"],
+    #zen-context-menu-compact-mode-hide-toolbar[checked="true"],
+    #zen-context-menu-compact-mode-hide-both[checked="true"] {
+        padding-inline-start: 16px !important;
+        & .menu-iconic-text {
+            padding-inline-start: 2px !important;
+        }
+    } 
+    */
+
+        
+/*  ---------------------------------------------------------------------------
+    Floating Status Panel
+    Barra de status no canto inferior esquerdo da tela  */
+        
+    #statuspanel {    
+        margin: 10px !important;  
+    }    
+    #statuspanel-label {    
+        border-radius: 8px !important;   
+        padding: 2px 10px !important;    
+        border: 1px solid var(--zen-colors-border) !important;    
+        background: light-dark(white, black) !important;  
+    } 
+
+
+
+        
+/*  ===========================================================
+    7   PAINEL LATERAL - HISTÓRICO, BOOKMARKS e SYNCED TABS
+    =========================================================== */
+
+    window.sidebar-panel {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                                     color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%))  !important;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    search-textbox#search-box {
+        appearance: none !important;
+        background-color: var(--zen-colors-tertiary) !important;
+        border: 1px solid var(--zen-colors-border) !important;
+        padding: 0.5rem !important;
+        border-radius: 5px !important;
+    }
+
+    search-textbox#search-box:hover {
+        border: 1px solid var(--zen-colors-secondary) !important;
+    }
+
+    search-textbox#search-box:hover:active {
+        border: 1px solid var(--zen-colors-secondary) !important;
+    }
+
+    button#viewButton {
+        appearance: none;
+        color: inherit;
+        background-color: transparent !important;
+        border-radius: var(--toolbarbutton-border-radius);
+        border: 1px solid transparent !important;
+    }
+
+    button#viewButton:hover {
+        background-color: var(--zen-colors-border) !important;
+    }
+
+    button#viewButton:hover:active {
+        background-color: var(--zen-colors-border) !important;
+    }
+
+    #sidebar-box #sidebar-header {
+        border-bottom: 0px !important; 
+    }
+
+    #sidebar-box[sidebarcommand="viewHistorySidebar"] {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                                     color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%))  !important;
+        border-radius: var(--zen-border-radius);
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
+        box-shadow: 0 0 0 0 !important;
+        padding: var(--zen-toolbox-padding) !important;
+        margin-right: -2px !important;
+        margin-bottom: 1px !important;
+        transition: all 0.2s ease-in-out;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #sidebar-box[sidebarcommand="viewBookmarksSidebar"] {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                                     color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%))  !important;
+        border-radius: var(--zen-border-radius);
+        box-shadow: 0 0 0 0 !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
+        padding: var(--zen-toolbox-padding) !important;
+        margin-right: -2px !important;
+        margin-bottom: 1px !important;
+        transition: all 0.2s ease-in-out;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #sidebar-box[sidebarcommand="viewTabsSidebar"] {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                                     color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%))  !important;
+        border-radius: var(--zen-border-radius);
+        box-shadow: 0 0 0 0 !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important; 
+        padding: var(--zen-toolbox-padding) !important;
+        margin-right: -2px !important;
+        margin-bottom: 1px !important;
+        transition: all 0.2s ease-in-out;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+        
+    #sidebar-box[sidebarcommand="viewGenaiChatSidebar"] {
+        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
+                                     color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%))  !important;
+        border-radius: var(--zen-border-radius);
+        box-shadow: 0 0 0 0 !important;
+        border: 1px solid color-mix(in srgb, black 10%, white 10%) !important; 
+        padding: var(--zen-toolbox-padding) !important;
+        margin-right: -2px !important;
+        margin-bottom: 1px !important;
+        transition: all 0.2s ease-in-out;
+        animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+        
+     #header {
+       display: none !important;
+     }
+        
+        
+        
+
+/*  ===========================================
+    8   PRINT Dialog
+    =========================================== */
+        
+        vbox.dialogTemplate:nth-child(2) {
+            backdrop-filter: blur(20px) !important;
+        }
+        
+    .header-container {
+        background-color: light-dark(white,rgb(40, 40, 40)) !important;
+        padding-top:  35px !important;
+        padding-bottom: 20px !important;
+        margin-bottom: -1px !important;
+        
+        h2 {
+          font-size: 2em !important;
+          font-weight: bold !important; 
+        }
+        #sheet-count {
+          margin-top: 5px !important;
+        }
+      }
+        
+        .printDialogBox {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); 
+        }
+
+    #print {
+        background: light-dark(white,rgb(40, 40, 40)) !important;
+        
+        #printer-picker {
+          border-radius: 8px !important;
+        }
+
+        #copies-count {
+          width: 60px !important;
+          height: 30px !important;
+          border-radius: 8px !important;
+        }
+        input[type="number"]::-moz-number-spin-up, input[type="number"]::-moz-number-spin-down {
+          height: 12px !important;
+        }
+        .toggle-group-input:checked + .toggle-group-label {
+          background-color: var(--lwt-button-color) !important;
+          color: var(--in-content-primary-button-text-color);
+          border-radius: 8px !important;
+          margin-inline-end: var(--space-medium) !important;
+        }
+
+        #destination {
+          select {
+            color: var(--in-content-button-text-color) !important;
+            border: 1px solid var(--lwt-border) !important;
+            border-radius: 8px !important;
+            background-color: var(--lwt-button-color) !important;
+          }
+        }
+
+        #settings {
+          grid-column: 1 / -1 !important;
+          display: grid !important;
+          grid-template-columns: 100px 1fr !important;
+          margin-inline: 15px !important;
+          grid-row-gap: 10px !important;
+
+            .label {
+              font-weight: bold !important;
+            }
+
+            .block-label, .orientation-label {
+              margin-top: 9px !important;
+            }
+
+            #copies,
+            #orientation,
+            #pages,
+            #color-mode {
+              display: contents !important;
+            }
+
+            hr {
+              margin-top: 15px !important;
+              margin-inline: 0px !important;
+              grid-column: 1 / -1 !important;
+            }
+
+          #more-settings {
+            grid-column: 1 / -1 !important; /* Ocupa as duas colunas */
+            grid-template-columns: 100px 1fr !important; /* Define um novo grid interno */
+            grid-row-gap: 15px !important; /* Espaçamento entre as linhas */
+            margin-inline: -12px !important;
+
+            #paper-size,
+            #scale,
+            #pages-per-sheet,
+            #margins-select,
+            #two-sided-printing,
+            #source-version-section,
+            #more-settings-options {
+               display: grid !important;
+               grid-template-columns: 120px 1fr !important; /* Define um novo grid interno */
+               grid-row-gap: 10px !important;
+            }
+          }
+
+          select {
+              color: light-dark(black,white) !important;
+              border: 1px solid var(--lwt-border) !important;
+              border-radius: 8px !important;
+              background-color: var(--lwt-button-color) !important;
+          }
+          select:hover {
+              color: light-dark(black,white) !important;
+              border: 1px solid var(--lwt-border) !important;
+              border-radius: 8px !important;
+              background-color: var(--lwt-button-color-hover) !important;
+          }
+        }
+    }
+
+      #system-print {
+        a {
+            cursor: pointer;
+            color: light-dark(black, white) !important;
+        }
+        a:hover {
+            color: var(--in-content-button-text-color) !important;
+        }
+    }
+
+    .toolbarCenter {
+      padding: 0 25px !important;
+      margin-inline: 5px !important;
+      border: none !important;
+    } 
+    .toolbarButton, .toolbarCenter {
+      margin-inline: 2px !important;
+      border-inline-end: none !important;
+      border-block: none !important;
+      background-color: transparent;
+    }
+    .container {
+      padding-inline: 3px !important;
+      padding-block: 5px !important;
+      border-radius: 8px !important;
+      background-color: light-dark(white, black) !important;
+      border-style: none;
+    }
+    .container::before {
+      background-color: transparent !important;
+    }
+        
+    summary::before {
+        content: url('icons/winui/plus.svg') !important;
+        margin-right: 5px !important;
+        display: inline-block !important;
+    }
+        
+        
+        
+        
+        
+        
+
+/*  ===========================================
+    9   ABOUT Dialog
+    =========================================== */
+
+      @-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
+                 
+          #aboutDialogContainer {
+              display: inherit !important;
+              height: 100% !important;
+              width: -moz-available !important;
+          }
+          
+          .text-link {
+            text-decoration: none !important;
+          }
+          
+          /* Zen Logo */
+          #rightBox {
+              -moz-context-properties: fill !important;
+              fill: currentColor !important;
+              background-image: url("icons/brand/zen-wordmark.svg") !important;
+              background-size: 260px auto !important;
+              
+              margin-top: 25px !important;
+              margin-left: 100px !important;
+              padding-top: 50px !important;
+          }
+          
+          #leftBox {
+            position: fixed !important;
+            padding-left: 0px !important;
+            align-items: center !important;
+              
+            background-image: url('icons/brand/zen-identity-icon.svg') !important;
+            background-repeat: no-repeat;
+            background-size: 50px !important;
+              
+            background-position: left 1px !important;
+            margin-top: 20px;
+          }
+          
+          #detailsBox {
+              margin-top: 0px !important;
+              margin-left: 0px !important;
+            }
+          
+          
+          /* Dark Mode Ajustments */
+          @media (prefers-color-scheme: dark) {
+            #aboutDialogContainer {
+              background-color: rgb(40, 40, 40) !important;
+              color: white !important;
+              color-scheme: light !important;
+            }
+
+            #warningDesc {
+              color: #F76F53 !important;
+              font-weight: bold !important;
+            }
+
+            .text-link:hover {
+              color: rgb(195, 88, 65) !important;
+            }
+            #bottomBox  {
+                background-color: rgb(55, 55, 55) !important;
+                padding: 15px 0px 15px !important;
+            }
+          }
+        
+          
+          /* Light Mode Ajustments */
+          @media (prefers-color-scheme: light) {
+            #aboutDialogContainer {
+              background-color: rgb(255 255 255) !important;
+              color: black !important;
+              color-scheme: light !important;
+            }
+
+            #warningDesc {
+              color: red !important;
+              font-weight: bold !important;
+            }
+
+            .text-link:hover {
+              color: rgb(195, 88, 65) !important;
+            }
+              
+            /* Bottom Box */
+            #bottomBox  {
+                background-color: rgb(247, 247, 247) !important;
+                padding: 15px 10px 15px !important;
+
+                > hbox {
+                position: fixed !important;
+                padding-left: 70px !important;
+                color: white !important;
+                }
+                
+                .text-link {
+                  color: black !important;
+                }
+                
+                .text-link:hover {
+                  color: #f76f53 !important;
+                }
+            }
+          }
+
+
+
+          .bottom-link {
+            text-align: left !important;
+            margin-inline: 20px !important;
+          }
+
+          #releasenotes {
+            font-weight: bold !important;
+          }
+       
+          #updateInfo {
+            display: grid;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            grid-column-start: 3 !important;
+            grid-column-end: 3;
+            grid-template-rows: subgrid;
+            grid-template-columns: subgrid;
+          }
+
+          #detailsBox {
+            margin-top: 20px !important;
+            margin-left: 0px !important;  
+          }
+      }
+
+
+/*  ===========================================
+    10   LIBRARY Window 
+    =========================================== */
+
+    @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+    #places {
+        menupopup, panel {
+          @media (-moz-platform: linux) or (-moz-platform: windows) {
+            {
+              --panel-shadow-margin: 0px !important;
+            }
+          }
+        }
+        
+        /* Cores principais */
+        #placesToolbar {
+            background-color: light-dark(white, black) !important;
+            border-bottom: 1px solid light-dark(rgb(219, 219, 219), black) !important;
+        }
+        #placesList {
+            background-color: light-dark(rgb(246, 246, 246), rgb(46, 48, 47)) !important;
+        }
+        
+        #placesView > splitter { /* Borda direita da sidebar */
+          border-inline-end: 1px solid light-dark(rgb(219, 219, 219), black) !important;
+        }
+        
+        /* Caixa direita - Conteúdo */
+        richlistbox {
+            margin: 2px 4px;
+            background-color: Field;
+            color: FieldText;
+            border: none !important;
+        }
+        
+        /* Menu Superior */
+        
+        #placesMenu {
+            margin-left: 15px !important;
+        }
+       
+        #organizeButton {
+            list-style-image: url("icons/winui/organize.svg") !important;
+        }
+        
+        #placesMenu > menu > image {
+            -moz-context-properties: fill;
+            fill: currentColor;
+            width: 18px !important;
+        }
+        
+        #clearDownloadsButton:hover {
+            border-radius:8px !important;
+        }
+        
+        #clearDownloadsButton > image:nth-child(1) {
+            list-style-image: url("icons/winui/close.svg") !important;
+            -moz-context-properties: fill;
+            fill: currentColor;
+            width: 20px !important;
+            margin-right: 5px !important;
+        }
+        
+        #searchFilter {
+            min-width: 200px !important;
+            border-radius: 6px !important;
+            background-color: light-dark(white, black) !important;
+            border: 1px solid color-mix(in srgb, gray 30%, transparent 30%) !important;
+        }
+        
+        #detailsPane {
+          background-color: light-dark(white, black) !important;
+          color: var(--organizer-color);
+          border-top: 1px solid var(--organizer-border-color);
+        }
+        
+        menu {
+          border-radius: 8px !important;
+          align-items: center;
+          flex-shrink: 0;
+          list-style-image: none;
+          max-width: 42em;
+          padding: 6px 5px !important;
+        }
+        
+        
+        #editBookmarkPanelContent {
+          display: flex !important;
+          flex-direction: column !important;
+            max-width: 500px !important;
+        }
+        
+        label.editBMPanel_locationRow,
+        label.editBMPanel_tagsRow,
+        label.editBMPanel_keywordRow {
+            align-self: initial !important;
+        }
+        
+        #tags-field-info, #keyword-field-info {
+            margin-top: 4px !important;
+            margin-bottom: 10px !important;
+            margin-left: 6px !important;
+        }
+        
+        
+        input:active {
+            border: 4px solid color-mix(in srgb, gray 70%, transparent 30%) !important;
+        }
+        input:hover {
+            border: 1px solid color-mix(in srgb, gray 70%, transparent 30%) !important;
+        }
+        
+        hbox.zenEditBMPanel_fieldContainer:nth-child(6) {
+            display: none !important;
+        }
+        
+        .downloadButton {
+            -moz-appearance: none !important;
+            background-color: light-dark(rgb(0 0 0 / 0.1), rgb(255 255 255 / 0.1)) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
+            max-width: fit-content !important;
+            max-height: fit-content !important;
+            margin-block: 10px !important;
+            margin-right: 10px !important;
+            border-radius: 6px !important;
+        }
+        
+        .downloadButton > .button-box {
+            -moz-appearance: none !important;
+            background-color: none !important;
+            color: light-dark(black, white) !important;
+            border: none !important;
+            border-radius: 0px !important;
+        }
+        
+        .downloadButton:hover > .button-box {
+            background-color: transparent !important;
+            color: white !important;
+        }
+        
+        .downloadButton:hover {
+            color: white !important;
+            background: rgba(255, 115, 86, 1) !important;
+            border: 1px solid transparent !important;
+            border-radius: 6px !important;
+        }
+        
+        @media not (prefers-contrast) {
+          #downloadsListBox:focus > richlistitem[selected] {
+            color: inherit;
+            background-color: transparent;
+            background-image: none !important;
+            background-clip: content-box;
+            border-radius: 0px !important;
+            outline: none !important;
+            outline-offset: 0 !important;
+          }
+        }
+        /* Cor do item da lista - Selecionado */
+        richlistitem[selected="true"] {
+          appearance: none !important;
+          background-color: light-dark(rgb(188, 223, 253), rgb(255 255 255 / 0.1)) !important;
+          color: -moz-cellhighlighttext;
+        }
+        richlistitem[selected="true"]:hover {
+          background: light-dark(rgb(188 223 253 / 0.4), rgb(255 255 255 / 0.1)) !important;
+          border-radius: 0px !important;
+        }
+        richlistitem:hover {
+          background: light-dark(rgb(188 223 253 / 0.2), rgb(255 255 255 / 0.1)) !important;
+          border-radius: 0px !important;
+        }
+        .download-state {
+          padding-right: 0 !important;
+        }
+        
+    }    
+        
+        
+        
+        
+/*  ===========================================
+    11   PAGE INFO Window
+    =========================================== */        
+        
+    @-moz-document url("chrome://browser/content/pageinfo/pageInfo.xhtml") {
+
+    #mainDeck {
+       background-color: light-dark(rgb(244, 244, 247), rgb(40, 40, 40)) !important;
+    }
+        
+    @media not (-moz-platform: macos) {
+      #topBar {
+        border-bottom: 1px solid light-dark(rgb(219, 219, 219), black) !important;
+        padding-inline-start: 0px !important;
+        padding: 8px !important;
+        align-items: center !important;
+        background-color: light-dark(white, rgb(56, 56, 56)) !important;
+        color: light-dark(black, rgb(169, 169, 169)) !important;
+      }
+    }
+    
+    @media (-moz-platform: windows) {
+      .accesskey {
+        text-decoration: none !important;
+      }
+        
+      .radio-label {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+      }
+        
+      #viewGroup > radio[selected="true"] {
+        background-color: light-dark(rgb(231, 231, 234), rgb(94, 94, 94)) !important;
+        color: light-dark(rgb(69,72,69), rgb(193, 193, 193)) !important;
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+        border: 0px solid light-dark(black, rgb(151, 151, 151)) !important;
+      }
+        
+      #viewGroup > radio {
+        padding-inline: 10px !important;
+          margin-inline: 2px !important;
+      }
+      
+      #viewGroup > radio:hover {
+        background-color: light-dark(rgb(231, 231, 234), rgb(94, 94, 94)) !important;
+        color: light-dark(rgb(69,72,69), rgb(193, 193, 193)) !important;
+        border-radius: 8px !important;
+      } 
+    }
+        
+  #viewGroup > radio:is(:hover, [selected="true"]) .radio-icon {
+    background-position-y: unset !important;
+  }
+    
+    /* Ícones da Barra */
+    #generalTab > hbox:nth-child(2) > image:nth-child(1) {
+        -moz-context-properties: fill, fill-opacity !important;
+        background-image: url("icons/winui/dialog-settings.svg") !important;
+        fill: currentColor !important;
+        background-repeat: no-repeat !important;
+        width: 32px !important;
+        height: 32px !important;
+        background-position: center !important;
+    }
+
+    #mediaTab > hbox:nth-child(2) > image:nth-child(1) {
+        -moz-context-properties: fill, fill-opacity !important;
+        background-image: url("icons/winui/dialog-media.svg") !important;
+        fill: currentColor !important;
+        background-repeat: no-repeat !important;
+        width: 32px !important;
+        height: 32px !important;
+        background-position: center !important;
+    }
+    
+    #permTab > hbox:nth-child(2) > image:nth-child(1) {
+        -moz-context-properties: fill, fill-opacity !important;
+        background-image: url("icons/winui/dialog-permissions.svg") !important;
+        fill: currentColor !important;
+        background-repeat: no-repeat !important;
+        width: 32px !important;
+        height: 32px !important;
+        background-position: center !important;
+    }
+    
+    #securityTab > hbox:nth-child(2) > image:nth-child(1) {
+        -moz-context-properties: fill, fill-opacity !important;
+        background-image: url("icons/winui/dialog-security.svg") !important;
+        fill: currentColor !important;
+        background-repeat: no-repeat !important;
+        width: 32px !important;
+        height: 32px !important;
+        background-position: center !important;
+    }   
+        
+        
+    separator.thin:not([orient="vertical"]) {
+      height: 2.5em !important;
+    }
+         
+    button:hover {
+      color: light-dark(black, white) !important;
+      --in-content-button-background-hover: color-mix(in srgb, var(--zen-primary-color) 5%, var(--zen-branding-bg-reverse) 30%) !important;
+      background-color: var(--zen-colors-hover-bg) !important;
+      border-radius: 12px !important;
+    }
+        
+    #permList {
+      appearance: unset !important;
+      margin: .5em;
+      overflow: auto;
+      color: FieldText !important;
+    }    
+}        
+        
+
+        
+        
+/*  ===========================================
+    12   OUTRAS MODIFICAÇÕES
+    =========================================== */
+
+    /*  ---------------------------------------------------------------------------
+    Picture in Picture - PIP   */
+        
+    #close, #unpip {
+        background-color: rgba(0,0,0, 0.8) !important;
+        fill: white !important;
+    }
+        
+    
+    /*  ---------------------------------------------------------------------------
+    Autoscroller Indicator   */        
+
+    .autoscroller {
+        --panel-background: transparent !important;
+        --panel-border-color: transparent !important;
+        background: #fff url('chrome://global/skin/icons/autoscroll.svg') no-repeat center !important;
+        border-radius: 100% !important;
+        box-shadow: none !important;
+    }
+    .autoscroller[scrolldir='NS'] {
+        background-image: url('chrome://global/skin/icons/autoscroll-vertical.svg') !important;
+
+    }
+    .autoscroller[scrolldir='EW'] {
+        background-image: url('chrome://global/skin/icons/autoscroll-horizontal.svg') !important;
+    }
+
+        
+    /*  ---------------------------------------------------------------------------
+    Pointer Lock Warning   */
+
+    .pointerlockfswarning {
+        position: fixed;
+        visibility: visible;
+        transition: transform 300ms ease-in;
+        top: -5% !important;
+        left: -50%;
+        transform: translate(-50%, -100%);
+        box-sizing: border-box;
+        width: max-content;
+        max-width: 45% !important;
+        background: color-mix(in srgb, var(--attention-dot-color) 90%, transparent 10%) !important;
+        border: 2px solid var(--attention-dot-color) !important;
+        border-radius: 12px !important;
+        box-shadow: none !important;
+        color: white !important;
+        padding: 15px 16px !important;
+    }
+
+    .pointerlockfswarning-domain-text, .pointerlockfswarning-generic-text {
+        font-size: 14px !important;
+        margin: 0px 16px !important;
+        word-wrap: break-word;
+        min-width: 1px;
+    }     
+
+
+    /*  ---------------------------------------------------------------------------
+    Download Dialog   */
+ 
+    /* Download Dialog (Save / Open) */
+    @-moz-document url("chrome://mozapps/content/downloads/unknownContentType.xhtml") {
+        #unknownContentType { 
+            color: light-dark(black, white) !important;
+            background-color: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
+        }
+
+        button {
+            -moz-appearance: none !important;
+            background-color: light-dark(rgb(255, 255, 255), #42414D) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
+            width: 80px !important;
+            padding: 5px !important;
+            border-radius: 8px !important;
+        }
+
+        button:hover {
+            color: white !important;
+            background: linear-gradient(180deg, rgba(61,127,246,1) 0%, rgba(36,107,246,1) 100%); !important;
+            border: 0px solid dodgerblue !important;
+            transition: 150ms !important;
+        }
+
+        #openHandler {
+            -moz-appearance: none !important;
+            background: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.2)) !important;
+            border-radius: 8px !important;
+            padding-inline-start: 4px !important;
+        }
+
+        #openHandler:hover {
+            border: 2px solid rgba(61,127,246,1) !important;
+        }
+
+        separator.thin {
+          height: 0.6em !important;
+        }
+
+        #source, #type {
+          margin-top: -2px !important;
+          font-weight: bold !important;
+        }
+
+        #location {
+          font-weight: bold;
+            text-align: start !important;
+            font-size: large !important;
+            overflow: hidden !important;
+        }
+
+        #contentTypeImage {
+          height: 20px !important;
+          width: 20px!important;
+          margin: 0;
+          margin-inline-end: 15px !important;
+          margin-inline-start: -8px !important;
+        }
+
+        #normalBox > separator:nth-child(1) {
+          height: 0.8em !important;
+        }
+
+        #intro, #whichIs, .header{
+            display: none !important;
+        }
+
+        hbox.small-indent:nth-child(3) > vbox:nth-child(2) > hbox:nth-child(4) {
+            margin-top: 3px !important;
+        }
+
+        menulist {
+          background: var(--lwt-menulist) !important;
+          border-radius: 8px !important;
+          height: 30px !important;
+          margin-left: 15px !important;
+          margin-top: -1px !important;
+        }
+
+        #mode {
+            margin-block-end: 5px !important;
+            margin-inline-start: 34px !important;
+        }
+
+        #mode > hbox:nth-child(2) {
+            display: flex !important;
+            flex-direction: row !important;
+            margin-block: 5px !important;
+        }
+
+        #rememberChoice {
+            margin-inline-start: 23px !important;
+        }
+
+    }
+
+    /* App Picker */
+    @-moz-document url("chrome://global/content/appPicker.xhtml") {
+
+        #app-picker{
+            color: light-dark(black, white) !important;
+            background-color: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
+        }
+
+        button {
+            -moz-appearance: none !important;
+            background-color: light-dark(rgb(255, 255, 255), #42414D) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
+            border-radius: 6px !important;
+        }
+
+        button:hover {
+            color: white !important;
+            background: linear-gradient(180deg, rgba(61,127,246,1) 0%, rgba(36,107,246,1) 100%); !important;
+            border: 0px solid dodgerblue !important;	
+        }
+
+        #app-picker-listbox{
+            -moz-appearance: none !important;
+            background-color: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
+            border-radius: 8px !important;
+        }
+
+        richlistitem[selected="true"] {
+            background: rgba(61,127,246,1) !important;
+            color: white !important;
+        }
+    }
+
+        
+
+    /*  ---------------------------------------------------------------------------
+    Window Dialog - Global   */    
+        
+    /* Window Dialog */
+    window dialog {
+        color: light-dark(black, white) !important;
+        background-color: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
+    }        
+
+    .titleIcon {
+        background-image: url('icons/brand/zen-identity-icon.svg') !important;
+        background-color: transparent !important;
+    }
+        
+    /* Subdialog - Dialog Box no topo da tela - Troubleshoot Mode / */
+    .dialogBox {
+      &:not(.spotlightBox) {
+        display: fixed !important;
+        box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 12px  !important;
+
+      }
+    }     
+    dialog[subdialog] {
+        --grid-padding: 16px;
+        padding: var(--grid-padding) calc(var(--grid-padding) - 4px) !important;
+    }       
+    
+      #SiteDataRemoveSelectedDialog {
+        background: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
+        padding: 6px !important;
+        min-width: 50px;
+      }
+        
+       
+
+    /*  ---------------------------------------------------------------------------
+    Estilo global de botão (Não aplicado no PIP e nos botões de Screenshot)   */    
+        
+    @-moz-document regexp("^(?!chrome://global/content/pictureinpicture/player\\.xhtml$).*") {
+        button:not(.labelled):not(#full-page):not(#visible-page) {
+            -moz-appearance: none !important;
+            background-color: light-dark(rgb(255, 255, 255), rgb(255 255 255 / 0.1)) !important;
+            color: light-dark(black, white) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), #52525E) !important;
+            max-width: fit-content !important;
+            padding-inline: 10px !important;
+            border-radius: 6px !important;
+        }
+
+        button:not(.labelled):hover:not(#full-page):not(#visible-page) {
+            color: white !important;
+            background: linear-gradient(0deg, rgba(255, 115, 86, 1) 0%, rgba(255, 125, 84, 1) 100%) !important;
+            border: 1px solid transparent !important;
+            border-radius: 6px !important;
+        }
+    }
+
+    .button-background {
+      &.labelled {
+        color: light-dark(black, white) !important;
+        background-color: unset !important;
+        box-shadow: none !important;
+        border-radius: 6px !important;
+        border: none !important;
+        gap: var(--space-small);
+      }
+    }
+   .button-background:hover {
+      &.labelled {
+        color: black !important;
+        background-color: unset !important;
+        box-shadow: none !important;
+        border-radius: 6px !important;
+        border: none !important;
+        gap: var(--space-small);
+      }
+    }
+
+        
+
+
+    /*  ---------------------------------------------------------------------------
+    Findbar   */            
+
+    findbar {
+        display: flex !important;
+        border-radius: 12px !important;
+        margin: 0px !important;
+        width: 600px !important;
+        min-width: 70% !important;
+        height: auto !important;
+        position: absolute !important;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        overflow: unset !important;
+        box-shadow: var(--box-shadow-10) !important;
+        background: light-dark(color-mix(in srgb, white 80%, transparent), color-mix(in srgb, rgb(40, 40, 40) 80%, transparent)) !important;
+        backdrop-filter: blur(30px) !important;
+        border: 1px solid var(--zen-colors-border) !important;
+        transition: top 0.35s ease, bottom 0.35s ease !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        & .findbar-container {
+            flex-wrap: wrap;
+            overflow-x: auto !important;
+            height: auto !important;
+            row-gap: 10px;
+            margin-inline-start: 6px !important;
+
+            &> :first-child {
+                width: 100% !important;
+            }
+
+            & .findbar-textbox {
+                flex-grow: 1;
+            }
+        }
+
+        &[hidden="true"] {
+            top: -150px;
+        }
+
+        @starting-style {
+            top: -150px;
+        }
+        
+      & .findbar-container {
+          display: flex !important;
+          flex-direction: row !important;
+          flex-wrap: nowrap !important;
+          overflow-x: hidden !important;
+          height: auto !important;
+          row-gap: 10px;
+          
+          & > :first-child {
+              width: 100% !important;
+          }
+      }
+    }
+        
+    .findbar-find-status {
+      display: none !important;
+    }
+        
+        
+    .findbar-textbox {
+          appearance: none;
+          background-color: light-dark(color-mix(in srgb, white 80%, transparent), color-mix(in srgb, rgb(40, 40, 40) 80%, transparent)) !important;          
+          backdrop-filter: blur(20px) !important;
+          color: var(--input-color, var(--toolbar-field-color));
+          border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
+          border-radius: 8px !important;
+          outline: none;
+          margin: 0;
+          padding: 2px 5px;
+          padding-inline-start: 8px;
+          max-width: 23em !important;
+          box-sizing: border-box;
+    }
+    .findbar-textbox {
+      &:focus {
+          appearance: none;
+          background-color: light-dark(color-mix(in srgb, white 80%, transparent), color-mix(in srgb, rgb(40, 40, 40) 80%, transparent)) !important;     
+          color: var(--input-color, var(--toolbar-field-color));
+          border: 2px solid var(--zen-primary-color) !important;
+          border-radius: 8px !important;
+          outline: none;
+          margin: 0;
+          padding: 2px 5px;
+          padding-inline-start: 8px;
+          box-sizing: border-box;
+          box-shadow: none !important;
+      }
+    }
+        
+    .findbar-find-previous {
+          list-style-image: url('icons/winui/arrow-up.svg') !important;
+            margin-inline: 8px 0 !important;
+    }
+    .findbar-find-next {
+          list-style-image: url('icons/winui/arrow-down.svg') !important;
+    }
+
+
+    /* Horizontal Position */
+    body:has(#theme-Better-Find-Bar[theme-better_find_bar-horizontal_position="left"]) {
+        findbar {
+            left: 15px;
+            transform: translateX(0%);
+        }
+    }
+
+    body:has(#theme-Better-Find-Bar[theme-better_find_bar-horizontal_position="right"]) {
+        findbar {
+            left: unset !important;
+            right: 15px;
+            transform: translateX(0%);
+        }
+    }
+      
+      
+      
+    /*  ---------------------------------------------------------------------------
+    SCREENSHOT Dialog   */
+      
+      /* Botões da tela de Screenshot */
+      #screenshotsPagePanel > screenshots-buttons:nth-child(1) {
+        background-color: rgb(0 0 0 / 0.4) !important;
+        backdrop-filter: blur(20px) !important;
+        color: currentColor !important;
+        border-radius: 12px !important;
+      }
+      
+      #full-page, #visible-page {
+        -moz-context-properties: fill, stroke;
+        fill: white !important;
+        stroke: var(--screenshots-icon-background-color);
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: 46px 46px;
+        min-width: 90px;
+        padding: 56px 5px 5px !important;
+        margin: 2px;
+        font-weight: normal !important;
+        color: white !important;
+      }
+      
+      #full-page:hover, #visible-page:hover {
+        -moz-context-properties: fill, stroke;
+        fill: black !important;
+        stroke: var(--screenshots-icon-background-color);
+        color: black !important;
+      }
+      
+      .dialogBox {
+        :not(.content-prompt-dialog) > .dialogOverlay > &:not(.spotlightBox) {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+      
+      @media (prefers-color-scheme: dark) {
+        .dialogBox:not(.spotlightBox) {
+          border: none !important;
+        }
+      }
+      
+      body > screenshots-preview:nth-child(1) {
+        background-color: light-dark(white, rgb(40, 40, 40)) !important;
+        
+      }
+      
+      .image-view {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      
+      .preview-buttons {
+        display: flex;
+        gap: var(--space-small);
+        align-items: center;
+        justify-content: flex-end;
+        width: -moz-available !important;
+        padding: 10px !important;
+        padding-right: 10px !important;
+      }
+      
+      #preview-image {
+        margin-bottom: -4px !important;
+      }
+      
+      #preview-image-container {
+        height: 100vh;
+        overflow: scroll !important;
+        padding: 0 !important;
+        margin-inline: 10px !important;
+        margin-bottom: 10px !important;
+        border-radius: 6px !important;
+      }
+      
+      .button-background {
+        button:hover > & {
+          background-color: transparent !important;
+          border-color: var(--button-border-color-hover);
+          color: black !important;
+        }
+      }
+      
+      .button-background {
+        font-weight: normal !important;
+        font-size: 14px !important;
+      }
+      
+      
+      
+      
+      
+      
+        

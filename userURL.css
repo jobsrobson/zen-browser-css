@@ -41,18 +41,10 @@
     }
 
     #urlbar-background {
-          background-color:  var(--lwt-urlbar-bg) !important;
-    }
-    
-    #urlbar-background {
       border: none !important;
-      background-color:  light-dark(
-                               color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%), 
-                               color-mix(in srgb, var(--lwt-accent-color) 100%, black 20%)) 
-                             !important;
+      background-color:  transparent !important;
       box-shadow: none !important;
     }
-
 
     /* Bad SSL icon */
     #identity-box[pageproxystate="valid"].certErrorPage #identity-icon {
@@ -68,12 +60,21 @@
 
 
     /* URL Bar Buttons */
+:root[zen-single-toolbar="true"] {
+  & #urlbar[open] :is(#tracking-protection-icon-container, .urlbar-page-action, .identity-box-button):not([hidden="true"]):not(#identity-permission-box) {
+    opacity: 1;
+    margin-inline-start: 3px !important;
+    transform: none;
+    display: flex;
+  }
+}
+
+#urlbar[open] {
     #identity-permission-box {
-        display: flex !important;
+        display: inherit !important;
     }
-    #identity-permission-box {
-      display: none !important;
-    }
+}
+
     #urlbar:hover #star-button-box {
       display: inherit !important;
       transition: all 0.1s ease;
@@ -83,13 +84,6 @@
           display: flex !important;
       }
       
-    }
-
-    #translations-button-circle-arrows {
-      display: none !important;
-    }
-    #translations-button-locale {
-      display: none !important;
     }
 
     /* Not Secure webpage label on URLBar */
@@ -117,9 +111,7 @@
       list-style-image: url(icons/brand/zen-identity-icon.svg) !important;
     }
       
-    #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
-      width: 13px !important;
-    }
+
 
 
       /* URL Bar extend */
@@ -168,7 +160,6 @@
   
       /* Expanded URLBar - Bigger URL Text */
       #urlbar[breakout-extend] #urlbar-input {
-        
         font-size: 1.4rem !important;
         margin-top: -2px !important;
       }
@@ -194,7 +185,45 @@
           
 
           
+/* Multiple Toolbar mode URL Bar enhancements */
+    @media (not (-moz-bool-pref: "zen.view.use-single-toolbar")) {
+      
+      #urlbar:not([focused]) {
+        height: 30px !important;
+      }
+      
+      #urlbar[breakout-extend="true"] {
+        #urlbar-container:has(&) {
+          border-radius: 10px !important;
+          height: 38px !important;
+          background: none !important;
+          border: 0px solid color-mix(in srgb, black 10%, white 20%) !important;
+        }
+      }
+      
+      #urlbar-container {
+        margin-top: 3px !important;
+      }
 
+      #urlbar:not([focused]) {
+        background-color: light-dark(rgb(255 255 255 / 0.2), rgb(0 0 0 / 0.2)) !important;
+          border: 1px solid light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.2)) !important;
+      }
+      .urlbar-input {
+        #urlbar:not([focused])[domaindir="ltr"] > .urlbar-input-container > .urlbar-input-box > & {
+          text-align: center !important;
+        }
+      }
+      
+      /* Align toolbar buttons */
+      toolbar .toolbarbutton-1 {
+        appearance: none;
+        margin-top: 2px !important;
+        padding: 0 var(--toolbarbutton-outer-padding);
+        justify-content: center;
+      }
+      
+    }
       
 
 

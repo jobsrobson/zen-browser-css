@@ -29,11 +29,6 @@ git clone https://github.com/jobsrobson/zen-browser-css.git
 4. Restart Zen to apply the changes.
 
 
-> [!WARNING]
-> Zen Twilight has been updated to version 1.8t, bringing major changes to the behavior of Sidebar elements. If you're using this version, copy the files from the ```Zen Browser 1.8+``` folder to your ```chrome``` folder.
-
-
-
 ## 💻 Compatibility
 
 - OS: Windows 11 (Linux coming soon).
@@ -47,27 +42,26 @@ This project is licensed under the GNU GPL3 License.
 
 ## ✅ Changelog
 
-**1.8.1 - 2025-02-21** - Only for **Zen Twilight 1.8t**
+**1.8.0 - 2025-02-22** - For **Zen Browser 1.8b or Twilight 1.8t**
 
-  - Fixed: Position of the extended URL Bar on the screen.
-  - Fixed: Position of the extended URL Bar when Compact Mode is enabled.
-  - Fixed: Layout of the URL Bar buttons.
-  - Fixed: Removed the "Reset Pinned Tab" button from pinned tabs.
-  - General bug fixes.
+Zen Browser has been updated to [version 1.8](https://zen-browser.app/release-notes/)! This version includes major structural changes to the behavior of Sidebar elements. As a result, **starting from this version, Zen Browser 1.7 or earlier will no longer be supported.**
 
+- New: Theme now supports three custom settings in ```about:config```:
 
-**1.8 - 2025-02-15**
-- For **Zen Twilight 1.8t**
+    - ```user.tabs.pinned.newlayout``` – Changes the layout of Pinned Tabs (grid or Zen’    default).
+    - ```user.tabs.essentials.newlayout``` – Improved layout for Essentials.
+    - ```user.tabs.open.newlayout``` – Visual customizations for the open tabs list.
 
-  - Updated: Zen Twilight has been updated to version 1.8t, bringing major changes to the behavior of Sidebar elements. If you're using this version, copy the files from the ```Zen Browser 1.8+``` folder to your ```chrome``` folder.
-  - Removed: Pinned tabs and the New Tab button now scroll along with the open tabs list due to the new Sidebar behavior (sorry!).
-  - Fixed: Pinned tabs now retain the grid layout, just like Essentials.
-  - Recommendation: Temporarily disable the ```zen.widget.windows.acrylic``` option in ```about:config```.
-  - Code Cleanup: Reorganized the code into multiple CSS files to improve maintainability.
-  
-- For **Zen Beta 1.7.6b**
+- Fixed: Visual improvements for Multiple Toolbars and Collapsed Toolbar modes.
+- Fixed: Position of the extended URL Bar on the screen.
+- Fixed: Position of the extended URL Bar when Compact Mode is enabled.
+- Fixed: Layout of the URL Bar buttons.
+- Fixed: Removed the "Reset Pinned Tab" button from pinned tabs.
+- Removed: Pinned Tabs and the New Tab button now scroll along with the open tabs list due tothe new Sidebar behavior (sorry!).
+- Code Cleanup: Reorganized the code into multiple CSS files to improve maintainability.
+- Various bug fixes and improvements.
 
-  - Code Cleanup: Since it's an experimental feature, the CSS for Tab Groups is now in a separate file to improve maintainability.
+<br>
 
 **1.7.6 (Zen Browser 1.7.6b) - 2025-02-12**
 - WARNING: Zen Twillight 1.7.7t is broken. Do not update.

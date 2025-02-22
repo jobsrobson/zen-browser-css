@@ -2,10 +2,21 @@
     SIDE PANELS - History, Bookmarks and Sync
     =========================================================== */
 
+    #sidebar-box {
+        opacity: 1 !important;
+    }
+
     window.sidebar-panel {
         background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
                 color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
         animation: lateral-panel-appear 0.25s ease-out !important;
+    }
+
+    #zen-tabbox-wrapper {
+      & #sidebar-splitter {
+        opacity: 0;
+        margin: -5px !important;
+      }
     }
 
     search-textbox#search-box {
@@ -45,8 +56,8 @@
     }
 
     #sidebar-box[sidebarcommand="viewHistorySidebar"] {
-        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
-                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        background-color: light-dark(color-mix(in srgb, transparent 100%, white 0%),
+                color-mix(in srgb, transparent 100%, black 0%)) !important;
         border-radius: var(--zen-border-radius);
         border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
         box-shadow: 0 0 0 0 !important;
@@ -58,8 +69,8 @@
     }
 
     #sidebar-box[sidebarcommand="viewBookmarksSidebar"] {
-        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
-                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        background-color: light-dark(color-mix(in srgb, transparent 100%, white 0%),
+                color-mix(in srgb, transparent 100%, black 0%)) !important;
         border-radius: var(--zen-border-radius);
         box-shadow: 0 0 0 0 !important;
         border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
@@ -71,8 +82,8 @@
     }
 
     #sidebar-box[sidebarcommand="viewTabsSidebar"] {
-        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
-                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        background-color: light-dark(color-mix(in srgb, transparent 100%, white 0%),
+                color-mix(in srgb, transparent 100%, black 0%)) !important;
         border-radius: var(--zen-border-radius);
         box-shadow: 0 0 0 0 !important;
         border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;
@@ -84,8 +95,8 @@
     }
 
     #sidebar-box[sidebarcommand="viewGenaiChatSidebar"] {
-        background-color: light-dark(color-mix(in srgb, var(--lwt-accent-color) 100%, white 90%),
-                color-mix(in srgb, var(--lwt-accent-color) 100%, black 90%)) !important;
+        background-color: light-dark(color-mix(in srgb, transparent 100%, white 0%),
+                color-mix(in srgb, transparent 100%, black 0%)) !important;
         border-radius: var(--zen-border-radius);
         box-shadow: 0 0 0 0 !important;
         border: 1px solid color-mix(in srgb, black 10%, white 10%) !important;

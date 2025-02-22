@@ -981,3 +981,20 @@ window#bookmarksPanel.sidebar-panel menupopup#placesContext menuitem {
 window#bookmarksPanel.sidebar-panel menupopup#placesContext menuitem {
   background-image: none !important;
 }
+
+
+
+/* Fix for ContentSelectDropdown itens in 1.8t */
+:not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menuitem:not(.menuitem-iconic, [type="checkbox"], [type="radio"], .in-menulist, .in-menulist menuitem, .unified-nav-current), :not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menu:not(.menu-iconic, [type="checkbox"], [type="radio"], .in-menulist, .in-menulist menu, .unified-nav-current), :not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menucaption {
+  padding-inline-start: calc( var(--fp-contextmenu-menuitem-padding-inline) + 16px + var(--fp-contextmenu-menuicon-margin-inline) ) !important;
+}
+
+
+
+
+
+
+
+
+
+
