@@ -52,7 +52,6 @@
                                                              color-mix(in srgb, black 50%, white 25%)) !important;
         --in-content-button-text-color-hover:     light-dark(black, white) !important;
         --zen-branding-bg: white !important;
-    }
 
 
 
@@ -89,7 +88,6 @@
         border: 1px solid var(--lwt-border) !important;
         box-shadow: none !important;
         border-radius: 7px !important;
-        
         }
     }
 
@@ -575,142 +573,175 @@
 
 
 
-
-
-
-
-
-
 /*  =====================
     3   ANIMAÇÕES
     ===================== */
 
-/*  ---------------------------------------------------------------------------
-    URL Bar animations by https://github.com/TheBigWazz/Pineapple-Fried */
+    /*  ---------------------------------------------------------------------------
+        URL Bar animations by https://github.com/TheBigWazz/Pineapple-Fried */
 
         /* URL Bar Expand/Collapse Animation */
         #urlbar[focused] .urlbar-background {
-          animation: urlbarExpand 0.3s ease-out;
+            animation: urlbarExpand 0.3s ease-out;
         }
 
         #urlbar:not([focused]) .urlbar-background {
-          animation: urlbarCollapse 0.2s ease-in;
+            animation: urlbarCollapse 0.2s ease-in;
         }
 
         @keyframes urlbarExpand {
-          from {
-            transform: scaleX(0.8) scaleY(0.7);
-            opacity: 0.5;
-          }
-          to {
-            transform: scaleX(1) scaleY(1);
-            opacity: 1;
-          }
+            from {
+                transform: scaleX(0.8) scaleY(0.7);
+                opacity: 0.5;
+            }
+
+            to {
+                transform: scaleX(1) scaleY(1);
+                opacity: 1;
+            }
         }
 
         @keyframes urlbarCollapse {
-          from {
-            transform: scaleX(1) scaleY(1);
-          }
-          to {
-            transform: scaleX(0.95) scaleY(0.9);
-          }
+            from {
+                transform: scaleX(1) scaleY(1);
+            }
+
+            to {
+                transform: scaleX(0.95) scaleY(0.9);
+            }
         }
 
         /* Results Panel Animation */
         #urlbar-results {
-          animation: resultsFadeIn 0.25s ease-out;
+            animation: resultsFadeIn 0.25s ease-out;
         }
 
         @keyframes resultsFadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Animate each result row individually */
         #urlbar-results {
-          opacity: 1 !important; /* Ensure parent container stays visible */
+            opacity: 1 !important;
+            /* Ensure parent container stays visible */
         }
 
         .urlbarView-row {
-          opacity: 0;
-          animation: resultEntry 0.3s ease-out forwards;
+            opacity: 0;
+            animation: resultEntry 0.3s ease-out forwards;
         }
 
         /* Cascade animation with staggered delays */
-        .urlbarView-row:nth-child(1) { animation-delay: 0.05s; }
-        .urlbarView-row:nth-child(2) { animation-delay: 0.10s; }
-        .urlbarView-row:nth-child(3) { animation-delay: 0.15s; }
-        .urlbarView-row:nth-child(4) { animation-delay: 0.20s; }
-        .urlbarView-row:nth-child(5) { animation-delay: 0.25s; }
-        .urlbarView-row:nth-child(6) { animation-delay: 0.30s; }
-        .urlbarView-row:nth-child(7) { animation-delay: 0.35s; }
-        .urlbarView-row:nth-child(8) { animation-delay: 0.40s; }
-        .urlbarView-row:nth-child(9) { animation-delay: 0.45s; }
-        .urlbarView-row:nth-child(10) { animation-delay: 0.50s; }
+        .urlbarView-row:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .urlbarView-row:nth-child(2) {
+            animation-delay: 0.10s;
+        }
+
+        .urlbarView-row:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .urlbarView-row:nth-child(4) {
+            animation-delay: 0.20s;
+        }
+
+        .urlbarView-row:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .urlbarView-row:nth-child(6) {
+            animation-delay: 0.30s;
+        }
+
+        .urlbarView-row:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+        .urlbarView-row:nth-child(8) {
+            animation-delay: 0.40s;
+        }
+
+        .urlbarView-row:nth-child(9) {
+            animation-delay: 0.45s;
+        }
+
+        .urlbarView-row:nth-child(10) {
+            animation-delay: 0.50s;
+        }
 
         @keyframes resultEntry {
-          from {
-            opacity: 0;
-            transform: translateY(-8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Adjust original results panel animation */
         #urlbar-results {
-          animation: resultsFadeIn 0.2s ease-out;
+            animation: resultsFadeIn 0.2s ease-out;
         }
 
         @keyframes resultsFadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
-    .urlbarView-type-icon {
-      .urlbarView-row[type="bookmark"] > .urlbarView-row-inner > .urlbarView-no-wrap > & {
-        animation-delay: 1.50s !important;
-        animation: resultEntry 0.7s ease-out !important;
-      }
-    }
+        .urlbarView-type-icon {
+            .urlbarView-row[type="bookmark"]>.urlbarView-row-inner>.urlbarView-no-wrap>& {
+                animation-delay: 1.50s !important;
+                animation: resultEntry 0.7s ease-out !important;
+            }
+        }
 
 
-    /*  1.7.5t - (not) Animate New Tab  */
-    @media (not (-moz-bool-pref: "zen.urlbar.replace-newtab")) {
-      #vertical-pinned-tabs-container, #tabbrowser-arrowscrollbox {
-        .tabbrowser-tab {
-          animation: new-tab-appear 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
-        }
-      }
+        /*  1.7.5t - (not) Animate New Tab  */
+        @media (not (-moz-bool-pref: "zen.urlbar.replace-newtab")) {
 
-      @keyframes new-tab-appear { 
-        0% {
-          opacity: 0;
-          transform: translateY(-25px);
+            #vertical-pinned-tabs-container,
+            #tabbrowser-arrowscrollbox {
+                .tabbrowser-tab {
+                    animation: new-tab-appear 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) !important;
+                }
+            }
+
+            @keyframes new-tab-appear {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-25px);
+                }
+
+                60% {
+                    opacity: 0.8;
+                    transform: translateY(6px);
+                }
+
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
         }
-        60% {
-          opacity: 0.8  ;
-          transform: translateY(6px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    }
 
 
 
@@ -744,7 +775,7 @@
     Exibe o botão de Fechar Aba somente em mouseover na aba selecionada */
 
     #tabbrowser-tabs .tabbrowser-tab:not([pinned]):is([visuallyselected]):not(:hover) .tab-close-button {
-      display: none !important;
+        display: none !important;
     }
 
 
@@ -753,7 +784,7 @@
     Esconde a scrollbar na Sidebar */
     
     scrollbox:nth-child(5) {
-      scrollbar-width: none !important;
+        scrollbar-width: none !important;
     }
     
 
@@ -762,15 +793,15 @@
     Exibe uma borda com a cor do container em abas abertas */
 
     .tab-context-line {
-      display: none !important;
+        display: none !important;
     }
     #tabbrowser-tabs { 
-      & .tabbrowser-tab { 
-        &[selected] .tab-background { 
-          border: 2px solid var(--identity-icon-color) !important; 
-          opacity: 0.8 !important;
+        & .tabbrowser-tab { 
+            &[selected] .tab-background { 
+                border: 2px solid var(--identity-icon-color) !important; 
+                opacity: 0.8 !important;
+            }
         }
-      }
     }
 
 
@@ -779,7 +810,7 @@
     Remodela o menu de Extensões */
     
     #unified-extensions-description {
-      display: none !important;
+        display: none !important;
     }
     #unified-extensions-panel #unified-extensions-view {
         width: 100% !important;  /*  For firefox v115.x */
@@ -946,7 +977,7 @@
 
         button:hover {
             color: white !important;
-            background: linear-gradient(180deg, rgba(61,127,246,1) 0%, rgba(36,107,246,1) 100%); !important;
+            background: linear-gradient(180deg, rgba(61,127,246,1) 0%, rgba(36,107,246,1) 100%) !important;
             border: 0px solid dodgerblue !important;
             transition: 150ms !important;
         }
@@ -965,31 +996,31 @@
         }
 
         separator.thin {
-          height: 0.6em !important;
+            height: 0.6em !important;
         }
 
         #source, #type {
-          margin-top: -2px !important;
-          font-weight: bold !important;
+            margin-top: -2px !important;
+            font-weight: bold !important;
         }
 
         #location {
-          font-weight: bold;
+            font-weight: bold;
             text-align: start !important;
             font-size: large !important;
             overflow: hidden !important;
         }
 
         #contentTypeImage {
-          height: 20px !important;
-          width: 20px!important;
-          margin: 0;
-          margin-inline-end: 15px !important;
-          margin-inline-start: -8px !important;
+            height: 20px !important;
+            width: 20px!important;
+            margin: 0;
+            margin-inline-end: 15px !important;
+            margin-inline-start: -8px !important;
         }
 
         #normalBox > separator:nth-child(1) {
-          height: 0.8em !important;
+            height: 0.8em !important;
         }
 
         #intro, #whichIs, .header{
@@ -1001,11 +1032,11 @@
         }
 
         menulist {
-          background: var(--lwt-menulist) !important;
-          border-radius: 8px !important;
-          height: 30px !important;
-          margin-left: 15px !important;
-          margin-top: -1px !important;
+            background: var(--lwt-menulist) !important;
+            border-radius: 8px !important;
+            height: 30px !important;
+            margin-left: 15px !important;
+            margin-top: -1px !important;
         }
 
         #mode {
@@ -1079,23 +1110,22 @@
         
     /* Subdialog - Dialog Box no topo da tela - Troubleshoot Mode / */
     .dialogBox {
-      &:not(.spotlightBox) {
-        display: fixed !important;
-        box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.2);
-        border-radius: 12px  !important;
-
-      }
+        &:not(.spotlightBox) {
+            display: fixed !important;
+            box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 12px  !important;
+        }
     }     
     dialog[subdialog] {
         --grid-padding: 16px;
         padding: var(--grid-padding) calc(var(--grid-padding) - 4px) !important;
     }       
     
-      #SiteDataRemoveSelectedDialog {
+    #SiteDataRemoveSelectedDialog {
         background: light-dark(rgb(255, 255, 255), rgb(46, 44, 48)) !important;
         padding: 6px !important;
         min-width: 50px;
-      }
+    }
         
        
 
@@ -1122,24 +1152,24 @@
     }
 
     .button-background {
-      &.labelled {
-        color: light-dark(black, white) !important;
-        background-color: unset !important;
-        box-shadow: none !important;
-        border-radius: 6px !important;
-        border: none !important;
-        gap: var(--space-small);
-      }
+        &.labelled {
+            color: light-dark(black, white) !important;
+            background-color: unset !important;
+            box-shadow: none !important;
+            border-radius: 6px !important;
+            border: none !important;
+            gap: var(--space-small);
+        }
     }
    .button-background:hover {
-      &.labelled {
-        color: black !important;
-        background-color: unset !important;
-        box-shadow: none !important;
-        border-radius: 6px !important;
-        border: none !important;
-        gap: var(--space-small);
-      }
+        &.labelled {
+            color: black !important;
+            background-color: unset !important;
+            box-shadow: none !important;
+            border-radius: 6px !important;
+            border: none !important;
+            gap: var(--space-small);
+        }
     }
 
         
@@ -1210,7 +1240,6 @@
       display: none !important;
     }
         
-        
     .findbar-textbox {
           appearance: none;
           background-color: light-dark(color-mix(in srgb, white 80%, transparent), color-mix(in srgb, rgb(40, 40, 40) 80%, transparent)) !important;          
@@ -1271,100 +1300,97 @@
     /*  ---------------------------------------------------------------------------
     SCREENSHOT Dialog   */
       
-      /* Botões da tela de Screenshot */
-      #screenshotsPagePanel > screenshots-buttons:nth-child(1) {
-        background-color: rgb(0 0 0 / 0.4) !important;
-        backdrop-filter: blur(20px) !important;
-        color: currentColor !important;
-        border-radius: 12px !important;
-      }
-      
-      #full-page, #visible-page {
-        -moz-context-properties: fill, stroke;
-        fill: white !important;
-        stroke: var(--screenshots-icon-background-color);
-        background-position: center top;
-        background-repeat: no-repeat;
-        background-size: 46px 46px;
-        min-width: 90px;
-        padding: 56px 5px 5px !important;
-        margin: 2px;
-        font-weight: normal !important;
-        color: white !important;
-      }
-      
-      #full-page:hover, #visible-page:hover {
-        -moz-context-properties: fill, stroke;
-        fill: black !important;
-        stroke: var(--screenshots-icon-background-color);
-        color: black !important;
-      }
-      
-      .dialogBox {
-        :not(.content-prompt-dialog) > .dialogOverlay > &:not(.spotlightBox) {
-          position: fixed;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
+        /* Botões da tela de Screenshot */
+        #screenshotsPagePanel>screenshots-buttons:nth-child(1) {
+            background-color: rgb(0 0 0 / 0.4) !important;
+            backdrop-filter: blur(20px) !important;
+            color: currentColor !important;
+            border-radius: 12px !important;
         }
-      }
-      
-      @media (prefers-color-scheme: dark) {
-        .dialogBox:not(.spotlightBox) {
-          border: none !important;
+    
+        #full-page,
+        #visible-page {
+            -moz-context-properties: fill, stroke;
+            fill: white !important;
+            stroke: var(--screenshots-icon-background-color);
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: 46px 46px;
+            min-width: 90px;
+            padding: 56px 5px 5px !important;
+            margin: 2px;
+            font-weight: normal !important;
+            color: white !important;
         }
-      }
-      
-      body > screenshots-preview:nth-child(1) {
-        background-color: light-dark(white, rgb(40, 40, 40)) !important;
-        
-      }
-      
-      .image-view {
-        display: flex;
-        flex-direction: column;
-        height: 100vh;
-      }
-      
-      .preview-buttons {
-        display: flex;
-        gap: var(--space-small);
-        align-items: center;
-        justify-content: flex-end;
-        width: -moz-available !important;
-        padding: 10px !important;
-        padding-right: 10px !important;
-      }
-      
-      #preview-image {
-        margin-bottom: -4px !important;
-      }
-      
-      #preview-image-container {
-        height: 100vh;
-        overflow: scroll !important;
-        padding: 0 !important;
-        margin-inline: 10px !important;
-        margin-bottom: 10px !important;
-        border-radius: 6px !important;
-      }
-      
-      .button-background {
-        button:hover > & {
-          background-color: transparent !important;
-          border-color: var(--button-border-color-hover);
-          color: black !important;
+    
+        #full-page:hover,
+        #visible-page:hover {
+            -moz-context-properties: fill, stroke;
+            fill: black !important;
+            stroke: var(--screenshots-icon-background-color);
+            color: black !important;
         }
-      }
+    
+        .dialogBox {
+            :not(.content-prompt-dialog)>.dialogOverlay>&:not(.spotlightBox) {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    
+        @media (prefers-color-scheme: dark) {
+            .dialogBox:not(.spotlightBox) {
+                border: none !important;
+            }
+        }
+    
+        body>screenshots-preview:nth-child(1) {
+            background-color: light-dark(white, rgb(40, 40, 40)) !important;
+        }
+    
+        .image-view {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+    
+        .preview-buttons {
+            display: flex;
+            gap: var(--space-small);
+            align-items: center;
+            justify-content: flex-end;
+            width: -moz-available !important;
+            padding: 10px !important;
+            padding-right: 10px !important;
+        }
+    
+        #preview-image {
+            margin-bottom: -4px !important;
+        }
+    
+        #preview-image-container {
+            height: 100vh;
+            overflow: scroll !important;
+            padding: 0 !important;
+            margin-inline: 10px !important;
+            margin-bottom: 10px !important;
+            border-radius: 6px !important;
+        }
+    
+        .button-background {
+            button:hover>& {
+                background-color: transparent !important;
+                border-color: var(--button-border-color-hover);
+                color: black !important;
+            }
+        }
+    
+        .button-background {
+            font-weight: normal !important;
+            font-size: 14px !important;
+        }
       
-      .button-background {
-        font-weight: normal !important;
-        font-size: 14px !important;
-      }
       
-      
-      
-      
-      
-      
-        
+    }

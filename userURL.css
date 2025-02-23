@@ -2,6 +2,11 @@
     BARRA DE ENDEREÇOS / URLBAR
     =================================== */
 
+#urlbar:not([breakout-extend="true"]) #identity-box.chromeUI:not([pageproxystate="invalid"]) #identity-icon-box {
+  margin-right: -8px !important;
+}
+
+
     /* Extended URL Bar */
     #urlbar[breakout-extend="true"] {
       position: fixed !important;

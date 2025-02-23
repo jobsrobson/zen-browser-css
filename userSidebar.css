@@ -330,6 +330,16 @@
 /* ===================================================================================================== */
 /* General Sidebar Layout Enhancements */
 
+    /* Pinned tabs top margin */      
+    #vertical-pinned-tabs-container {
+        margin-top: 5px !important;
+    }
+
+    .vertical-pinned-tabs-container-separator {
+      #vertical-pinned-tabs-container .zen-workspace-tabs-section[hide-separator] & {
+        margin-bottom: 5px !important;
+      }
+    }
 
       /* Alinhamento dos botões SUPERIORES da Sidebar */
       @media (not (-moz-bool-pref: "zen.view.compact")) {
@@ -585,7 +595,7 @@
           list-style-image: none !important;
       }
     }
-
+}
 
       
       

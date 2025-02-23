@@ -13,10 +13,10 @@
     }
 
     #zen-tabbox-wrapper {
-      & #sidebar-splitter {
-        opacity: 0;
-        margin: -5px !important;
-      }
+        & #sidebar-splitter {
+            opacity: 0;
+            margin: -5px !important;
+        }
     }
 
     search-textbox#search-box {

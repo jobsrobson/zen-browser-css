@@ -1,30 +1,30 @@
-   /*  TAB GROUPS  */ 
+   /*  TAB GROUPS  */
 
-    /* Requires browser.tabs.groups.enabled */
-  
-      .tab-group-label-container {
+   /* Requires browser.tabs.groups.enabled (⚠️ BROKEN IN ZEN 1.8) */
+
+    .tab-group-label-container {
         #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
-          width: -moz-available !important;
-          height: 100% !important;
+            width: -moz-available !important;
+            height: 100% !important;
         }
-      }
+    }
 
-      .tab-group-label {
-        tab-group[collapsed] > .tab-group-label-container > & {
-          outline: none !important;
+    .tab-group-label {
+        tab-group[collapsed]>.tab-group-label-container>& {
+            outline: none !important;
         }
-      }
+    }
 
-      .tab-group-label {
+    .tab-group-label {
         #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
-          font-size: 1em !important;
-          margin-top: 2px !important;
+            font-size: 1em !important;
+            margin-top: 2px !important;
         }
-      }
+    }
 
-      tab-group {
+    tab-group {
         display: grid !important;
-        background: light-dark(color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent), 
+        background: light-dark(color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent),
                                color-mix(in srgb, var(--tab-group-color-invert) 25%, transparent)) !important;
         border-radius: 10px;
         margin-top: 5px !important;
@@ -32,93 +32,95 @@
         margin-inline: 2px !important;
         border: 2px solid color-mix(in srgb, var(--tab-group-color-invert) 10%, transparent);
         transition: all 0.1s linear !important;
-          
-          
-        
+
         & tab {
-          animation: 2.6s ease-in !important;
+           animation: 2.6s ease-in !important;
         }
-        
+
         & > vbox {
-          padding-top: 2px !important;
+           padding-top: 2px !important;
         }
-        
+
         & .tab-group-label-container {
-          &:after{
-            display: none !important;
-          }
-          & > label {
-            background: transparent !important;
-            margin-left: 3px !important;
-            margin-top: 4px !important;
-            border: unset !important;
-            font-weight: bold !important;
-            text-align: unset !important;
-            color: var(--sidebar-text-color) !important;
-            padding-left: 29px !important;
-            padding-bottom: 8px !important;
-          }
-          & > label::before {
-            content: "" !important;
-            position: absolute !important;
-            left: 5px !important;
-            top: 22%;
-            width: 16px !important;
-            height: 16px !important;
-            background-color: var(--sidebar-text-color);
-            mask-image: url('icons/winui/folder-opened.svg') !important;
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            background-size: contain !important;
-            background-repeat: no-repeat !important;
-          }
+            &:after {
+                display: none !important;
+            }
+
+            & > label {
+                background: transparent !important;
+                margin-left: 3px !important;
+                margin-top: 4px !important;
+                border: unset !important;
+                font-weight: bold !important;
+                text-align: unset !important;
+                color: var(--sidebar-text-color) !important;
+                padding-left: 29px !important;
+                padding-bottom: 8px !important;
+            }
+
+            & > label::before {
+                content: "" !important;
+                position: absolute !important;
+                left: 5px !important;
+                top: 22%;
+                width: 16px !important;
+                height: 16px !important;
+                background-color: var(--sidebar-text-color);
+                mask-image: url('icons/winui/folder-opened.svg') !important;
+                mask-size: contain;
+                mask-repeat: no-repeat;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+            }
         }
-        
+
         &[collapsed] {
             overflow: hidden !important;
             max-height: 3rem !important;
             padding: 0px 0px 5px 0px !important;
-          
-          & tab {
-            opacity: 0 !important;
-          }
-          & .tab-group-label-container > label {
-            background: transparent !important;
-            border: unset !important;
-            font-weight: bold !important;
-            text-align: unset !important;
-            color: var(--sidebar-text-color) !important;
-            padding-left: 29px !important;
-          }
-          & .tab-group-label-container > label::before {
-            content: "" !important;
-            position: absolute !important;
-            left: 5px !important;
-            top: 22%; 
-            width: 16px !important;
-            height: 16px !important;
-            background-color: var(--sidebar-text-color);
-            mask-image: url('icons/winui/folder.svg') !important;
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            background-size: contain !important;
-            background-repeat: no-repeat !important;
-          }
+
+            & tab {
+                opacity: 0 !important;
+            }
+
+            & .tab-group-label-container>label {
+                background: transparent !important;
+                border: unset !important;
+                font-weight: bold !important;
+                text-align: unset !important;
+                color: var(--sidebar-text-color) !important;
+                padding-left: 29px !important;
+            }
+
+            & .tab-group-label-container>label::before {
+                content: "" !important;
+                position: absolute !important;
+                left: 5px !important;
+                top: 22%;
+                width: 16px !important;
+                height: 16px !important;
+                background-color: var(--sidebar-text-color);
+                mask-image: url('icons/winui/folder.svg') !important;
+                mask-size: contain;
+                mask-repeat: no-repeat;
+                background-size: contain !important;
+                background-repeat: no-repeat !important;
+            }
         }
-      }
+    }
 
-      .tab-group-label {
+    .tab-group-label {
         min-width: 100% !important;
-      }
-
-      tab-group:hover {
+    }
+   
+    tab-group:hover {
         background: color-mix(in srgb, var(--tab-group-color-invert) 35%, transparent) !important;
-      }
-
-      tab-group:has(tab[hidden]){
+    }
+   
+    tab-group:has(tab[hidden]) {
         display: none !important;
-      }
-
-      .tab-group-line {
+    }
+   
+    .tab-group-line {
         display: none !important;
-      } 
+    }
