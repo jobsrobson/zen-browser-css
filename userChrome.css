@@ -52,7 +52,7 @@
                                                              color-mix(in srgb, black 50%, white 25%)) !important;
         --in-content-button-text-color-hover:     light-dark(black, white) !important;
         --zen-branding-bg: white !important;
-
+}
 
 
 /*  =====================
@@ -62,32 +62,37 @@
 /*  ---------------------------------------------------------------------------
     Cor da Inteface */
 
-        * {
-            font-family: "Adwaita Sans Text", SF Pro, system-ui !important;
-        }
+    * {
+        font-family: "Adwaita Sans Text", SF Pro, system-ui !important;
+    }
 
-        #browser {
-            transition: background-color .5s cubic-bezier(0, 0, 0, 1);
-            opacity: 1 !important;
-        } #titlebar {
-            transition: background-color .5s cubic-bezier(0, 0, 0, 1);
-        }
+    #browser {
+        transition: background-color .5s cubic-bezier(0, 0, 0, 1);
+        opacity: 1 !important;
+    }
 
-        #main-window[privatebrowsingmode="temporary"] 
-          #browser {
-              background-color: #25003E !important;
-        }
+    #titlebar {
+        transition: background-color .5s cubic-bezier(0, 0, 0, 1);
+    }
+
+    #main-window[privatebrowsingmode="temporary"] #browser {
+          background-color: #25003E !important;
+    }
+
+    /* Fix for Bleeding Corners */
+    .browserContainer {
+        clip-path: inset(0 round var(--zen-native-inner-radius));
+    }
 
      
-
 /*  ---------------------------------------------------------------------------
     Borda da Área de Exibição */
 
     :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
-    & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
-        border: 1px solid var(--lwt-border) !important;
-        box-shadow: none !important;
-        border-radius: 7px !important;
+        & #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+            border: 1px solid var(--lwt-border) !important;
+            box-shadow: none !important;
+            border-radius: 7px !important;
         }
     }
 
@@ -576,144 +581,6 @@
 /*  =====================
     3   ANIMAÇÕES
     ===================== */
-
-    /*  ---------------------------------------------------------------------------
-        URL Bar animations by https://github.com/TheBigWazz/Pineapple-Fried */
-
-        /* URL Bar Expand/Collapse Animation */
-        #urlbar[focused] .urlbar-background {
-            animation: urlbarExpand 0.3s ease-out;
-        }
-
-        #urlbar:not([focused]) .urlbar-background {
-            animation: urlbarCollapse 0.2s ease-in;
-        }
-
-        @keyframes urlbarExpand {
-            from {
-                transform: scaleX(0.8) scaleY(0.7);
-                opacity: 0.5;
-            }
-
-            to {
-                transform: scaleX(1) scaleY(1);
-                opacity: 1;
-            }
-        }
-
-        @keyframes urlbarCollapse {
-            from {
-                transform: scaleX(1) scaleY(1);
-            }
-
-            to {
-                transform: scaleX(0.95) scaleY(0.9);
-            }
-        }
-
-        /* Results Panel Animation */
-        #urlbar-results {
-            animation: resultsFadeIn 0.25s ease-out;
-        }
-
-        @keyframes resultsFadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Animate each result row individually */
-        #urlbar-results {
-            opacity: 1 !important;
-            /* Ensure parent container stays visible */
-        }
-
-        .urlbarView-row {
-            opacity: 0;
-            animation: resultEntry 0.3s ease-out forwards;
-        }
-
-        /* Cascade animation with staggered delays */
-        .urlbarView-row:nth-child(1) {
-            animation-delay: 0.05s;
-        }
-
-        .urlbarView-row:nth-child(2) {
-            animation-delay: 0.10s;
-        }
-
-        .urlbarView-row:nth-child(3) {
-            animation-delay: 0.15s;
-        }
-
-        .urlbarView-row:nth-child(4) {
-            animation-delay: 0.20s;
-        }
-
-        .urlbarView-row:nth-child(5) {
-            animation-delay: 0.25s;
-        }
-
-        .urlbarView-row:nth-child(6) {
-            animation-delay: 0.30s;
-        }
-
-        .urlbarView-row:nth-child(7) {
-            animation-delay: 0.35s;
-        }
-
-        .urlbarView-row:nth-child(8) {
-            animation-delay: 0.40s;
-        }
-
-        .urlbarView-row:nth-child(9) {
-            animation-delay: 0.45s;
-        }
-
-        .urlbarView-row:nth-child(10) {
-            animation-delay: 0.50s;
-        }
-
-        @keyframes resultEntry {
-            from {
-                opacity: 0;
-                transform: translateY(-8px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Adjust original results panel animation */
-        #urlbar-results {
-            animation: resultsFadeIn 0.2s ease-out;
-        }
-
-        @keyframes resultsFadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        .urlbarView-type-icon {
-            .urlbarView-row[type="bookmark"]>.urlbarView-row-inner>.urlbarView-no-wrap>& {
-                animation-delay: 1.50s !important;
-                animation: resultEntry 0.7s ease-out !important;
-            }
-        }
-
 
         /*  1.7.5t - (not) Animate New Tab  */
         @media (not (-moz-bool-pref: "zen.urlbar.replace-newtab")) {
