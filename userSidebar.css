@@ -71,24 +71,6 @@
           #zen-current-workspace-indicator-container {
             display: none !important;
           }
-        }
-        /* Show Container Name/Indicator above Pinned Tabs - zen.workspaces.show-workspace-indicator (True) */
-        @media (-moz-bool-pref: "zen.workspaces.show-workspace-indicator") {
-            .zen-current-workspace-indicator {
-                & .zen-current-workspace-indicator-name {
-                    font-size: 12px !important;
-                    opacity: 0.5;
-                    overflow: hidden;
-                    white-space: nowrap;
-                    text-overflow: ellipsis;
-                    max-width: calc(100% - var(--zen-toolbox-padding) * 4);
-                }
-                & .zen-current-workspace-indicator-icon {
-                  font-size: 10px !important;
-                    margin-top: -1px !important;
-                    margin-right: -5px !important;
-                }
-            }
         }     
 
         /* Pinned Tabs Height */
@@ -326,20 +308,84 @@
 
 
 /* ===================================================================================================== */
-
-/* ===================================================================================================== */
 /* General Sidebar Layout Enhancements */
 
-    /* Pinned tabs top margin */      
-    #vertical-pinned-tabs-container {
-        margin-top: 5px !important;
-    }
 
-    .vertical-pinned-tabs-container-separator {
-      #vertical-pinned-tabs-container .zen-workspace-tabs-section[hide-separator] & {
-        margin-bottom: 5px !important;
+      /* Correção das Distâncias entre Elementos */ 
+      @media (-moz-bool-pref: 'zen.workspaces.show-workspace-indicator') {
+          /* Espaço entre Pinned Tabs e o Indicador de Workspace */
+          #vertical-pinned-tabs-container {
+              margin-top: 0px !important;
+          }
+          /* Espaço entre New Tab Button e o Indicador de Workspace */
+          .vertical-pinned-tabs-container-separator {
+              #vertical-pinned-tabs-container .zen-workspace-tabs-section[hide-separator] & {
+                  margin-bottom: 0px !important;
+              }
+          }
       }
-    }
+
+      @media not (-moz-bool-pref: 'zen.workspaces.show-workspace-indicator') {
+          /* Espaço entre Pinned Tabs e as Essentials quando não há indicador */
+          #vertical-pinned-tabs-container {
+              margin-top: 5px !important;
+          }
+          /* Espaço entre New Tab Button e as Essentials quando não há indicador */
+          .vertical-pinned-tabs-container-separator {
+              #vertical-pinned-tabs-container .zen-workspace-tabs-section[hide-separator] & {
+                  margin-bottom: 3px !important;
+              }
+          }
+      }
+
+
+      /* Workspace Indicator - zen.workspaces.show-workspace-indicator (True) */
+      @media (-moz-bool-pref: "zen.workspaces.show-workspace-indicator") {
+          .zen-current-workspace-indicator {
+              & .zen-current-workspace-indicator-name {
+                  font-size: 12px !important;
+                  opacity: 0.3 !important;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  max-width: calc(100% - var(--zen-toolbox-padding) * 4);
+                  margin-left: 2px !important;
+              }
+              & .zen-current-workspace-indicator-icon {
+                  font-size: 10px !important;
+                  margin-top: -1px !important;
+                  margin-right: -2px !important;
+              }
+          }
+      }
+
+
+      /* New Tab Button */
+      #tabbrowser-arrowscrollbox-periphery > * { 
+          opacity: 0.5 !important;
+      }
+
+      #tabbrowser-arrowscrollbox-periphery > *:active { 
+          transform: scale(0.95) !important;
+      }
+      #tabbrowser-arrowscrollbox-periphery > *:hover { 
+          border-radius: 10px !important;
+      }
+
+      /* + icon */
+      #navigator-toolbox[zen-sidebar-expanded="true"] {
+          & #TabsToolbar-customization-target {
+              & > :not(tabs):not(#search-container):not(#zen-workspaces-button), & #tabbrowser-arrowscrollbox-periphery > toolbarbutton {
+                  & image {
+                      transform: scale(1.1) !important;
+                      margin-left: -1px !important;
+                      margin-right: 2px !important;
+                  }
+              }
+          }
+      }
+
+
 
       /* Alinhamento dos botões SUPERIORES da Sidebar */
       @media (not (-moz-bool-pref: "zen.view.compact")) {
