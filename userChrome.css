@@ -79,10 +79,10 @@
           background-color: #25003E !important;
     }
 
-    /* Fix for Bleeding Corners */
+    /* Fix for Bleeding Corners - Bugged on Fullscreen video
     .browserContainer {
         clip-path: inset(0 round var(--zen-native-inner-radius));
-    }
+    } */
 
      
 /*  ---------------------------------------------------------------------------
@@ -664,7 +664,7 @@
     }
     #tabbrowser-tabs { 
         & .tabbrowser-tab { 
-            &[selected] .tab-background { 
+            &[selected] .tab-background:not(#zen-essentials-container .tab-background[selected]) { 
                 border: 2px solid var(--identity-icon-color) !important; 
                 opacity: 0.8 !important;
             }

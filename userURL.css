@@ -6,6 +6,13 @@
       margin-right: -8px !important;
     }
 
+    /* Container Indicator */
+    :root[zen-single-toolbar="true"] {
+      & #urlbar:not([open]) #userContext-icons {
+        margin-inline-end: -5px !important;;
+      }
+    }
+
 
     /*  URL Bar animations by https://github.com/TheBigWazz/Pineapple-Fried */
 
