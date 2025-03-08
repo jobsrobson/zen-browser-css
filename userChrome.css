@@ -52,6 +52,8 @@
                                                              color-mix(in srgb, black 50%, white 25%)) !important;
         --in-content-button-text-color-hover:     light-dark(black, white) !important;
         --zen-branding-bg: white !important;
+        
+        --toolbarbutton-icon-fill: light-dark(rgba(57, 57, 58, 1), rgba(251, 251, 254, 1)) !important;
 }
 
 

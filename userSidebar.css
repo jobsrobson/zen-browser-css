@@ -604,7 +604,8 @@
             opacity: 1 !important;
             margin: initial !important;
             border: none !important;
-            margin-right: 28px !important;
+            margin-left: 2px !important;
+            margin-right: 32px !important;
             transform: translate(120%, 50%) scale(1.2) !important;
             fill: light-dark(rgb(57, 57, 58), white) !important;
             background-color: transparent !important;
@@ -657,47 +658,20 @@
           }
       }
 
-      &[muted] {
-          /* Different background color when muted */
-          /* Revert old icon */
-          background-image: url("chrome://browser/skin/tabbrowser/tab-audio-muted-small.svg") !important;
-          fill: rgb(251, 70, 94) !important;
-      }
 
-      &[soundplaying] {
-          /* Revert old icon */
-          background-image: url("chrome://browser/skin/tabbrowser/tab-audio-playing-small.svg") !important;
-      }
 
-      &[activemedia-blocked] {
-          /* Revert old icon */
-          background-image: url("chrome://browser/skin/tabbrowser/tab-audio-blocked-small.svg") !important;
-      }
-
-      /* Revert new, zen's audio indicator */
-      &[muted],
-      &[soundplaying],
-      &[activemedia-blocked] {
-          list-style-image: none !important;
-      }
+      
+      
+    /* Top margin on Top Buttons - 1.9b   */
+    #zen-sidebar-top-buttons-customization-target {
+        margin-top: -6px !important;
     }
-      
-      
-    /* Top margin on Top Buttons - 1.9b */
-    #zen-sidebar-top-buttons {
-      & #zen-sidebar-top-buttons-customization-target {
-        height: 100%;
-        align-items: center;
-        margin-top: -8px !important;
-        opacity: 1 !important;
-      }
-    }  
     
-    /* Bottom margin on Bottom Buttons */
+    /* Bottom margin on Bottom Buttons 
     #navigator-toolbox[zen-sidebar-expanded="true"] {
       & #zen-sidebar-bottom-buttons {
         margin-bottom: -3px !important;
       }
-    }  
+    }  */
       
 }

@@ -2,9 +2,7 @@
     BARRA DE ENDEREÇOS / URLBAR
     =================================== */
 
-    #urlbar:not([breakout-extend="true"]) #identity-box.chromeUI:not([pageproxystate="invalid"]) #identity-icon-box {
-      margin-right: -8px !important;
-    }
+
 
     /* Container Indicator */
     :root[zen-single-toolbar="true"] {
@@ -217,7 +215,7 @@
       background: light-dark(color-mix(in srgb, var(--lwt-urlbar-bg) 0%, red 30%), 
                              color-mix(in srgb, var(--lwt-urlbar-bg) 100%, black 40%)) !important;
       margin-left: 3px !important;
-    } */
+    }*/
       #identity-icon-label {
         display: none !important;
       }
