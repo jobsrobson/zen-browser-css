@@ -211,13 +211,13 @@
       
     }
 
-    /* Not Secure webpage label on URLBar */
+    /* Not Secure webpage label on URLBar 
     .notSecure #identity-icon-box {
       border-radius: 7px !important;
       background: light-dark(color-mix(in srgb, var(--lwt-urlbar-bg) 0%, red 30%), 
                              color-mix(in srgb, var(--lwt-urlbar-bg) 100%, black 40%)) !important;
       margin-left: 3px !important;
-    }
+    } */
       #identity-icon-label {
         display: none !important;
       }
