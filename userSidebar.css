@@ -556,6 +556,35 @@
         }
 
 
+        /* Collapsed Sidebar - Compact Mode - Top Bar */
+        :root[zen-compact-mode="true"]:not([customizing]):not([inDOMFullscreen="true"]) {
+          @media (-moz-bool-pref: "zen.view.compact.hide-toolbar") {
+            &:not([zen-single-toolbar="true"]) {
+              & #zen-appcontent-navbar-container {
+                background-size: unset !important;
+                padding-left: 5px !important;
+                --zen-compact-toolbar-offset: 5px;
+                position: absolute;
+                top: calc((-1 * var(--zen-toolbar-height)) + var(--zen-element-separation) + 1px);
+                left: 0 !important;
+                right: 0 !important;
+                z-index: 20;
+                box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3) !important;
+                border-bottom-left-radius: var(--zen-border-radius);
+                border-bottom-right-radius: var(--zen-border-radius);
+                border-top-left-radius: env(-moz-gtk-csd-titlebar-radius);
+                border-top-right-radius: env(-moz-gtk-csd-titlebar-radius);
+                transition: all 0.15s ease;
+                width: 99.7% !important;
+                opacity: 0;
+                background: var(--zen-dialog-background);
+                max-height: var(--zen-toolbar-height);
+                overflow: hidden;
+              }
+            }
+          }
+        }
+
 /*  ---------------------------------------------------------------------------
     Indicador de Som/Mídia   /   Playing Media/Sound Indicator   */
 
@@ -569,15 +598,26 @@
         }
       }
       
-      .tab-icon-overlay {
-          opacity: 1 !important;
-          margin: initial !important;
-          border: none !important;
-          margin-right: 28px !important;
-          transform: translate(120%, 50%) scale(1.2) !important;
+      /* Normal Sidebar */
+      #navigator-toolbox[zen-sidebar-expanded="true"] {
+        .tab-icon-overlay {
+            opacity: 1 !important;
+            margin: initial !important;
+            border: none !important;
+            margin-right: 28px !important;
+            transform: translate(120%, 50%) scale(1.2) !important;
+            fill: light-dark(rgb(57, 57, 58), white) !important;
+            background-color: transparent !important;
+            transition: 0.3s !important;
+        }
+      }
+      
+      /* Collapsed Sidebar */
+      #navigator-toolbox:not([zen-sidebar-expanded="true"]) {
+        .tab-icon-overlay {
           fill: light-dark(rgb(57, 57, 58), white) !important;
           background-color: transparent !important;
-          transition: 0.3s !important;
+        }
       }
 
       .tab-icon-overlay:is([soundplaying], [muted]):not([selected]) {
@@ -590,8 +630,8 @@
           display: none !important;
       }
 
-      /* Mute button on Pinned Tabs */
-      .tabbrowser-tab[pinned] {
+      /* Mute button on Essentials Tabs */
+      #zen-essentials-container > .tabbrowser-tab {
           .tab-icon-overlay:is([soundplaying], [muted]) {
           opacity: 1 !important;
           margin: initial !important;
@@ -641,9 +681,23 @@
           list-style-image: none !important;
       }
     }
+      
+      
+    /* Top margin on Top Buttons - 1.9b */
+    #zen-sidebar-top-buttons {
+      & #zen-sidebar-top-buttons-customization-target {
+        height: 100%;
+        align-items: center;
+        margin-top: -8px !important;
+        opacity: 1 !important;
+      }
+    }  
+    
+    /* Bottom margin on Bottom Buttons */
+    #navigator-toolbox[zen-sidebar-expanded="true"] {
+      & #zen-sidebar-bottom-buttons {
+        margin-bottom: -3px !important;
+      }
+    }  
+      
 }
-
-      
-      
-
-

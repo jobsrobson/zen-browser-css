@@ -42,6 +42,10 @@ This project is licensed under the GNU GPL3 License.
 
 ## ✅ Changelog
 
+**1.9.0 - 2025-03-08** - For **Zen Browser 1.9b or Twilight 1.9t**
+- General bug fixes for improved compatibility with Zen Browser 1.9.
+
+
 **1.8.0 - 2025-02-22** - For **Zen Browser 1.8b or Twilight 1.8t**
 
 Zen Browser has been updated to [version 1.8](https://zen-browser.app/release-notes/)! This version includes major structural changes to the behavior of Sidebar elements. As a result, **starting from this version, Zen Browser 1.7 or earlier will no longer be supported.**

@@ -79,12 +79,14 @@
           background-color: #25003E !important;
     }
 
-    /* Fix for Bleeding Corners - Bugged on Fullscreen video
-    .browserContainer {
-        clip-path: inset(0 round var(--zen-native-inner-radius));
-    } */
-
+    /* Fix for Bleeding Corners - Fixed Fullscreen video */
+    :root:not([inDOMFullscreen="true"]):not([chromehidden~="location"]):not([chromehidden~="toolbar"]) {
+        .browserContainer {
+            clip-path: inset(0 round var(--zen-native-inner-radius));
+        } 
+    }
      
+
 /*  ---------------------------------------------------------------------------
     Borda da Área de Exibição */
 
@@ -532,9 +534,10 @@
         }
     }
 
+    /* REMOVED - 1.9t - Causa bug na animação de Split Screen
     :root:not([inDOMFullscreen="true"]) #tabbrowser-tabbox {
         padding: 0px !important;
-    }
+    } */
 
     #zen-sidebar-web-header, #zen-sidebar-panels-wrapper {
         border-bottom: 0 !important;
@@ -618,17 +621,28 @@
     * {
         --attention-dot-color: AccentColor !important;
     }
-    .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]), #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab > .tab-stack > .tab-content[titlechanged]:not([selected]) {
+
+    /* Attention Dot nas abas abertas e Fixadas */
+    .tabbrowser-tab:is([image], [pinned]):not(#zen-essentials-container *) > .tab-stack > .tab-content[attention]:not([selected]), 
+    .tabbrowser-tab:not(#zen-essentials-container *) > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]), 
+    #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab:not(#zen-essentials-container *) > .tab-stack > .tab-content[titlechanged]:not([selected]) {
         background-image: radial-gradient(circle, var(--attention-dot-color), var(--attention-dot-color) 2px, transparent 2px) !important;
-        background-position: left top 20px !important;
+        background-position: left top 19px !important;
     }
-    .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), .tabbrowser-tab[pinned] > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]), #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab[pinned] > .tab-stack > .tab-content[titlechanged]:not([selected]) {
+
+    /* Attention Dot no container dos Essentials */
+    #zen-essentials-container .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), 
+    #zen-essentials-container .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]), 
+    #zen-essentials-container #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab > .tab-stack > .tab-content[titlechanged]:not([selected]) {
         background-image: radial-gradient(circle, var(--attention-dot-color), var(--attention-dot-color) 2px, transparent 2px) !important;
-        background-position: center bottom 5.5px !important;
+        background-position: center bottom 8px !important;
     }
 
 
-
+    /* .tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), .tabbrowser-tab[pinned] > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]), #tabbrowser-tabs[orient="vertical"]:not([expanded]) .tabbrowser-tab[pinned] > .tab-stack > .tab-content[titlechanged]:not([selected]) {
+        background-image: radial-gradient(circle, var(--attention-dot-color), var(--attention-dot-color) 2px, transparent 2px) !important;
+        background-position: left top 19px !important;
+    } */
 
 
 

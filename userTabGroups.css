@@ -1,6 +1,6 @@
    /*  TAB GROUPS  */
 
-   /* Requires browser.tabs.groups.enabled (⚠️ BROKEN IN ZEN 1.8) */
+   /* Requires browser.tabs.groups.enabled (⚠️ BROKEN IN ZEN 1.8) 
 
     .tab-group-label-container {
         #tabbrowser-tabs[orient="vertical"]:not([expanded]) & {
@@ -124,3 +124,5 @@
     .tab-group-line {
         display: none !important;
     }
+
+*/

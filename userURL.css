@@ -139,12 +139,14 @@
       min-width: 70vh !important;
       
       #urlbar-container:has(&) {
+        --urlbar-container-height: 38px !important;
         border-radius: 10px !important;
-        height: 38px !important;
         background: none !important;
         border: 1px solid color-mix(in srgb, black 10%, white 20%) !important;
       }
     }
+
+
 
     /* Colors */
     #urlbar {
@@ -160,11 +162,11 @@
     #urlbar[open] {
       & #urlbar-background {
         background-color: light-dark(color-mix(in srgb, white 100%, transparent 20%), 
-                                     color-mix(in srgb, black 100%, transparent 20%)) !important;
+                                     color-mix(in srgb, black 100%, transparent 60%)) !important;
         box-shadow: 0 10px 40px 10px rgba(0,0,0,0.05) !important;
         outline: none !important;
         outline-offset: none !important;
-        backdrop-filter: blur(30px) !important;
+        backdrop-filter: blur(40px) !important;
       }
     }
 
@@ -180,11 +182,11 @@
       fill: currentColor !important;
     }
 
-    .certErrorPage #identity-icon-box {
+    /* .certErrorPage #identity-icon-box {
       border-radius: 7px !important;
       background: light-dark(color-mix(in srgb, var(--lwt-urlbar-bg) 0%, red 30%), color-mix(in srgb, var(--lwt-urlbar-bg) 100%, black 40%)) !important;
       margin-left: 3px !important;
-    }
+    } */
 
 
     /* URL Bar Buttons */
@@ -197,11 +199,6 @@
   }
 }
 
-#urlbar[open] {
-    #identity-permission-box {
-        display: inherit !important;
-    }
-}
 
     #urlbar:hover #star-button-box {
       display: inherit !important;
@@ -353,7 +350,3 @@
       
     }
       
-
-
-
-
