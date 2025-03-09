@@ -43,7 +43,7 @@ This project is licensed under the GNU GPL3 License.
 ## ✅ Changelog
 
 **1.9.1 - 2025-03-09** - For **Zen Browser 1.9b or Twilight 1.9t**
-- New! Replaced Material Icons with [Lucide Icons](lucide.dev) for better consistency with Zen Browser’s original design language.
+- New! Replaced Material Icons with [Lucide Icons](https://lucide.dev/) for better consistency with Zen Browser’s original design language.
 
 
 **1.9.0 - 2025-03-08** - For **Zen Browser 1.9b or Twilight 1.9t**
