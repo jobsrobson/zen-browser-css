@@ -81,7 +81,7 @@
         list-style-image: url('icons/history.svg') !important;
     }
     #appMenu-extensions-themes-button {
-        list-style-image: url('icons/lucide/puzzle.svg') !important;
+        list-style-image: url('icons/extension.svg') !important;
     }
     #appMenu-downloads-button {
         list-style-image: url('icons/download.svg') !important;
@@ -99,7 +99,7 @@
         list-style-image: url('icons/translate.svg') !important;
     }
     #appMenu-find-button2 {
-        list-style-image: url('icons/winui/find-in.svg') !important;
+        list-style-image: url('icons/search.svg') !important;
     }
     #appMenu-zoomEnlarge-button2 {
         list-style-image: url('icons/zoom-in.svg') !important;
@@ -149,7 +149,7 @@
         list-style-image: url("icons/panel-top-close.svg") !important;
     }
     #panelMenu_showAllBookmarks > image:nth-child(1) {
-        list-style-image: url("icons/winui/edit.svg") !important;
+        list-style-image: url("icons/edit.svg") !important;
     }
 
 
@@ -299,7 +299,8 @@
         list-style-image: url("icons/more.svg") !important;
     }
     #unified-extensions-button {
-        list-style-image: url("icons/lucide/puzzle.svg") !important;
+        list-style-image: url("icons/extension.svg") !important;
+        scale: 0.9 !important;
     }
     #back-button {
         list-style-image: url("icons/arrow-back.svg") !important;
