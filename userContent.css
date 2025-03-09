@@ -1101,7 +1101,7 @@
     }
 
     .info-icon {
-      content: url("chrome://global/skin/icons/info.svg");
+      content: url("icons/info.svg");
       width: 16px !important;
       height: 16px !important;
       margin-inline-end: 0px !important;
@@ -1119,50 +1119,50 @@
     }
 
     #category-general > .category-icon {
-      list-style-image: url("icons/winui/settings.svg") !important;
+      list-style-image: url("icons/cog.svg") !important;
     }
 
     #category-zen-looks > .category-icon {
-      list-style-image: url("icons/winui/colors-painter.svg") !important;
+      list-style-image: url("icons/customize.svg") !important;
     }
 
     #category-zen-tabs-management > .category-icon {
-      list-style-image: url("icons/winui/tab.svg") !important;
+      list-style-image: url("icons/tab.svg") !important;
     }
 
     #category-zen-CKS > .category-icon {
-      list-style-image: url("icons/winui/keyboard.svg") !important;
+      list-style-image: url("icons/keyboard.svg") !important;
     }
 
     #category-zen-marketplace > .category-icon {
-      list-style-image: url("icons/winui/mods.svg") !important;
+      list-style-image: url("icons/dev-extensions.svg") !important;
     }
 
     #category-home > .category-icon {
-      list-style-image: url("icons/winui/home.svg") !important;
+      list-style-image: url("icons/home.svg") !important;
     }
 
     #category-search > .category-icon {
-      list-style-image: url("icons/winui/search.svg") !important;
+      list-style-image: url("icons/search.svg") !important;
     }
 
     #category-privacy > .category-icon {
-      list-style-image: url("icons/winui/lock.svg") !important;
+      list-style-image: url("icons/lock.svg") !important;
     }
 
     #category-sync > .category-icon {
-      list-style-image: url("icons/winui/sync.svg") !important;
+      list-style-image: url("icons/sync.svg") !important;
     }
 
     #category-experimental > .category-icon {
-      list-style-image: url("icons/winui/labs.svg") !important;
+      list-style-image: url("icons/labs.svg") !important;
     }
 
 
     /* Subpage Headers Icons */
 
     #generalCategory {
-      background-image: url("icons/winui/settings.svg") !important;
+      background-image: url("icons/cog.svg") !important;
       background-repeat: no-repeat !important;
       -moz-context-properties: fill, fill-opacity !important;
       fill: currentColor !important;
@@ -1174,7 +1174,7 @@
     }
 
     #languageAndAppearanceCategory {
-      background-image: url("icons/winui/translate.svg") !important;
+      background-image: url("icons/translate.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1187,7 +1187,7 @@
     }
 
     #filesAndApplicationsCategory {
-      background-image: url("icons/winui/folder.svg") !important;
+      background-image: url("icons/folder.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1200,7 +1200,7 @@
     }
 
     #updatesCategory {
-      background-image: url("icons/winui/update.svg") !important;
+      background-image: url("icons/update.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1213,7 +1213,7 @@
     }
 
     #performanceCategory {
-      background-image: url("icons/winui/speed.svg") !important;
+      background-image: url("icons/speed.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1226,7 +1226,7 @@
     }
 
     #browsingCategory {
-      background-image: url("icons/winui/language.svg") !important;
+      background-image: url("icons/globe.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1239,7 +1239,7 @@
     }
 
     #networkProxyCategory {
-      background-image: url("icons/winui/network.svg") !important;
+      background-image: url("icons/network.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1253,7 +1253,7 @@
 
 
     #zenVerticalTabsCategory {
-      background-image: url("icons/winui/sidebar.svg") !important;
+      background-image: url("icons/sidebar.svg") !important;
       background-repeat: no-repeat !important;
       -moz-context-properties: fill, fill-opacity !important;
       fill: currentColor !important;
@@ -1265,7 +1265,7 @@
     }
 
     #zenLooksCategory {
-      background-image: url("icons/winui/colors-painter.svg") !important;
+      background-image: url("icons/customize.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1278,7 +1278,7 @@
     }
 
     #zenThemeCategory {
-      background-image: url("icons/winui/colors-palette.svg") !important;
+      background-image: url("icons/palette.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1291,7 +1291,7 @@
     }
 
     #zenGlanceCategory {
-      background-image: url("icons/winui/glance.svg") !important;
+      background-image: url("icons/glance.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1304,7 +1304,7 @@
     }
 
     #zenUrlBarCategory {
-      background-image: url("icons/winui/url.svg") !important;
+      background-image: url("icons/url.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1317,7 +1317,7 @@
     }
 
     #zenSplitViewCategory {
-      background-image: url("icons/winui/tab-split.svg") !important;
+      background-image: url("icons/split.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1329,7 +1329,7 @@
     }
 
     #zenSidePanelsCategory {
-      background-image: url("icons/winui/workspace.svg") !important;
+      background-image: url("icons/web.svg") !important;
       background-repeat: no-repeat !important;
       -moz-context-properties: fill, fill-opacity !important;
       fill: currentColor !important;
@@ -1342,7 +1342,7 @@
 
 
     #zenTabsUnloadCategory {
-      background-image: url("icons/winui/tab-unload.svg") !important;
+      background-image: url("icons/archive.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1354,7 +1354,7 @@
     }
 
     #zenPinnedTabsManagerCategory {
-      background-image: url("icons/winui/pin.svg") !important;
+      background-image: url("icons/pin.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1367,7 +1367,7 @@
 
 
     #ZenCKSCategory {
-      background-image: url("icons/winui/keyboard.svg") !important;
+      background-image: url("icons/keyboard.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 0px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1381,7 +1381,7 @@
 
 
     #ZenMarketplaceCategory {
-      background-image: url("icons/winui/mods.svg") !important;
+      background-image: url("icons/dev-extensions.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 0px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1395,7 +1395,7 @@
 
 
     #firefoxHomeCategory {
-      background-image: url("icons/winui/home.svg") !important;
+      background-image: url("icons/home.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 0px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1409,7 +1409,7 @@
 
 
     #searchCategory {
-      background-image: url("icons/winui/search.svg") !important;
+      background-image: url("icons/search.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 0px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1423,7 +1423,7 @@
 
 
     #browserPrivacyCategory {
-      background-image: url("icons/winui/lock.svg") !important;
+      background-image: url("icons/lock.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 0px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1436,7 +1436,7 @@
     }
 
     #permissionsCategory {
-      background-image: url("icons/winui/permissions.svg") !important;
+      background-image: url("icons/permission.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1449,7 +1449,7 @@
     }
 
     #securityCategory {
-      background-image: url("icons/winui/security.svg") !important;
+      background-image: url("icons/shield.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1462,7 +1462,7 @@
     }
 
     #DoHCategory {
-      background-image: url("icons/winui/dns-https.svg") !important;
+      background-image: url("icons/earth-lock.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 40px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1476,7 +1476,7 @@
 
 
     #firefoxAccountCategory {
-      background-image: url("icons/winui/sync.svg") !important;
+      background-image: url("icons/sync.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 0px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1490,7 +1490,7 @@
 
 
     #firefoxExperimentalCategory {
-      background-image: url("icons/winui/labs.svg") !important;
+      background-image: url("icons/labs.svg") !important;
       background-repeat: no-repeat !important;
       margin-top: 0px !important;
       -moz-context-properties: fill, fill-opacity !important;
@@ -1503,28 +1503,28 @@
     }
 
     .sync-engine-bookmarks .checkbox-icon, .sync-engine-bookmarks.sync-engine-image {
-      list-style-image: url('icons/winui/star.svg') !important;
+      list-style-image: url('icons/star.svg') !important;
     }
     .sync-engine-history {
-      list-style-image: url('icons/winui/history-menu.svg') !important;
+      list-style-image: url('icons/history.svg') !important;
     }
     .sync-engine-tabs {
       list-style-image: url('icons/winui/devices.svg') !important;
     }
     .sync-engine-passwords {
-      list-style-image: url('icons/winui/password.svg') !important;
+      list-style-image: url('icons/password.svg') !important;
     }
     .sync-engine-creditcards {
-      list-style-image: url('icons/winui/credit-card.svg') !important;
+      list-style-image: url('icons/credit-card.svg') !important;
     }
     .sync-engine-addons {
-      list-style-image: url('icons/winui/extension.svg') !important;
+      list-style-image: url('icons/extension.svg') !important;
     }
     .sync-engine-prefs {
-      list-style-image: url('icons/winui/settings.svg') !important;
+      list-style-image: url('icons/settings.svg') !important;
     }
     .sync-engine-workspaces {
-      list-style-image: url('icons/winui/workspace-alt.svg') !important;
+      list-style-image: url('icons/workspace.svg') !important;
     }
   
   #zenMarketplaceGroup > hbox:nth-child(3) {
@@ -1949,15 +1949,15 @@
     }
   
     .close-button {
-      background-image: url("icons/winui/close.svg") !important;
+      background-image: url("icons/close.svg") !important;
     }
 
     .improved-style-button {
-        background-image: url("icons/winui/text.svg") !important;
+        background-image: url("icons/text.svg") !important;
     }
 
     .colors-button {
-        background-image: url("icons/winui/colors-painter.svg") !important;
+        background-image: url("icons/customize.svg") !important;
     }
 
     .narrate-toggle {
@@ -2129,6 +2129,9 @@
 }
 
 
+
+
+
 /* about:addons ========================================================= */
 
 @-moz-document url-prefix("about:addons") {
@@ -2275,19 +2278,19 @@
   }
   
   .category[name="extension"] {
-    background-image: url("icons/winui/extension.svg") !important;
+    background-image: url("icons/extension.svg") !important;
   }
   
   .category[name="theme"] {
-    background-image: url("icons/winui/colors-palette.svg") !important;
+    background-image: url("icons/palette.svg") !important;
   }
   
   .category[name="plugin"] {
-    background-image: url("icons/winui/plugin.svg") !important;
+    background-image: url("icons/plugin.svg") !important;
   }
   
   .page-options-menu > .more-options-button {
-    background-image: url("icons/winui/settings.svg") !important;
+    background-image: url("icons/settings.svg") !important;
     background-size: 22px !important;
     width: 22px !important;
     height: 22px !important;

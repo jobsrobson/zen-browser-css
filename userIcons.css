@@ -1,132 +1,138 @@
 /*  ===========================================
-    11   ÍCONES
+    11   ÍCONES - NEW LUCIDE ICONS
     =========================================== */
 
 
     .subviewbutton {
         -moz-context-properties: fill, fill-opacity !important;
         fill: currentColor !important;
-        shape-rendering: smooth !important; 
     }
     .subviewbutton > .toolbarbutton-icon {
-        width: 18px !important;
-        height: 18px !important;
+        width: 17px !important;
+        height: 17px !important;
     }
 
 
     /* Chevrons */
     .panel-header > .subviewbutton-back {
-        list-style-image: url('icons/winui/chevron-left.svg') !important;
+        list-style-image: url('icons/chevron-left.svg') !important;
     }
 
     #protections-popup-mainView .subviewbutton-nav:not(.notFound), .widget-overflow-list .subviewbutton-nav, .PanelUI-subView .subviewbutton-nav {
         &::after {
             -moz-context-properties: fill, fill-opacity;
-            content: url('icons/winui/chevron-right2.svg') !important;
+            content: url('icons/chevron-right.svg') !important;
             fill: currentColor !important;
             fill-opacity: 0.6 !important;
             display: flex;
-            width: 18px !important;
-            height: 18px !important;
+            width: 14px !important;
+            height: 14px !important;
             margin-right: -7px !important;
         }
     }
 
     .menu-right {
-        content: url('icons/winui/chevron-right2.svg') !important;
-        margin-inline-end: 0px !important;
-        width: 18px !important;
-        height: 18px !important;
+        content: url('icons/chevron-right.svg') !important;
+        margin-inline-end: 4px !important;
+        width: 14px !important;
+        height: 14px !important;
         fill-opacity: 0.6 !important;
     }
 
+
+    .tab-icon-image {
+      &:not([src]), &:-moz-broken {
+          content: url("icons/globe-default.svg") !important;
+      }
+    }
+
     #zen-glance-sidebar-close {
-        list-style-image: url('icons/winui/close.svg') !important;
+        list-style-image: url('icons/close.svg') !important;
     }
     #zen-glance-sidebar-open {
-        list-style-image: url('icons/winui/fullscreen-in.svg') !important;
+        list-style-image: url('icons/expand.svg') !important;
     }
 
 
 
 /* MAIN MENU =========================================================== */
 
+
     /* New tab */
     #appMenu-new-tab-button2 {
-        list-style-image: url('icons/winui/add3.svg') !important;
-        image-rendering: smooth !important;
+        list-style-image: url('icons/tab-new.svg') !important;
     }
 
     /* New WINDOW */
     #appMenu-new-window-button2 {
-        list-style-image: url('icons/winui/new-window.svg') !important;
+        list-style-image: url('icons/window.svg') !important;
         image-rendering: smooth !important;
     }
 
     /* New PRIVATE WINDOW */
     #appMenu-new-private-window-button2 {
-        list-style-image: url('icons/winui/incognito.svg') !important;
+        list-style-image: url('icons/private.svg') !important;
         image-rendering: smooth !important;
     }
     #appMenu-bookmarks-button {
-        list-style-image: url("icons/winui/favorites.svg") !important;
+        list-style-image: url("icons/star.svg") !important;
     }
     #appMenu-history-button {
-        list-style-image: url('icons/winui/history-menu.svg') !important;
+        list-style-image: url('icons/history.svg') !important;
     }
     #appMenu-extensions-themes-button {
-        list-style-image: url('icons/winui/extension.svg') !important;
+        list-style-image: url('icons/lucide/puzzle.svg') !important;
     }
     #appMenu-downloads-button {
-        list-style-image: url('icons/winui/download.svg') !important;
+        list-style-image: url('icons/download.svg') !important;
     }
     #appMenu-passwords-button {
-        list-style-image: url('icons/winui/password.svg') !important;
+        list-style-image: url('icons/password.svg') !important;
     }
     #appMenu-print-button2 {
-        list-style-image: url('icons/winui/print.svg') !important;
+        list-style-image: url('icons/print.svg') !important;
     }
     #appMenu-save-file-button2 {
-        list-style-image: url('icons/winui/save-as.svg') !important;
+        list-style-image: url('icons/save-as.svg') !important;
     }
     #appMenu-translate-button {
-        list-style-image: url('icons/winui/translate.svg') !important;
+        list-style-image: url('icons/translate.svg') !important;
     }
     #appMenu-find-button2 {
         list-style-image: url('icons/winui/find-in.svg') !important;
     }
     #appMenu-zoomEnlarge-button2 {
-        list-style-image: url('icons/winui/zoom-in.svg') !important;
+        list-style-image: url('icons/zoom-in.svg') !important;
     }
     #appMenu-zoomReduce-button2 {
-        list-style-image: url('icons/winui/zoom-out.svg') !important;
+        list-style-image: url('icons/zoom-out.svg') !important;
     }
     #appMenu-fullscreen-button2 {
-        list-style-image: url('icons/winui/fullscreen-in.svg') !important;
+        list-style-image: url('icons/maximize.svg') !important;
     }
     #appMenu-settings-button {
-        list-style-image: url("icons/winui/settings.svg") !important;
+        list-style-image: url("icons/settings.svg") !important;
     }
     #appMenu-more-button2 {
-        list-style-image: url("icons/winui/more.svg") !important;
+        list-style-image: url("icons/more.svg") !important;
     }
     #appMenu-help-button2 {
-        list-style-image: url("icons/winui/help.svg") !important;
+        list-style-image: url("icons/help.svg") !important;
     }
     #appMenu-quit-button2 {
-        list-style-image: url("icons/winui/exit.svg") !important;
+        list-style-image: url("icons/exit.svg") !important;
     }
 
 
 /* Bookmarks submenu */
 
     #PanelUI-bookmarks .panel-header > h1 > span::before {
-        --header-image: url("icons/winui/favorites.svg") !important;
+        --header-image: url("icons/star.svg") !important;
     }
 
     .panel-header > h1 > span::before {
         content: '';
-        background: var(--header-image) center / 18px no-repeat !important;
+        background: var(--header-image) center / 15px no-repeat !important;
         -moz-context-properties: fill, fill-opacity;
         fill: currentColor;
         padding-inline-start: calc(var(--fp-enabled, 0) * 16px);
@@ -134,87 +140,106 @@
     }
 
     #panelMenuBookmarkThisPage > image:nth-child(1) {
-        list-style-image: url("icons/winui/favorite-this.svg") !important;
+        list-style-image: url("icons/star.svg") !important;
     }
     #panelMenu_searchBookmarks > image:nth-child(1) {
-        list-style-image: url("icons/winui/search-favorite.svg") !important;
+        list-style-image: url("icons/search.svg") !important;
     }
     #panelMenu_viewBookmarksToolbar > image:nth-child(1) {
-        list-style-image: url("icons/winui/bookmarks-toolbar.svg") !important;
+        list-style-image: url("icons/panel-top-close.svg") !important;
     }
     #panelMenu_showAllBookmarks > image:nth-child(1) {
-        list-style-image: url("icons/winui/manage.svg") !important;
+        list-style-image: url("icons/winui/edit.svg") !important;
     }
 
 
 /* History Submenu */
 
     #PanelUI-history .panel-header > h1 > span::before {
-        --header-image: url('icons/winui/history-menu.svg') !important;
+        --header-image: url('icons/history.svg') !important;
     }
 
     #appMenuRecentlyClosedTabs {
-        --menu-image: url('icons/winui/schedule.svg') !important;
-        background-size: 16px !important;
-        background-position: 13px center !important;
-        background-repeat: no-repeat !important;
-        -moz-context-properties: fill, fill-opacity !important;
-        fill: currentColor !important;
+        list-style-image: url('icons/tab-close.svg') !important;
+
     }
     #PanelUI-history toolbarbutton {
         background-image: var(--menu-image) !important;
     }
 
     #appMenuRecentlyClosedWindows > image:nth-child(1) {
-        list-style-image: url("icons/winui/reopen-window.svg") !important;
+        list-style-image: url("icons/window.svg") !important;
     }
     #appMenuSearchHistory > image:nth-child(1) {
-        list-style-image: url("icons/winui/search-this.svg") !important;
+        list-style-image: url("icons/search.svg") !important;
     }
     #appMenuClearRecentHistory > image:nth-child(1) {
-        list-style-image: url("icons/winui/delete-history.svg") !important;
+        list-style-image: url("icons/trash.svg") !important;
     }
     #PanelUI-historyMore > image:nth-child(1) {
-        list-style-image: url("icons/winui/history-menu.svg") !important;
+        list-style-image: url("icons/history.svg") !important;
     }
 
 
 /* More tools submenu */
 
     #appmenu-moreTools-button > image:nth-child(1) {
-        list-style-image: url("icons/winui/customize-toolbar.svg") !important;
+        list-style-image: url("icons/customize.svg") !important;
     }
     #appmenu-zen-share-rice > image:nth-child(1) {
-        list-style-image: url("icons/winui/share-rice.svg") !important;
+        list-style-image: url("icons/share.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(1) > image:nth-child(1) {
-        list-style-image: url("icons/winui/dev.svg") !important;
+        list-style-image: url("icons/dev.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(2) > image:nth-child(1) {
-        list-style-image: url("icons/winui/task-manager.svg") !important;
+        list-style-image: url("icons/task-manager.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(3) > image:nth-child(1) {
-        list-style-image: url("icons/winui/remote-debug.svg") !important;
+        list-style-image: url("icons/remote.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(4) > image:nth-child(1) {
-        list-style-image: url("icons/winui/browser-toolbox.svg") !important;
+        list-style-image: url("icons/toolbox.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(5) > image:nth-child(1) {
-        list-style-image: url("icons/winui/browser-console.svg") !important;
+        list-style-image: url("icons/console.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(6) > image:nth-child(1) {
-        list-style-image: url("icons/winui/responsive.svg") !important;
+        list-style-image: url("icons/responsive.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(7) > image:nth-child(1) {
-        list-style-image: url("icons/winui/colors.svg") !important;
+        list-style-image: url("icons/eyedropper.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(8) > image:nth-child(1) {
-        list-style-image: url("icons/winui/page-source.svg") !important;
+        list-style-image: url("icons/source-code.svg") !important;
     }
     #appmenu-developer-tools-view > toolbarbutton:nth-child(9) > image:nth-child(1) {
-        list-style-image: url("icons/winui/extension-dev.svg") !important;
+        list-style-image: url("icons/dev-extensions.svg") !important;
     }
 
+
+
+
+/* Zen Help submenu */
+
+    #appMenu_menu_openHelp > image:nth-child(1) {
+        list-style-image: url("icons/help.svg") !important;
+    }
+    #appMenu_feedbackPage > image:nth-child(1) {
+        list-style-image: url("icons/feedback.svg") !important;
+    }
+    #appMenu_helpSafeMode > image:nth-child(1) {
+        list-style-image: url("icons/warning.svg") !important;
+    }
+    #appMenu_troubleShooting > image:nth-child(1) {
+        list-style-image: url("icons/info.svg") !important;
+    }
+    #appMenu_menu_HelpPopup_reportPhishingtoolmenu > image:nth-child(1) {
+        list-style-image: url("icons/report-bug.svg") !important;
+    }
+    #appMenu_helpSwitchDevice > image:nth-child(1) {
+        list-style-image: url("icons/devices.svg") !important;
+    }
     #appMenu_aboutName > image:nth-child(1) {
       list-style-image: url("icons/brand/zen-identity-icon.svg") !important;  
     }
@@ -224,8 +249,8 @@
 /* Sync and Account Submenu */
 
     #PanelUI-fxa-menu-syncnow-button > hbox {
-        background-image: url("icons/winui/sync.svg") !important;
-        background-size: 18px !important;
+        background-image: url("icons/sync.svg") !important;
+        background-size: 15px !important;
         background-clip: no-clip !important;
         background-repeat: no-repeat !important;
     }
@@ -235,21 +260,21 @@
     }
 
     #PanelUI-fxa-menu-connect-device-button > image:nth-child(1) {
-        list-style-image: url("icons/winui/sync-device.svg") !important;  
+        list-style-image: url("icons/devices.svg") !important;  
     }
     #PanelUI-fxa-menu-sendtab-button > image:nth-child(1) {
-        list-style-image: url("icons/winui/sync-send.svg") !important;  
+        list-style-image: url("icons/share-to.svg") !important;  
     }
     #PanelUI-fxa-menu-sync-prefs-button > image:nth-child(1) {
-        list-style-image: url("icons/winui/sync-settings.svg") !important;  
+        list-style-image: url("icons/cog.svg") !important;  
     }
     #PanelUI-fxa-menu-account-signout-button > image:nth-child(1) {
-        list-style-image: url("icons/winui/logout.svg") !important;  
+        list-style-image: url("icons/exit.svg") !important;  
     }
 
     .sendToDevice-device {
         &[clientType="desktop"] {
-            list-style-image: url("icons/winui/computer.svg") !important;
+            list-style-image: url("icons/desktop.svg") !important;
         }
     }
 
@@ -262,7 +287,7 @@
     }
 
     .remote-tabs-close-button {
-        list-style-image: url("icons/winui/close.svg") !important;
+        list-style-image: url("icons/close.svg") !important;
         width: 50px !important;
     }
 
@@ -271,30 +296,30 @@
 /* MAIN SIDEBAR ICONS */
 
     #urlbar-search-button {
-        list-style-image: url("icons/winui/menu-more.svg") !important;
+        list-style-image: url("icons/more.svg") !important;
     }
     #unified-extensions-button {
-        list-style-image: url("icons/winui/extension.svg") !important;
+        list-style-image: url("icons/lucide/puzzle.svg") !important;
     }
     #back-button {
-        list-style-image: url("icons/winui/arrow-back.svg") !important;
+        list-style-image: url("icons/arrow-back.svg") !important;
     }
     #forward-button {
-        list-style-image: url("icons/winui/arrow-forward.svg") !important;
+        list-style-image: url("icons/arrow-forward.svg") !important;
     }
     #reload-button {
         list-style-image: url("icons/winui/refresh.svg") !important;
     }
     #tabs-newtab-button {
-        list-style-image: url('icons/winui/add-new.svg') !important;
+        list-style-image: url('icons/plus.svg') !important;
     }
+
 
 
 /* URL BAR ICONS */
 
     #zen-split-views-button {
-        width: 16px !important;
-        height: 14px !important;
+        list-style-image: url("icons/split.svg") !important;
     }
 
     :root[zen-single-toolbar="true"] {
@@ -305,9 +330,9 @@
     }
 
     #zenSplitViewModifierActivateReallocation > image:nth-child(1) {
-        list-style-image: url("icons/winui/swap.svg") !important;
-        width: 26px !important;
-        height: 26px !important;
+        list-style-image: url("icons/move.svg") !important;
+        width: 24px !important;
+        height: 24px !important;
     }
     #zenSplitViewModifierActivateReallocation:hover > image:nth-child(1) {
         fill: black !important;
@@ -318,25 +343,25 @@
     }
 
     #identity-box[pageproxystate="valid"].verifiedDomain #identity-icon {
-        list-style-image: url("icons/winui/lock.svg") !important;  
+        list-style-image: url("icons/lock.svg") !important;  
     }
     .urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
-        list-style-image: url("icons/winui/shield.svg") !important;
+        list-style-image: url("icons/shield.svg") !important;
     }
     #picture-in-picture-button > .urlbar-icon {
-        list-style-image: url('icons/winui/pip-enter.svg') !important;
+        list-style-image: url('icons/pip.svg') !important;
     }
     #picture-in-picture-button[pipactive] > .urlbar-icon {
-        list-style-image: url("icons/winui/pip-exit.svg") !important;
+        list-style-image: url("icons/pip-exit.svg") !important;
     }
     #star-button {
-        list-style-image: url("icons/winui/star.svg") !important;
+        list-style-image: url("icons/star.svg") !important;
     }
     #star-button[starred] {
-        list-style-image: url("icons/winui/star-filled.svg") !important;
+        list-style-image: url("icons/star.svg") !important;
     }
     #password-notification-icon {
-        list-style-image: url("icons/winui/password-vertical.svg") !important;
+        list-style-image: url("icons/password.svg") !important;
     }
 
 
@@ -345,7 +370,7 @@
 
     #appMenu-downloads-button, 
     #appMenu-library-downloads-button {
-        list-style-image: url('icons/winui/download.svg') !important;
+        list-style-image: url('icons/download.svg') !important;
     }
 
 
@@ -353,17 +378,19 @@
 /* SPECIAL TABS ICONS */
 
     .tab-icon-image[src="chrome://global/skin/icons/settings.svg"] {
-        content: url('icons/winui/settings.svg') !important;
+        content: url('icons/cog.svg') !important;
     }
 
     .tab-icon-image[src="chrome://branding/content/icon32.png"], .tab-icon-image[src="chrome://browser/skin/privatebrowsing/favicon.svg"] {
-        content: url('icons/winui/new-tab-2.svg') !important;
+        content: url('icons/tab.svg') !important;
     }
 
 
 
 
 /* CONTEXT MENUS */
+
+    /* SIDEBAR GENERAL CONTEXT */
 
     :not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menuitem:not(.menuitem-iconic, [type="checkbox"], [type="radio"], .in-menulist, .in-menulist menuitem, .unified-nav-current), :not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menu:not(.menu-iconic, [type="checkbox"], [type="radio"], .in-menulist, .in-menulist menu, .unified-nav-current), #toggle_toolbar-menubar, #PanelUI-history toolbarbutton, #unified-extensions-context-menu menuitem {
         background-image: var(--menu-image) !important;
@@ -375,88 +402,116 @@
     }
 
     #manage-saved-logins {
-        --menu-image: url('icons/winui/password.svg') !important;
+        --menu-image: url('icons/password.svg') !important;
     }
 
     #toolbar-context-openANewTab {
-        --menu-image: url('icons/winui/add3.svg') !important;
+        --menu-image: url('icons/tab-new.svg') !important;
     }
     #toolbar-context-reloadSelectedTab {
-        --menu-image: url('icons/winui/refresh.svg') !important;
+        --menu-image: url('icons/reload.svg') !important;
     }
-    #toolbar-context-customize {
-        --menu-image: url('icons/winui/customize.svg') !important;
+    #toolbar-context-bookmarkSelectedTab {
+        --menu-image: url('icons/star.svg') !important;
     }
+    #toolbar-context-selectAllTabs {
+        --menu-image: url('icons/select-all.svg') !important;
+    }    
     #toolbar-context-undoCloseTab {
-        --menu-image: url('icons/winui/reopen.svg') !important;
+        --menu-image: url('icons/reopen.svg') !important;
+    }
+    #zen-context-menu-compact-mode {
+      --menu-image: url('icons/compact-mode.svg') !important;
     }
     menuitem[checked="true"] > .menu-iconic-left {
-        list-style-image: url('icons/winui/check.svg') !important;
+        list-style-image: url('icons/check.svg') !important;
+    }
+    #toolbar-context-customize {
+        --menu-image: url('icons/customize-toolbar.svg') !important;
+    }
+    #zenToolbarThemePicker {
+        --menu-image: url('icons/palette.svg') !important;
     }
 
-    #context_openANewTab{
-        --menu-image: url('icons/winui/tab-below.svg') !important;
+
+
+    /* TAB CONTEXT MENU */
+    #context_openANewTab {
+        --menu-image: url('icons/below.svg') !important;
     }
-    #context_moveTabToNewGroup{
-        --menu-image: url('icons/winui/tab-group.svg') !important;
+    #context_moveTabToNewGroup {
+        --menu-image: url('icons/group.svg') !important;
     }
     #context_reloadTab, #context_reloadSelectedTabs {
-        --menu-image: url('icons/winui/refresh.svg') !important;
+        --menu-image: url('icons/reload.svg') !important;
     }
     #context_toggleMuteTab, #context_toggleMuteSelectedTabs {
-        --menu-image: url('icons/winui/mute.svg') !important;
+        --menu-image: url('icons/mute.svg') !important;
     }
     #context_zen-add-essential {
-        --menu-image: url('icons/winui/essentials-add.svg') !important;
+        --menu-image: url('icons/essentials.svg') !important;
     }
     #context_zen-remove-essential {
-        --menu-image: url('icons/winui/essentials-remove.svg') !important;
+        --menu-image: url('icons/essentials-remove.svg') !important;
     }
     #context_pinTab, #context_pinSelectedTabs {
-        --menu-image: url('icons/winui/pin.svg') !important;
+        --menu-image: url('icons/pin.svg') !important;
     }
     #context_unpinTab {
-        --menu-image: url('icons/winui/unpin.svg') !important;
+        --menu-image: url('icons/unpin.svg') !important;
     }
     #context_duplicateTab, #context_duplicateTabs {
-        --menu-image: url('icons/winui/tab-duplicate.svg') !important;
+        --menu-image: url('icons/duplicate.svg') !important;
+    }
+    #context_bookmarkTab {
+        --menu-image: url('icons/winui/star.svg') !important;
     }
     #context_bookmarkSelectedTabs {
         --menu-image: url('icons/winui/star.svg') !important;
     }
     #context_moveTabOptions {
-        --menu-image: url('icons/winui/tab-move.svg') !important;
+        --menu-image: url('icons/move-tab.svg') !important;
+    }
+    #context_sendTabToDevice {
+        --menu-image: url('icons/winui/share.svg') !important;
     }
     #context_reopenInContainer{
-        --menu-image: url('icons/winui/tab-move-container.svg') !important;
+        --menu-image: url('icons/container.svg') !important;
+    }
+    #context_selectAllTabs {
+        --menu-image: url('icons/select-all.svg') !important;
     }
     #context_closeTab {
-        --menu-image: url('icons/winui/close.svg') !important;
+        --menu-image: url('icons/close.svg') !important;
     }
     #context_closeDuplicateTabs {
-        --menu-image: url('icons/winui/tab-close-duplicates.svg') !important;
+        --menu-image: url('icons/close-duplicate.svg') !important;
     }
     #context-zen-change-workspace-tab {
-        --menu-image: url('icons/winui/tab-workspace-move.svg') !important;
+        --menu-image: url('icons/workspace.svg') !important;
     }
     #context_zenSplitTabs {
-        --menu-image: url('icons/winui/tab-split.svg') !important;
+        --menu-image: url('icons/split.svg') !important;
     }
     #context_closeTabOptions {
-        --menu-image: url('icons/winui/tab-close-multiple.svg') !important;
+        --menu-image: url('icons/close-all.svg') !important;
     }
     #context_undoCloseTab {
-        --menu-image: url('icons/winui/tab-reopen.svg') !important;
+        --menu-image: url('icons/history.svg') !important;
     }
     #context_zenUnloadTab {
-        --menu-image: url('icons/winui/tab-unload.svg') !important;
+        --menu-image: url('icons/archive.svg') !important;
+    }
+    #context_zenTabActions {
+        --menu-image: url('icons/unload-tab.svg') !important;
     }
     #context_zen-replace-pinned-url-with-current {
-        --menu-image: url('icons/winui/tab-replace-url.svg') !important;
+        --menu-image: url('icons/url.svg') !important;
     }
     #context_zen-reset-pinned-tab {
-        --menu-image: url('icons/winui/history-menu.svg') !important;
+        --menu-image: url('icons/reload.svg') !important;
     }
+
     #context_moveTabToGroup {
         --menu-image: url('icons/winui/tab-group.svg') !important;
     }
@@ -468,11 +523,9 @@
         --menu-image: url('icons/winui/pin-overflow.svg') !important;
     }
     #toolbar-context-remove-from-toolbar {
-        --menu-image: url('icons/winui/remove.svg') !important;
+        --menu-image: url('icons/close.svg') !important;
     }
-    #zenToolbarThemePicker {
-        --menu-image: url('icons/winui/colors-palette.svg') !important;
-    }
+
 
     #toolbar-context-autohide-downloads-button > label:nth-child(2) {
         margin-left: -4px !important;
@@ -486,17 +539,18 @@
         padding: 1px !important;
     }
 
+
     #context-back {
-        list-style-image: url('icons/winui/arrow-back.svg') !important;
+        list-style-image: url('icons/arrow-back.svg') !important;
     }
     #context-forward {
-        list-style-image: url('icons/winui/arrow-forward.svg') !important;
+        list-style-image: url('icons/arrow-forward.svg') !important;
     }
     #context-reload {
         list-style-image: url('icons/winui/refresh.svg') !important;
     }
     #context-stop {
-        list-style-image: url('icons/winui/stop.svg') !important;
+        list-style-image: url('icons/close.svg') !important;
     }
     #context-bookmarkpage {
         list-style-image: url('icons/winui/star.svg') !important;
@@ -507,7 +561,7 @@
     }
 
     .bookmark-item {
-        list-style-image: url('icons/winui/globe.svg') !important;
+        list-style-image: url('icons/globe.svg') !important;
         -moz-context-properties: fill !important;
         fill: currentColor !important;
     }
@@ -518,59 +572,62 @@
 /* TEXTBOX CONTEXT MENU */
 
     #context-savepage {
-        --menu-image: url('icons/winui/save-as.svg') !important;
+        --menu-image: url('icons/save-as.svg') !important;
     }
 
     #context-take-screenshot {
-        --menu-image: url('icons/winui/screenshot.svg') !important;
+        --menu-image: url('icons/screenshot.svg') !important;
     }
     #context-viewsource {
-        --menu-image: url('icons/winui/page-source.svg') !important;
+        --menu-image: url('icons/source-code.svg') !important;
     }
     #context-inspect {
-        --menu-image: url('icons/winui/page-inspect.svg') !important;
+        --menu-image: url('icons/inspect.svg') !important;
     }
     #context-undo {
-        --menu-image: url('icons/winui/undo.svg') !important;
+        --menu-image: url('icons/undo.svg') !important;
     }
     #context-redo {
-        --menu-image: url('icons/winui/redo.svg') !important;
+        --menu-image: url('icons/redo.svg') !important;
     }
     #context-cut {
-        --menu-image: url('icons/winui/cut.svg') !important;
+        --menu-image: url('icons/cut.svg') !important;
     }
     #context-copy {
-        --menu-image: url('icons/winui/copy.svg') !important;
+        --menu-image: url('icons/copy.svg') !important;
     }
     #context-paste {
-        --menu-image: url('icons/winui/paste.svg') !important;
+        --menu-image: url('icons/paste.svg') !important;
     }
     #context-paste-no-formatting {
-        --menu-image: url('icons/winui/paste-formatting.svg') !important;
+        --menu-image: url('icons/paste-formatting.svg') !important;
     }
     #context-delete {
-        --menu-image: url('icons/winui/delete-alt.svg') !important;
+        --menu-image: url('icons/delete.svg') !important;
     }
     #context-searchselect {
-        --menu-image: url('icons/winui/search.svg') !important;
+        --menu-image: url('icons/search.svg') !important;
     }
     #spell-dictionaries {
-        --menu-image: url('icons/winui/language.svg') !important;
+        --menu-image: url('icons/translate.svg') !important;
     }
     #context-viewpartialsource-selection {
-        --menu-image: url('icons/winui/dev.svg') !important;
+        --menu-image: url('icons/source-code.svg') !important;
     }
     #context-selectall {
-        --menu-image: url('icons/winui/select-all.svg') !important;
+        --menu-image: url('icons/select-all.svg') !important;
     }
     #context-print-selection {
-        --menu-image: url('icons/winui/print.svg') !important;
+        --menu-image: url('icons/print.svg') !important;
     }
     #context-translate-selection {
-        --menu-image: url('icons/winui/translate.svg') !important;
+        --menu-image: url('icons/translate.svg') !important;
     }
-    #zen-context-menu-compact-mode {
-      --menu-image: url('icons/winui/compact-mode.svg') !important;
+    #context-searchselect-private {
+        --menu-image: url('icons/private.svg') !important;
+    }
+    #context-sendpagetodevice {
+        --menu-image: url('icons/share-to.svg') !important;
     }
 
 
@@ -578,97 +635,125 @@
 /* LINKBOX CONTEXT MENU */
 
     #context-openlinkintab {
-        --menu-image: url('icons/winui/tab.svg') !important;
+        --menu-image: url('icons/tab-new.svg') !important;
     }
     #context-openlinkinusercontext-menu {
-        --menu-image: url('icons/winui/link-container.svg') !important;
+        --menu-image: url('icons/container.svg') !important;
     }
     #context-openlink {
-        --menu-image: url('icons/winui/link-newwindow.svg') !important;
+        --menu-image: url('icons/window.svg') !important;
     }
     #context-openlinkprivate {
-        --menu-image: url('icons/winui/incognito.svg') !important;
+        --menu-image: url('icons/private.svg') !important;
     }
     #context-zenSplitLink {
-        --menu-image: url('icons/winui/link-split.svg') !important;
+        --menu-image: url('icons/split.svg') !important;
+    }
+    #context-bookmarklink {
+        --menu-image: url('icons/winui/star.svg') !important;
+    }
+    #context-savelink {
+        --menu-image: url('icons/save-as.svg') !important;
     }
     #context-copylink {
-        --menu-image: url('icons/winui/copy.svg') !important;
+        --menu-image: url('icons/copy.svg') !important;
     }
     #context-stripOnShareLink {
-        --menu-image: url('icons/winui/link-tracking.svg') !important;
+        --menu-image: url('icons/copy-type.svg') !important;
     }
     #context-zenAddToWebPanel {
-        --menu-image: url('icons/winui/link-webpanel.svg') !important;
+        --menu-image: url('icons/add.svg') !important;
+    }
+    #context-sendlinktodevice {
+        --menu-image: url('icons/share-to.svg') !important;
     }
 
 
 /* IMAGEBOX CONTEXT MENU */
 
     #context-saveimage {
-        --menu-image: url('icons/winui/image-saveas.svg') !important;
+        --menu-image: url('icons/download.svg') !important;
     }
     #context-copyimage-contents {
-        --menu-image: url('icons/winui/image-copy.svg') !important;
+        --menu-image: url('icons/copy-image.svg') !important;
     }
     #context-copyimage {
-        --menu-image: url('icons/winui/url.svg') !important;
+        --menu-image: url('icons/url.svg') !important;
     }
     #context-viewimage {
         --menu-image: url('icons/winui/tab.svg') !important;
+    }
+    #context-sendimage {
+        --menu-image: url('icons/mail.svg') !important;
+    }
+    #context-viewimage {
+        --menu-image: url('icons/tab-new.svg') !important;
+    }
+    #context-viewimageinfo {
+        --menu-image: url('icons/info.svg') !important;
+    }
+    #context-setDesktopBackground {
+        --menu-image: url('icons/image-set.svg') !important;
     }
 
 
 /* VIDEOBOX CONTEXT MENU */
 
     #context-media-play {
-        --menu-image: url('icons/winui/play.svg') !important;
+        --menu-image: url('icons/play.svg') !important;
     }
     #context-media-pause {
-        --menu-image: url('icons/winui/pause.svg') !important;
+        --menu-image: url('icons/pause.svg') !important;
     }
     #context-media-mute {
-        --menu-image: url('icons/winui/mute.svg') !important;
+        --menu-image: url('icons/mute.svg') !important;
     }
     #context-media-unmute {
-        --menu-image: url('icons/winui/unmute.svg') !important;
+        --menu-image: url('icons/unmute.svg') !important;
     }
     #context-media-playbackrate {
-        --menu-image: url('icons/winui/speed.svg') !important;
+        --menu-image: url('icons/speed.svg') !important;
     }
     #context-media-loop > label:nth-child(2) {
-        margin-left: -4px !important;
+        margin-left: 4px !important;
     }
     #context-video-fullscreen {
-        --menu-image: url('icons/winui/fullscreen-in.svg') !important;
+        --menu-image: url('icons/expand.svg') !important;
     }
+
     #context-media-showcontrols {
-        --menu-image: url('icons/winui/controls.svg') !important;
+        --menu-image: url('icons/controls.svg') !important;
     }
     #context-media-hidecontrols {
         --menu-image: url('icons/winui/controls.svg') !important;
     }
     #context-viewvideo {
-        --menu-image: url('icons/winui/tab.svg') !important;
+        --menu-image: url('icons/tab-new.svg') !important;
     }
     #context-video-pictureinpicture > label:nth-child(2) {
         margin-left: -4px !important;
     }
     #context-video-saveimage {
-        --menu-image: url('icons/winui/camera.svg') !important;
+        --menu-image: url('icons/camera.svg') !important;
     }
     #context-savevideo {
-        --menu-image: url('icons/winui/download.svg') !important;
+        --menu-image: url('icons/download.svg') !important;
     }
     #context-copyvideourl {
-        --menu-image: url('icons/winui/url.svg') !important;
+        --menu-image: url('icons/url.svg') !important;
     }
     #context-sendvideo {
-        --menu-image: url('icons/winui/mail.svg') !important;
+        --menu-image: url('icons/mail.svg') !important;
     }
     #frame {
-        --menu-image: url('icons/winui/frame.svg') !important;
+        --menu-image: url('icons/frame.svg') !important;
     }
+
+
+
+
+
+
 
 
 
@@ -676,137 +761,166 @@
 /* BOOKMARK CONTEXT MENU */
 
     menuitem[id="placesContext_openBookmarkContainer:tabs"] {
-        --menu-image: url('icons/winui/open-all.svg') !important;
+        --menu-image: url('icons/new-tab.svg') !important;
     }
     menuitem[id="placesContext_new:bookmark"] {
-        --menu-image: url('icons/winui/star.svg') !important;
+        --menu-image: url('icons/star.svg') !important;
     }
     menuitem[id="placesContext_new:folder"] {
-        --menu-image: url('icons/winui/new-folder.svg') !important;
+        --menu-image: url('icons/folder-new.svg') !important;
     }
     menuitem[id="placesContext_new:separator"] {
-        --menu-image: url('icons/winui/separator.svg') !important;
+        --menu-image: url('icons/separator.svg') !important;
     }
     menuitem[id="placesContext_paste"] {
-        --menu-image: url('icons/winui/paste.svg') !important;
+        --menu-image: url('icons/paste.svg') !important;
     }
     menuitem[id="placesContext_cut"] {
-        --menu-image: url('icons/winui/cut.svg') !important;
+        --menu-image: url('icons/cut.svg') !important;
     }
     menuitem[id="placesContext_copy"] {
-        --menu-image: url('icons/winui/copy.svg') !important;
+        --menu-image: url('icons/copy.svg') !important;
     }
     menuitem[id="placesContext_paste_group"] {
-        --menu-image: url('icons/winui/paste.svg') !important;
+        --menu-image: url('icons/paste.svg') !important;
     }
     menuitem[id="placesContext_openBookmarkContainer:tabs"] {
-        --menu-image: url('icons/winui/tab.svg') !important;
+        --menu-image: url('icons/tab.svg') !important;
     }
     #toggle_PersonalToolbar {
-        --menu-image: url('icons/winui/bookmarks-toolbar-alt.svg') !important;
+        --menu-image: url('icons/bookmarks-toolbar.svg') !important;
     }
     menuitem[id="placesContext_showAllBookmarks"] {
-        --menu-image: url('icons/winui/edit-alt.svg') !important;
+        --menu-image: url('icons/edit.svg') !important;
     }
     menuitem[id="placesContext_show_bookmark:info"] {
         --menu-image: url('icons/winui/edit.svg') !important;
     }
     menuitem[id="placesContext_deleteBookmark"] {
-        --menu-image: url('icons/winui/delete.svg') !important;
+        --menu-image: url('icons/trash.svg') !important;
     }
     menuitem[id="placesContext_open:newtab"] {
-        --menu-image: url('icons/winui/tab.svg') !important;
+        --menu-image: url('icons/tab-new.svg') !important;
     }
     menu[id="placesContext_open:newcontainertab"] {
-        --menu-image: url('icons/winui/container.svg') !important;
+        --menu-image: url('icons/container.svg') !important;
     }
     menuitem[id="placesContext_open:newwindow"] {
-        --menu-image: url('icons/winui/new-window.svg') !important;
+        --menu-image: url('icons/window.svg') !important;
     }
     menuitem[id="placesContext_open:newprivatewindow"] {
-        --menu-image: url('icons/winui/incognito.svg') !important;
+        --menu-image: url('icons/private.svg') !important;
     }
     #show-other-bookmarks_PersonalToolbar > label:nth-child(2) {
-        margin-left: -4px !important;
+        margin-left: 0px !important;
     }
     menuitem[id="placesContext_show_folder:info"] {
-        --menu-image: url('icons/winui/folder-edit.svg') !important;
+        --menu-image: url('icons/folder-edit.svg') !important;
     }
     menuitem[id="placesContext_deleteFolder"] {
-        --menu-image: url('icons/winui/folder-delete.svg') !important;
+        --menu-image: url('icons/folder-delete.svg') !important;
     }
     menuitem[id="placesContext_sortBy:name"] {
-        --menu-image: url('icons/winui/sort-name.svg') !important;
+        --menu-image: url('icons/sort-by-name.svg') !important;
     }
 
+
+
+
+    /* URL BAR ICONS */
+
     #permissions-granted-icon {
-        list-style-image: url('icons/winui/page-info.svg') !important;
+        list-style-image: url('icons/preferences.svg') !important;
     }
 
     #reader-mode-button > .urlbar-icon {
-        list-style-image: url('icons/winui/reader.svg') !important;
+        list-style-image: url('icons/reader.svg') !important;
     }
 
     .folder-icon {
-        list-style-image: url('icons/winui/folder.svg') !important;
+        list-style-image: url('icons/folder.svg') !important;
     }
 
+
+
+
+    /* ZEN WORKSPACES DIALOG */
+
     #PanelUI-zen-workspaces-reorder-mode image {
-        list-style-image: url('icons/winui/move-alt.svg') !important;
+        list-style-image: url('icons/reorder.svg') !important;
         rotate: none !important;
+        scale: 0.7 !important;
     }
 
     #PanelUI-zen-workspaces-new image {
-        list-style-image: url('icons/winui/add-new.svg') !important;
+        list-style-image: url('icons/plus.svg') !important;
         rotate: none !important;
+        scale: 0.7 !important;
     }
 
+    .zen-workspace-actions-reorder-icon {
+      list-style-image: url('icons/grip.svg') !important;
+      margin-right: 6px !important;
+    }
+
+    #zen-workspace-actions-menu-icon {
+      list-style-image: url('icons/more.svg') !important;
+    }
+
+
+
+    /* ZEN WEB PANEL */
 
     #zen-sidebar-web-panel-back {
-        list-style-image: url('icons/winui/chevron-left.svg') !important;
+        list-style-image: url('icons/chevron-left.svg') !important;
     }
     #zen-sidebar-web-panel-forward {
-        list-style-image: url('icons/winui/chevron-right.svg') !important;
+        list-style-image: url('icons/chevron-right.svg') !important;
     }
     #zen-sidebar-web-panel-reload {
         list-style-image: url('icons/winui/refresh.svg') !important;
     }
     #zen-sidebar-web-panel-home {
-        list-style-image: url('icons/winui/home.svg') !important;
+        list-style-image: url('icons/home.svg') !important;
     }
     #zen-sidebar-web-panel-pinned {
-        list-style-image: url('icons/winui/unpin.svg') !important;
+        list-style-image: url('icons/unpin.svg') !important;
     }
     #zen-sidebar-web-panel-pinned[pinned="true"] {
-        list-style-image: url('icons/winui/pin.svg') !important;
+        list-style-image: url('icons/pin.svg') !important;
     }
     #zen-sidebar-web-panel-close {
-        list-style-image: url('icons/winui/close.svg') !important;
+        list-style-image: url('icons/close.svg') !important;
     }
+    #zen-sidebar-add-panel-button > image:nth-child(1) {
+        list-style-image: url('icons/plus.svg') !important;
+        scale: 1.1 !important;
+    }
+
 
 
     /* ZEN WEB PANEL CONTEXT MENU */
 
     #context_zenUnloadWebPanel {
-        --menu-image: url('icons/winui/unload.svg') !important;
+        --menu-image: url('icons/archive.svg') !important;
     }
     #context_zenToggleMuteWebPanel[muted] {
-        --menu-image: url('icons/winui/mute.svg') !important;
+        --menu-image: url('icons/mute.svg') !important;
     }
     #context_zenToggleMuteWebPanel {
-        --menu-image: url('icons/winui/sound.svg') !important;
+        --menu-image: url('icons/unmute.svg') !important;
     }
     #context_zenOpenNewTabWebPanel {
-        --menu-image: url('icons/winui/tab.svg') !important;
+        --menu-image: url('icons/tab-new.svg') !important;
     }
     #context_zenWebPanelContextInContainer {
-        --menu-image: url('icons/winui/container.svg') !important;
+        --menu-image: url('icons/container.svg') !important;
     }
     #context_zenToogleUAWebPanel {
-        --menu-image: url('icons/winui/mobile-code.svg') !important;
+        --menu-image: url('icons/mobile.svg') !important;
     }
     #context_zenDeleteWebPanel {
-        --menu-image: url('icons/winui/delete.svg') !important;
+        --menu-image: url('icons/trash.svg') !important;
     }
 
 
@@ -906,20 +1020,23 @@
     }
 
 
+
+
     /* SECURITY CONTEXT MENU */
 
     #identity-popup-security-button > image:nth-child(1) {
-        list-style-image: url('icons/winui/lock.svg') !important;
+        list-style-image: url('icons/lock.svg') !important;
     }
     #identity-popup-clear-sitedata-button > image:nth-child(1) {
-        list-style-image: url('icons/winui/delete.svg') !important;
+        list-style-image: url('icons/trash.svg') !important;
     }
     hbox.identity-popup-security-connection > image:nth-child(1) {
-        list-style-image: url('icons/winui/lock.svg') !important;
+        list-style-image: url('icons/lock.svg') !important;
     }
     #identity-popup-more-info > image:nth-child(1) {
-        list-style-image: url('icons/winui/info.svg') !important;
+        list-style-image: url('icons/info.svg') !important;
     }
+
 
 
     /* DOWNLOAD CONTEXT MENU */
@@ -928,22 +1045,22 @@
         margin-left: -5px !important;
     }
     .downloadCopyLocationMenuItem {
-        --menu-image: url('icons/winui/url.svg') !important;
+        --menu-image: url('icons/url.svg') !important;
     }
     .downloadRemoveFromHistoryMenuItem {
-        --menu-image: url('icons/winui/close.svg') !important;
+        --menu-image: url('icons/close.svg') !important;
     }
     #downloadsContextMenu > menuitem:nth-child(14) {
-        --menu-image: url('icons/winui/delete-alt.svg') !important;
+        --menu-image: url('icons/clear.svg') !important;
     }
     .downloadShowMenuItem {
-        --menu-image: url('icons/winui/folder.svg') !important;
+        --menu-image: url('icons/folder.svg') !important;
     }
     .downloadOpenReferrerMenuItem {
-        --menu-image: url('icons/winui/undo.svg') !important;
+        --menu-image: url('icons/undo.svg') !important;
     }
     .downloadDeleteFileMenuItem {
-        --menu-image: url('icons/winui/delete.svg') !important;
+        --menu-image: url('icons/trash.svg') !important;
     }
     window#history-panel.sidebar-panel menupopup#placesContext menuitem {
         background-image: none !important;
@@ -955,6 +1072,10 @@
         background-image: none !important;
     }
 
+    .downloadIconShow > .button-box > .button-icon {
+        list-style-image: url("icons/folder.svg") !important;
+    }
+
     /* Fix for ContentSelectDropdown itens in 1.8t */
     :not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menuitem:not(.menuitem-iconic, [type="checkbox"], [type="radio"], .in-menulist, .in-menulist menuitem, .unified-nav-current), :not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menu:not(.menu-iconic, [type="checkbox"], [type="radio"], .in-menulist, .in-menulist menu, .unified-nav-current), :not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menucaption {
         padding-inline-start: calc( var(--fp-contextmenu-menuitem-padding-inline) + 16px + var(--fp-contextmenu-menuicon-margin-inline) ) !important;
@@ -962,9 +1083,16 @@
 
 
 
-
-
-
+    /* TAB SOUND ICONS */
+    .tab-icon-overlay[soundplaying] {
+        list-style-image: url('icons/unmute.svg') !important;
+    }
+    .tab-icon-overlay[muted] {
+        list-style-image: url('icons/mute.svg') !important;
+    }
+    .tab-icon-overlay[activemedia-blocked] {
+        list-style-image: url('icons/media-blocked.svg') !important;
+    }
 
 
 

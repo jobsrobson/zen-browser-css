@@ -226,7 +226,7 @@
 
     #star-button[starred] {
       fill-opacity: 1;
-      fill: color-mix(in srgb, var(--toolbarbutton-icon-fill-attention) 100%, black 10%) !important;
+      fill: color-mix(in srgb, rgb(255, 124, 84) 100%, black 0%) !important;
     }
 
     /* Altera o Identity Icon na URL Bar para o novo ícone do Zen */
