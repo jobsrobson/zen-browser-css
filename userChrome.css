@@ -22,6 +22,7 @@
     @import "userWindowPageInfo.css";
     @import "userWebPanel.css";
     @import "userSidePanels.css";
+    @import "userMediaPlayer.css";
  
     * {
         --lwt-border:             color-mix(in srgb, black 10%, white 10%) !important;
@@ -173,7 +174,7 @@
         border: 1px solid color-mix(in srgb, var(--lwt-button-color-hover) 50%, transparent 50%) !important;
     }
     input:where([type="email"]:hover, [type="tel"]:hover, [type="text"]:hover, [type="password"]:hover, [type="url"]:hover, [type="number"]:hover), textarea:hover {
-        border: 1px solid var(--lwt-button-color-hover) !important;
+       /* border: 1px solid var(--lwt-button-color-hover) !important; */
     }
 
 

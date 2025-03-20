@@ -27,13 +27,15 @@
         border-radius: 5px !important;
     }
 
-    search-textbox#search-box:hover {
-        border: 1px solid var(--zen-colors-secondary) !important;
+    search-textbox#search-box:focus {
+                appearance: none !important;
+        background-color: light-dark(white, black) !important;
+        border: 1px solid var(--zen-colors-border) !important;
+        padding: 0.5rem !important;
+        border-radius: 5px !important;
+        transition: all 0.4s  !important;
     }
 
-    search-textbox#search-box:hover:active {
-        border: 1px solid var(--zen-colors-secondary) !important;
-    }
 
     button#viewButton {
         appearance: none;
@@ -110,3 +112,45 @@
     #header {
         display: none !important;
     }
+
+
+    /* Synced Tabs Sidebar */
+    @-moz-document url("chrome://browser/content/syncedtabs/sidebar.xhtml") {
+      :root {
+        background-color: transparent !important;
+      }
+    }
+
+
+    search-textbox.tabsFilter {
+        appearance: none !important;
+        background-color: var(--zen-colors-tertiary) !important;
+        border: 1px solid var(--zen-colors-border) !important;
+        padding: 0.5rem !important;
+        border-radius: 5px !important;
+    }
+
+    search-textbox.tabsFilter:focus {
+        appearance: none !important;
+        background-color: light-dark(white, black) !important; !important;
+        border: 1px solid var(--zen-colors-border) !important;
+        padding: 0.5rem !important;
+        border-radius: 5px !important;
+        transition: all 0.4s  !important;
+    }
+
+
+
+
+#multi-stage-message-root {
+  & label {
+    background-color: transparent !important;
+    border: 0.5px solid var(--border-color-deemphasized);
+    border-radius: 10px !important;
+    flex-direction: row;
+    margin: 1.5px;
+    outline-offset: var(--focus-outline-offset);
+    padding: var(--space-small);
+  }
+}
+

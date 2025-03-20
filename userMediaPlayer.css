@@ -1,0 +1,53 @@
+/* Media Player Sidebar - 1.10t */
+
+
+#zen-media-controls-toolbar {
+  & toolbaritem {
+    --zen-media-control-bg: light-dark(rgb(255, 255, 255, 0.8), rgb(10, 10, 10, 0.4)) !important;
+    backdrop-filter: blur(10px) !important;
+    flex-grow: 1;
+    padding: 0;
+    transition: padding 0.3s ease-out;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 5px;
+    border-radius: var(--border-radius-medium);
+    background: var(--zen-media-control-bg) !important;
+    width: -moz-available !important;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.09) !important;
+    margin-inline: 2px !important;
+  }
+}
+
+#zen-media-controls-toolbar.playing #zen-media-playpause-button {
+  list-style-image: url('icons/pause.svg') !important;
+}
+
+#zen-media-playpause-button {
+  list-style-image: url('icons/play.svg') !important;
+}
+
+#zen-media-nexttrack-button {
+  list-style-image: url('icons/skip-forward.svg') !important;
+}
+
+#zen-media-previoustrack-button {
+  list-style-image: url('icons/skip-back.svg') !important;
+}
+
+#zen-media-mute-button {
+  list-style-image: url('icons/volume.svg') !important;
+}
+
+#zen-media-controls-toolbar[muted] #zen-media-mute-button {
+  list-style-image: url('icons/mute.svg') !important;
+}
+
+
+/* Musical notes animation */
+#zen-media-controls-toolbar {
+  & #zen-media-focus-button::after {
+    display: none !important;
+  }
+}

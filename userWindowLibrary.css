@@ -11,21 +11,31 @@
                 --panel-shadow-margin: 0px !important;
             }
         }
+        :not(:not(menubar) > menu, #ContentSelectDropdown) > menupopup > menuitem:not(.menuitem-iconic, [type="checkbox"], [type="radio"], .in-menulist, .in-menulist menuitem, .unified-nav-current) {
+            padding-inline-start: 35px !important;
+            background-image: var(--menu-image) !important;
+            background-size: 16px !important;
+            background-position: 4px center !important;
+            background-repeat: no-repeat !important;
+            -moz-context-properties: fill, fill-opacity !important;
+            fill: currentColor !important;
+        }
+        
     }
 
     /* Cores principais */
     #placesToolbar {
-        background-color: light-dark(white, black) !important;
-        border-bottom: 1px solid light-dark(rgb(219, 219, 219), black) !important;
+        background-color: light-dark(white, rgb(56, 56, 56)) !important;
+        border-bottom: 1px solid light-dark(rgb(219, 219, 219), rgb(0,0,0,0.5)) !important;
     }
 
     #placesList {
-        background-color: light-dark(rgb(246, 246, 246), rgb(46, 48, 47)) !important;
+        background-color: light-dark(rgb(246, 246, 246), rgb(40, 40, 40)) !important;
     }
 
     #placesView>splitter {
         /* Borda direita da sidebar */
-        border-inline-end: 1px solid light-dark(rgb(219, 219, 219), black) !important;
+        border-inline-end: 1px solid light-dark(rgb(219, 219, 219), rgb(0,0,0,0.5)) !important;
     }
 
     /* Caixa direita - Conteúdo */
@@ -42,7 +52,7 @@
     }
 
     #organizeButton {
-        list-style-image: url("icons/winui/organize.svg") !important;
+        list-style-image: url("icons/organize.svg") !important;
     }
 
     #placesMenu>menu>image {
@@ -56,7 +66,7 @@
     }
 
     #clearDownloadsButton>image:nth-child(1) {
-        list-style-image: url("icons/winui/close.svg") !important;
+        list-style-image: url("icons/close.svg") !important;
         -moz-context-properties: fill;
         fill: currentColor;
         width: 20px !important;
@@ -65,15 +75,16 @@
 
     #searchFilter {
         min-width: 200px !important;
-        border-radius: 6px !important;
-        background-color: light-dark(white, black) !important;
+        height: 28px !important;
+        border-radius: 8px !important;
+        background-color: light-dark(white, rgb(40, 40, 40)) !important;
         border: 1px solid color-mix(in srgb, gray 30%, transparent 30%) !important;
     }
 
     #detailsPane {
-        background-color: light-dark(white, black) !important;
+        background-color: light-dark(white, rgb(40, 40, 40)) !important;
         color: var(--organizer-color);
-        border-top: 1px solid var(--organizer-border-color);
+        border-top: 1px solid light-dark(rgb(219, 219, 219), rgb(0,0,0,0.5)) !important;
     }
 
     menu {
@@ -108,9 +119,6 @@
         border: 4px solid color-mix(in srgb, gray 70%, transparent 30%) !important;
     }
 
-    input:hover {
-        border: 1px solid color-mix(in srgb, gray 70%, transparent 30%) !important;
-    }
 
     hbox.zenEditBMPanel_fieldContainer:nth-child(6) {
         display: none !important;
@@ -180,3 +188,27 @@
     .download-state {
         padding-right: 0 !important;
     }
+
+
+    #editBookmarkPanelContent {
+      & label {
+        align-self: unset !important;
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

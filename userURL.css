@@ -311,40 +311,53 @@
 /* Multiple Toolbar mode URL Bar enhancements */
     @media (not (-moz-bool-pref: "zen.view.use-single-toolbar")) {
       
-      #urlbar:not([focused]) {
-        height: 30px !important;
-      }
-      
-      #urlbar[breakout-extend="true"] {
-        #urlbar-container:has(&) {
-          border-radius: 10px !important;
-          height: 38px !important;
-          background: none !important;
-          border: 0px solid color-mix(in srgb, black 10%, white 20%) !important;
+        #urlbar:not([focused]) {
+          height: 30px !important;
         }
-      }
-      
-      #urlbar-container {
-        margin-top: 3px !important;
-      }
+        
+        #urlbar[breakout-extend="true"] {
+          #urlbar-container:has(&) {
+            border-radius: 10px !important;
+            height: 38px !important;
+            background: none !important;
+            border: 0px solid color-mix(in srgb, black 10%, white 20%) !important;
+          }
+        }
+        
+        #urlbar-container {
+          margin-top: 2px !important;
+        }
 
-      #urlbar:not([focused]) {
-        background-color: light-dark(rgb(255 255 255 / 0.2), rgb(0 0 0 / 0.2)) !important;
-          border: 1px solid light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.2)) !important;
-      }
-      .urlbar-input {
-        #urlbar:not([focused])[domaindir="ltr"] > .urlbar-input-container > .urlbar-input-box > & {
-          text-align: center !important;
+        #urlbar:not([focused]) {
+          background-color: light-dark(rgb(255 255 255 / 0.0), rgb(0 0 0 / 0.2)) !important;
+            border: 1px solid light-dark(rgb(0 0 0 / 0.2), rgb(255 255 255 / 0.2)) !important;
         }
-      }
-      
-      /* Align toolbar buttons */
-      toolbar .toolbarbutton-1 {
-        appearance: none;
-        margin-top: 2px !important;
-        padding: 0 var(--toolbarbutton-outer-padding);
-        justify-content: center;
-      }
-      
+        .urlbar-input {
+          #urlbar:not([focused])[domaindir="ltr"] > .urlbar-input-container > .urlbar-input-box > & {
+            text-align: center !important;
+          }
+        }
+        
+        /* Align toolbar buttons */
+        toolbar .toolbarbutton-1 {
+          appearance: none;
+          margin-top: 2px !important;
+          padding: 0 var(--toolbarbutton-outer-padding);
+          justify-content: center;
+        }
+        
+        .urlbar-page-action, #tracking-protection-icon-container {
+          margin-top: -2px !important;
+        }
+        
+        #urlbar:not([breakout-extend="true"]) #identity-box:is(:not(.chromeUI), [pageproxystate="invalid"]) #identity-icon-box {
+          padding-inline: 5px !important;
+        }
+        
+        #identity-box[pageproxystate="valid"]:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button, #urlbar-label-box {
+          background-color: transparent !important;
+        }
+        
+
     }
       

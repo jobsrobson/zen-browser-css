@@ -605,6 +605,7 @@
             margin: initial !important;
             border: none !important;
             margin-left: 2px !important;
+            margin-top: -1px !important;
             margin-right: 32px !important;
             transform: translate(120%, 50%) scale(1.2) !important;
             fill: light-dark(rgb(57, 57, 58), white) !important;
@@ -631,8 +632,28 @@
           display: none !important;
       }
 
+      /* Mute button on Pinned Tabs */
+      #navigator-toolbox[zen-sidebar-expanded="true"] {
+        & #tabbrowser-tabs {
+          & .tabbrowser-tab {
+            &[zen-pinned-changed="true"]:not([zen-essential]) {
+              .tab-icon-overlay:is([soundplaying], [muted]) {
+              opacity: 1 !important;
+              margin: initial !important;
+              border: none !important;
+              transform: translate(20%, 20%) scale(1.2) !important;
+              fill: light-dark(color-mix(in srgb, rgb(57, 57, 58) 100%, transparent 0%),
+              color-mix(in srgb, white 100%, transparent 0%)) !important;
+              background-color: transparent !important;
+              transition: 0.3s !important;
+              }
+            }
+          }
+        }
+      }
+      
       /* Mute button on Essentials Tabs */
-      #zen-essentials-container > .tabbrowser-tab {
+      #vertical-pinned-tabs-container > .tabbrowser-tab {
           .tab-icon-overlay:is([soundplaying], [muted]) {
           opacity: 1 !important;
           margin: initial !important;
