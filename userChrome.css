@@ -1,4 +1,5 @@
 
+
 /*  ZEN BROWSER DESIGN ADJUSTMENTS by @jobsrobson.bsky.social - 1.8 t
 
     Recommended about:config toggles: 
@@ -55,12 +56,19 @@
         --zen-branding-bg: white !important;
         
         --toolbarbutton-icon-fill: light-dark(rgba(57, 57, 58, 1), rgba(251, 251, 254, 1)) !important;
+        --zen-appcontent-border: none !important;
 }
 
 
 /*  =====================
     2   AJUSTES GERAIS
     ===================== */
+
+    menupopup::part(content),
+    panel::part(content) {
+      border: var(--zen-appcontent-border);
+    }
+
 
 /*  ---------------------------------------------------------------------------
     Cor da Inteface */
@@ -119,9 +127,10 @@
 
     panel, 
     menupopup {
-        --panel-background: light-dark(color-mix(in srgb, white 5%, white 95%), 
-                                       color-mix(in srgb, gray 30%, black 90%))  !important;
-        --panel-border-radius: 12px !important;
+        /* --panel-background: light-dark(color-mix(in srgb, white 5%, white 95%), 
+                                       color-mix(in srgb, gray 30%, black 90%))  !important; */
+        /* --panel-border-radius: 12px !important; */
+        --panel-shadow:  0 0 1px 0px rgba(0, 0, 0, 0.1) !important;
     }
 
     .toolbar-menupopup:hover :is(menu, menuitem):hover, .subview-subheader:hover, panelview:hover .toolbarbutton-1:hover, .subviewbutton:hover, .widget-overflow-list:hover .toolbarbutton-1:hover {
@@ -1278,3 +1287,27 @@
       
       
     }
+
+
+menupopup, panel {
+  @media (-moz-platform: linux) or (-moz-platform: windows) {
+    {
+      --panel-shadow-margin: 0px !important;
+    }
+  }
+}
+
+menupopup > :is(menuitem, menu):hover {
+  border-radius: 6px !important;
+  background-color: light-dark(rgb(0, 0, 0, 0.05), rgb(255, 255, 255, 0.10)) !important;
+}
+
+.animatable-menupopup, panel[type="arrow"] {
+    &:not([animate="false"]) {
+      transition-duration: 0 !important;
+    }
+  }
+}
+
+
+

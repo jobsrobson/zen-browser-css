@@ -42,16 +42,17 @@ This project is licensed under the GNU GPL3 License.
 
 ## ✅ Changelog
 
+**1.11 - 2025-04-11** - For **Zen Browser 1.11b or Twilight 1.11t**
+- General fixes for improved compatibility with Zen Browser 1.11.
+
 **1.10 - 2025-03-20** - For **Zen Browser 1.10b or Twilight 1.10t**
-- General bug fixes for improved compatibility with Zen Browser 1.10.
+- General fixes for improved compatibility with Zen Browser 1.10.
 
 **1.9.1 - 2025-03-09** - For **Zen Browser 1.9b or Twilight 1.9t**
 - New! Replaced Material Icons with [Lucide Icons](https://lucide.dev/) for better consistency with Zen Browser’s original design language.
 
-
 **1.9.0 - 2025-03-08** - For **Zen Browser 1.9b or Twilight 1.9t**
-- General bug fixes for improved compatibility with Zen Browser 1.9.
-
+- General fixes for improved compatibility with Zen Browser 1.9.
 
 **1.8.0 - 2025-02-22** - For **Zen Browser 1.8b or Twilight 1.8t**
 
